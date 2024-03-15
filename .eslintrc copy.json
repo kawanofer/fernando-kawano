@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": ["standard", "plugin:react/recommended", "eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/no-deprecated": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "space-before-function-paren": "off",
+    "no-tabs": 0,
+    "generator-star-spacing": ["error", { "before": false, "after": false }],
+    "operator-linebreak": ["error", "after"]
+  }
+}
