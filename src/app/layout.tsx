@@ -39,7 +39,13 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       </head>
       <body className={poppins.className}>
         <AppRouterCacheProvider>
-          <main className='font-normal px-40'>
+          <main className='
+          font-normal
+          overflow-hidden
+          xl:px-40          
+          sm:px-16
+
+          '>
             {children}
           </main>
         </AppRouterCacheProvider>
@@ -47,3 +53,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     </html >
   )
 }
+
+// 2xl:bg-red-400
+// xl:bg-blue-400
+// lg:bg-red-600
+// md:bg-green-300
+// sm:bg-yellow-300

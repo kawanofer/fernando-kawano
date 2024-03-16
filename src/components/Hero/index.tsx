@@ -8,11 +8,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Typewriter from 'typewriter-effect'
 
+import KawnaoKanji from '../../../public/kawano-kanji.svg'
+
 export default function Hero() {
   return (
-    <section className='p-8 pb-16 flex justify-between lg:px-32'>
+    <section className='p-8 pb-16 flex justify-between lg:px-20'>
       <div className='flex flex-col justify-between'>
-        <div>
+        <div className='mb-8'>
           <div className='text-5xl text-bold leading-snug'>
             Hi! I am
             <br />
@@ -41,14 +43,16 @@ export default function Hero() {
           </Button>
         </Link>
       </div>
-      <div className='hidden lg:block'>
+      <div className='md:hidden sm:hidden lg:block'>
         <Image
           alt='Fernando Kawano picture'
-          className='rounded-full'
+          className='rounded-full bg-white'
           priority={false}
-          height={270}
-          src='/kawano-kanji.png'
-          width={270}
+          src={KawnaoKanji}
+          width={0}
+          height={0}
+          sizes="400vw"
+          style={{ width: '100%', height: 'auto' }}
         />
       </div>
     </section>

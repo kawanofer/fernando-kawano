@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+
+<path fill="none" opacity="1.000000" stroke="#f7f7f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.000000"
+	d="M46.500000,7.500000 
+	C50.605831,11.116401 48.047680,15.925982 48.271561,20.012514 
+	C48.917912,31.810438 48.491901,43.666687 48.521339,55.499947 
+	C48.523003,56.167027 48.833336,56.833332 49.000000,57.500000"/>
+
+<path fill="none" opacity="1.000000" stroke="#f7f7f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.000000"
+	d="M16.500000,12.000000 
+	C19.461870,12.410024 19.779818,14.929896 19.925495,17.005230 
+	C20.431587,24.215088 20.112616,31.509439 18.334032,38.457516 
+	C16.889904,44.099033 12.924403,48.612667 8.500000,52.500000"/>
+
+<path fill="none" opacity="1.000000" stroke="#f7f7f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.000000"
+	d="M32.000000,13.500000 
+	C33.866234,16.804825 34.027573,20.167885 33.674088,24.015991 
+	C33.051632,30.792147 33.500000,37.666668 33.500000,44.500000"/>
+</svg>

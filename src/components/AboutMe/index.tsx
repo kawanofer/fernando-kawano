@@ -31,7 +31,7 @@ export default function AboutMe() {
         <Title title='About me' />
 
         <div className='flex flex-col items-center justify-center md:flex-row md:items-start md:justify-between m-auto'>
-          <div className='flex items-center mb-4 md:mb-0 mr-32'>
+          <div className='flex items-center md:mr-16 mb-14 mr-0'>
             <Image
               className='rounded-full bg-secondary'
               src='/kawano.png'

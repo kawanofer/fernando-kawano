@@ -5,6 +5,9 @@ import React from 'react'
 import Title from '@/components/Title'
 import Image from 'next/image'
 
+import Positivo from '../../../public/positivo.svg'
+import Microsoft from '../../../public/microsoft.svg'
+
 export default function Education() {
   return (
     <section>
@@ -13,13 +16,14 @@ export default function Education() {
 
         <div className='flex gap-5'>
           <Image
-            className='rounded-full'
-            src='/universidadepositivo_logo.jpeg'
-            width={70}
-            height={50}
+            src={Positivo}
             alt='Positivo University logo'
+            width={0}
+            height={0}
+            sizes="20vw"
+            style={{ width: '100%', maxWidth: '70px', height: 'auto' }}
           />
-          <div>
+          <div className='flex-grow-1'>
             <div className='text-lg font-bold'>
               Graduated, Mobile Applications and Cloud Computing
             </div>
@@ -30,8 +34,7 @@ export default function Education() {
 
         <div className='flex gap-5 mt-8'>
           <Image
-            className='rounded-full'
-            src='/universidadepositivo_logo.jpeg'
+            src={Positivo}
             width={70}
             height={50}
             alt='Positivo University logo'
@@ -48,8 +51,7 @@ export default function Education() {
         <h3 className='text-1xl font-bold mt-8 mb-5'>Certifications</h3>
         <div className='flex gap-5'>
           <Image
-            className='rounded-full'
-            src='/microsoft_logo.jpeg'
+            src={Microsoft}
             width={70}
             height={50}
             alt='Microsoft logo'
@@ -64,6 +66,6 @@ export default function Education() {
           {/* <Link href='https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile'>Show Credential</Link> */}
         </div>
       </section>
-    </section>
+    </section >
   )
 }
