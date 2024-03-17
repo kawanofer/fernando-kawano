@@ -43,7 +43,7 @@ export default function Hero() {
           </Button>
         </Link>
       </div>
-      <div className='md:hidden sm:hidden lg:block'>
+      <div className='hidden lg:block'>
         <Image
           alt='Fernando Kawano picture'
           className='rounded-full bg-white'

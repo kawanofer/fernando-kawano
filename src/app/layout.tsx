@@ -44,7 +44,6 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           overflow-hidden
           xl:px-40          
           sm:px-16
-
           '>
             {children}
           </main>
