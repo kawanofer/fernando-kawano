@@ -51,7 +51,7 @@ export default function Hero() {
           src={KawnaoKanji}
           width={0}
           height={0}
-          sizes="400vw"
+          sizes='400vw'
           style={{ width: '100%', height: 'auto' }}
         />
       </div>

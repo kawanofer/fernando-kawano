@@ -61,7 +61,7 @@ const skillRotateEffect = () => {
   const rotateDegree = 3
   const maxRandomValue = 5
   return Math.floor(Math.random() * maxRandomValue) % 2 === 0 ?
-    rotateDegree
+      rotateDegree
     : -rotateDegree
 }
 

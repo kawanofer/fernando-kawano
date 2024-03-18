@@ -5,8 +5,8 @@ import React from 'react'
 import Title from '@/components/Title'
 import Image from 'next/image'
 
-import Positivo from '../../../public/positivo.svg'
 import Microsoft from '../../../public/microsoft.svg'
+import Positivo from '../../../public/positivo.svg'
 
 export default function Education() {
   return (
@@ -20,7 +20,7 @@ export default function Education() {
             alt='Positivo University logo'
             width={0}
             height={0}
-            sizes="20vw"
+            sizes='20vw'
             style={{ width: '100%', maxWidth: '70px', height: 'auto' }}
           />
           <div className='flex-grow-1'>
@@ -50,12 +50,7 @@ export default function Education() {
 
         <h3 className='text-1xl font-bold mt-8 mb-5'>Certifications</h3>
         <div className='flex gap-5'>
-          <Image
-            src={Microsoft}
-            width={70}
-            height={50}
-            alt='Microsoft logo'
-          />
+          <Image src={Microsoft} width={70} height={50} alt='Microsoft logo' />
           <div>
             <div className='text-lg font-bold'>
               Exam 480: Programming in HTML5 with JavaScript and CSS3
@@ -66,6 +61,6 @@ export default function Education() {
           {/* <Link href='https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile'>Show Credential</Link> */}
         </div>
       </section>
-    </section >
+    </section>
   )
 }
