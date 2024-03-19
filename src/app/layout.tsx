@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import './globals.css'
 
@@ -46,6 +47,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           sm:px-16
           '>
             {children}
+            <SpeedInsights />
           </main>
         </AppRouterCacheProvider>
       </body>
