@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import kawKanji from '../../../../public/kawa-head-icon.svg'
+import MobileMenu from './mobile-menu'
 
 const menuList = [
   {
@@ -39,10 +40,8 @@ export default function Navigation() {
     return () => observer.disconnect()
   }, [])
 
-  // p-8 pb-16 flex justify-between lg:px-20
-
   return (
-    <header
+    <nav
       ref={ref}
       className='py-4 md:py-6 lg:py-10 px-4 container mx-auto text-xl flex flex-wrap md:flex-nowrap items-center justify-between'>
       <div
@@ -58,8 +57,8 @@ export default function Navigation() {
             />
           </Link>
 
-          <div className='flex md:hidden'>
-            <button className='text-zinc-400 hover:text-zinc-100'>Menu</button>
+          <div className="block flex-none md:hidden">
+            <MobileMenu menu={menuList} />
           </div>
 
           <div className='hidden md:flex justify-between gap-4'>
@@ -74,6 +73,6 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   )
 }
