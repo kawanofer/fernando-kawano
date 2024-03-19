@@ -2,7 +2,6 @@
 
 import { Dialog, Transition } from '@headlessui/react';
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 
 import { FaBars } from "react-icons/fa";
@@ -14,8 +13,6 @@ type MenuProps = {
 }
 
 export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const openMobileMenu = () => setIsOpen(true);
   const closeMobileMenu = () => setIsOpen(false);
@@ -32,7 +29,7 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [pathname, searchParams]);
+  }, []);
 
   return (
     <>

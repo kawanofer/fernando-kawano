@@ -57,7 +57,7 @@ export default function Navigation() {
             />
           </Link>
 
-          <div className="block flex-none md:hidden">
+          <div className='block flex-none md:hidden'>
             <MobileMenu menu={menuList} />
           </div>
 
