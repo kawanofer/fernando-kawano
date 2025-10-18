@@ -1,13 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 type TitleProps = {
-  title: string
-}
+  title: string;
+};
 
 export default function Title({ title }: Readonly<TitleProps>) {
-  return (
-    <h2 className="text-4xl font-bold py-8 relative">
-      {title}
-    </h2>
-  )
+  return <h2 className="relative py-8 text-4xl font-bold">{title}</h2>;
 }

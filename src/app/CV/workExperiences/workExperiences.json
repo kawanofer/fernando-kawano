@@ -1,0 +1,51 @@
+[
+  {
+    "position": "Front-end Software Engineer",
+    "company": "Kenect · Full-time",
+    "period": "10/2021 - 01/2024",
+    "location": "Salt Lake City, Utah, United States (remote)",
+    "description": "As a Frontend Software Engineer at Kenect, I played a crucial role in creating a user-friendly platform that made it easier to create backend team integrations with our partner's system. I developed this platform using Kenect Design Systems. I worked closely with my manager and the backend team to ensure smooth integration by creating and using endpoints.\n\nThe main technologies used in this project were React, Redux-Saga, Context API, styled-components, Firebase, REST API, and GIT. Thanks to my efforts, we were able to save a significant amount of time when performing this important task.\n* Implemented JavaScript solutions to enhance website functionality and user experience.\n* Designed and implemented responsive and visually appealing HTML/CSS templates for web pages.\n* Utilized version control systems to manage code collaboration and track project changes.\n* Performed testing and debugging to identify and resolve software issues.As a Frontend Software Engineer at Kenect, I played a crucial role in creating a user-friendly platform that made it easier to create backend team integrations with our partner's system. I developed this platform using Kenect Design Systems. I worked closely with my manager and the backend team to ensure smooth integration by creating and using endpoints. The main technologies used in this project were React, Redux-Saga, Context API, styled-components, Firebase, REST API, and GIT. Thanks to my efforts, we were able to save a significant amount of time when performing this important task. * Implemented JavaScript solutions to enhance website functionality and user experience. * Designed and implemented responsive and visually appealing HTML/CSS templates for web pages. * Utilized version control systems to manage code collaboration and track project changes. * Performed testing and debugging to identify and resolve software issues."
+  },
+  {
+    "position": "Sharepoint/React Developer",
+    "company": "VEXPRO Business IT · Full-time",
+    "period": "09/2016 - 10/2021",
+    "location": "Curitiba Area, Brazil · On-site",
+    "description": "Created an ECM (Enterprise Content Management system) using Sharepoint SPfx, and React with Typescript. This ECM was built to manage over 1 million digital documents and set specific permissions to groups and users.Developed an entire service desk, where the company could open issues, new features, or projects to be set. It was developed using Angular and Bootstrap, while the layout, front-end, and back-end structure were created using SharePoint. There was the use of workflows to send emails to notify. Worked on the development of custom modules and components in SharePoint Portals Created an ECM (Enterprise Content Management system) using Sharepoint SPfx, and React with Typescript. This ECM was built to manage over 1 million digital documents and set specific permissions to groups and users.\nDeveloped an extensive system for an agribusiness cooperative with React and Redux, creating reusable components to use among pages\nDeveloped corporate portals and systems for SharePoint Classic and Modern sites, creating custom modules and components for meeting client’s specific needs\nDeveloped an entire service desk, where the company could open issues, new features, or projects to be set. It was developed using Angular and Bootstrap, while the layout, front-end, and back-end structure were created using SharePoint. There was the use of workflows to send emails to notify.\nWorked on the development of custom modules and components in SharePoint PortalsCreated an ECM (Enterprise Content Management system) using Sharepoint SPfx, and React with Typescript. This ECM was built to manage over 1 million digital documents and set specific permissions to groups and users.Developed an entire service desk, where the company could open issues, new features, or projects to be set. It was developed using Angular and Bootstrap, while the layout, front-end, and back-end structure were created using SharePoint. There was the use of workflows to send emails to notify. Worked on the development of custom modules and components in SharePoint Portals Created an ECM (Enterprise Content Management system) using Sharepoint SPfx, and React with Typescript. This ECM was built to manage over 1 million digital documents and set specific permissions to groups and users. Developed an extensive system for an agribusiness cooperative with React and Redux, creating reusable components to use among pages Developed corporate portals and systems for SharePoint Classic and Modern sites, creating custom modules and components for meeting client’s specific needs Developed an entire service desk, where the company could open issues, new features, or projects to be set. It was developed using Angular and Bootstrap, while the layout, front-end, and back-end structure were created using SharePoint. There was the use of workflows to send emails to notify. Worked on the development of custom modules and components in SharePoint Portals"
+  },
+  {
+    "position": "Full Stack Engineer",
+    "company": "PRx Consultoria em Seguros · Contract",
+    "period": "03/2020 - 10/2020",
+    "location": "Curitiba, Paraná, Brazil · Remote",
+    "description": "For this project, the request was to create a platform where PRx partners could view announcements, access a list of partner brokers, and be able to input and visualize their goals, displaying region-specific graphs. Platform administrators would have the ability to manage all the information.\nTo accomplish this, I utilized React, redux-thunk, and Material-ui for the frontend development. I also used the MySQL server of the website to store the information and developed the backend using NestJs and NodeJs.For this project, the request was to create a platform where PRx partners could view announcements, access a list of partner brokers, and be able to input and visualize their goals, displaying region-specific graphs. Platform administrators would have the ability to manage all the information. To accomplish this, I utilized React, redux-thunk, and Material-ui for the frontend development. I also used the MySQL server of the website to store the information and developed the backend using NestJs and NodeJs."
+  },
+  {
+    "position": "Mobile Developer",
+    "company": "Moments.Surf",
+    "period": "10/2016 - 12/2016",
+    "location": "Curitiba, Paraná, Brazil",
+    "description": "Development in Ionic/cordova, NodeJs, Amazon WebServices. Bootstrap, AngularJs 1.0, and integration with Parse and MongoDb.\nBug fixes and development improvements in the application and application startup support."
+  },
+  {
+    "position": "Front-end Developer",
+    "company": "Big Brain",
+    "period": "04/2016 - 08/2016",
+    "location": "Curitiba, Paraná, Brazil",
+    "description": "Developed web portals and a management system, using JavaScript, jQuery, and Bootstrap to create responsible pages.\nCreated a C# web API to make data integration between SharePoint and databases "
+  },
+  {
+    "position": "Fullstack ASP .NET and Angular.JS ",
+    "company": "Positivo Informática",
+    "period": "08/2015 - 02/2016",
+    "location": "Curitiba, Paraná, Brazil",
+    "description": "Developed educational projects using C#, .NET, Angular, and SQL Server\nWorked on the development of educational activities and games using HTML5 "
+  },
+  {
+    "position": "Frontend Developer",
+    "company": "Positivo Informática",
+    "period": "12/2012 - 08/2015",
+    "location": "Curitiba, Paraná, Brazil",
+    "description": "Development of educational content in HTML5, for desktop and mobile."
+  }
+]

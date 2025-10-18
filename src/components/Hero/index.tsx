@@ -1,41 +1,43 @@
-'use client'
+'use client';
 
-import React from 'react'
-import { FaCloudDownloadAlt } from 'react-icons/fa'
+import React from 'react';
 
-import Button from '@/components/Button'
-import Image from 'next/image'
-import Link from 'next/link'
-import Typewriter from 'typewriter-effect'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import KawnaoKanji from '../../../public/kawano-kanji.svg'
+import { FaCloudDownloadAlt } from 'react-icons/fa';
+import Typewriter from 'typewriter-effect';
+
+import Button from '@/components/Button';
+
+import KawnaoKanji from '../../../public/kawano-kanji.svg';
 
 export default function Hero() {
   return (
-    <section className='p-8 pb-16 flex justify-between lg:px-20'>
-      <div className='flex flex-col justify-between'>
-        <div className='mb-8'>
-          <div className='text-5xl text-bold leading-snug'>
+    <section className="flex justify-between p-8 pb-16 lg:px-20">
+      <div className="flex flex-col justify-between">
+        <div className="mb-8">
+          <div className="text-bold text-5xl leading-snug">
             Hi! I am
             <br />
             <Typewriter
               options={{
                 strings: ['Fernando <strong>Kawano</strong>'],
                 autoStart: true,
-                loop: true
+                loop: true,
               }}
             />
           </div>
-          <p className='pt-2 text-zinc-500 text-2xl font-thin'>
+          <p className="pt-2 text-2xl font-thin text-zinc-500">
             Frontend developer
           </p>
-          <p className='pt-2 text-zinc-500 text-lg font-thin flex'>
+          <p className="flex pt-2 text-lg font-thin text-zinc-500">
             Curitiba - Brazil
           </p>
         </div>
 
-        <Link href='/cv-en.pdf' target='_blank'>
-          <Button className='w-48 flex gap-3 items-center '>
+        <Link href="/cv-en.pdf" target="_blank">
+          <Button className="flex w-48 items-center gap-3 ">
             Download CV{' '}
             <span>
               <FaCloudDownloadAlt />
@@ -43,18 +45,18 @@ export default function Hero() {
           </Button>
         </Link>
       </div>
-      <div className='hidden lg:block'>
+      <div className="hidden lg:block">
         <Image
-          alt='Fernando Kawano picture'
-          className='rounded-full bg-white'
+          alt="Fernando Kawano picture"
+          className="rounded-full bg-white"
           priority={false}
           src={KawnaoKanji}
           width={0}
           height={0}
-          sizes='400vw'
+          sizes="400vw"
           style={{ width: '100%', height: 'auto' }}
         />
       </div>
     </section>
-  )
+  );
 }

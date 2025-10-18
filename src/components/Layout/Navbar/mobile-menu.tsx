@@ -1,16 +1,17 @@
 'use client';
 
-import { Dialog, Transition } from '@headlessui/react';
-import Link from 'next/link';
 import { Fragment, useEffect, useState } from 'react';
 
-import { FaBars } from "react-icons/fa";
-import { IoMdClose } from "react-icons/io";
+import Link from 'next/link';
+
+import { Dialog, Transition } from '@headlessui/react';
+import { FaBars } from 'react-icons/fa';
+import { IoMdClose } from 'react-icons/io';
 
 type MenuProps = {
-  label: string,
-  href: string
-}
+  label: string;
+  href: string;
+};
 
 export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
   const [isOpen, setIsOpen] = useState(false);

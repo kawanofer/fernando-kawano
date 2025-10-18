@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
+
 import { Poppins } from 'next/font/google';
 
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import './globals.css'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+
+import './globals.css';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -16,43 +18,47 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Fernando Kawano - Portfolio',
   description: 'This is the my portfolio',
-}
+};
 
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <head>
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel='preconnect'
-          href='https://fonts.gstatic.com'
-          crossOrigin='anonymous'
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
         />
         <link
-          rel='stylesheet'
-          href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap'
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
         />
         <link
-          rel='stylesheet'
-          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
-          crossOrigin='anonymous'
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          crossOrigin="anonymous"
         />
       </head>
       <body className={poppins.className}>
         <AppRouterCacheProvider>
-          <main className='
-          font-normal
+          <main
+            className="
           overflow-hidden
-          xl:px-40          
-          sm:px-16
-          '>
+          font-normal
+          sm:px-16          
+          xl:px-40
+          "
+          >
             {children}
             <SpeedInsights />
           </main>
         </AppRouterCacheProvider>
       </body>
-    </html >
-  )
+    </html>
+  );
 }
 
 // 2xl:bg-red-400
