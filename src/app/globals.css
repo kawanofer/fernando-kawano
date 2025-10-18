@@ -4,7 +4,10 @@
 
 /* Apply basic global styles to the body: */
 body {
-  @apply bg-[#27323E] text-[#F7F7F7] font-sans antialiased;
+  background: #27323E;
+  color: #F7F7F7;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .img {
