@@ -6,11 +6,9 @@ import { Tooltip } from '@mui/material';
 
 import Title from '@/components/UI/Title';
 
-import SocialIcons from './socialIcons';
-
 export default function AboutMe() {
   return (
-    <section id="aboutme" className="rounded-md bg-background2 p-8 pb-16">
+    <section id="aboutme" className="rounded-md bg-background2 p-8 pb-16 pt-16">
       <Title title="About me" />
 
       <div className="m-auto flex flex-col items-center justify-center md:flex-row md:items-start md:justify-between">
@@ -82,7 +80,6 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
-      <SocialIcons />
     </section>
   );
 }

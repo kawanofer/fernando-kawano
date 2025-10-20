@@ -4,8 +4,8 @@ import {
   Contact,
   Education,
   Hero,
-  Portfolio,
   Skills,
+  WorkExperiences,
 } from '@/components/Sections';
 
 const Home = async () => {
@@ -13,9 +13,9 @@ const Home = async () => {
     <Layout>
       <Hero />
       <AboutMe />
-      <Skills />
-      <Portfolio />
       <Education />
+      <WorkExperiences />
+      <Skills />
       <Contact />
     </Layout>
   );

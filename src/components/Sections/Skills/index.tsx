@@ -36,7 +36,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="p-8 pb-16">
+    <section id="skills" className="p-8 pb-16 pt-16">
       <Title title="Skills" />
 
       <h3 className="text-2xl font-bold">Main Skills</h3>
@@ -46,7 +46,7 @@ export default function Skills() {
             return (
               <div
                 key={skill}
-                className="transition-all duration-300 hover:rotate-3 hover:opacity-60"
+                className="transition-all duration-300 hover:opacity-60"
               >
                 <Pill key={skill} value={skill} />
               </div>
@@ -62,7 +62,7 @@ export default function Skills() {
             return (
               <div
                 key={skill}
-                className="transition-all duration-300 hover:-rotate-3 hover:opacity-60"
+                className="transition-all duration-300 hover:opacity-60"
               >
                 <Pill key={skill} value={skill} />
               </div>

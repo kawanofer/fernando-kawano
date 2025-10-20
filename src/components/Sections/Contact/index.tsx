@@ -15,7 +15,7 @@ export default function Contact() {
       handle: '@kawanofer',
       url: 'https://github.com/kawanofer',
       icon: FaGithub,
-      description: 'View my code repositories and open source contributions',
+      description: 'View my code repositories and projects',
     },
     {
       name: 'LinkedIn',
@@ -27,7 +27,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="rounded-md bg-background2 p-8 pb-16">
+    <section id="contact" className="rounded-md bg-background2 p-8 pb-16 pt-16">
       <Title title="Let's Connect" />
 
       <div className="mt-16 grid gap-12 lg:grid-cols-2">
@@ -45,23 +45,25 @@ export default function Contact() {
           </div>
 
           {/* Email Contact */}
-          <div className="group rounded-lg border border-gray-200 bg-background1 p-6 shadow-md transition-all duration-300 hover:bg-background2 hover:shadow-lg">
+          <div className="space-y-4">
             <Link
               href="mailto:kawano.fer@gmail.com"
-              className="flex items-center gap-4"
+              className="text-foreground group flex items-center gap-3 transition-colors duration-300 hover:text-secondary"
             >
-              <div className="flex-shrink-0">
-                <AiOutlineMail className="text-3xl text-secondary transition-colors duration-300 group-hover:text-tertiary" />
-              </div>
-              <div>
-                <div className="text-lg font-medium text-tertiary">
-                  Email Me
-                </div>
-                <div className="text-gray-600 transition-colors duration-300 group-hover:text-tertiary">
-                  kawano.fer@gmail.com
-                </div>
-              </div>
-              <HiOutlineExternalLink className="ml-auto text-gray-400 transition-colors duration-300 group-hover:text-tertiary" />
+              <span className="text-base sm:text-lg">kawano.fer@gmail.com</span>
+              <svg
+                className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
             </Link>
           </div>
         </div>
@@ -75,7 +77,7 @@ export default function Contact() {
             <p className="text-gray-600">Connect with me on these platforms</p>
           </div>
 
-          <div className="space-y-4">
+          <div className="flex items-center gap-4">
             {socialLinks.map(social => {
               const IconComponent = social.icon;
               return (
@@ -109,28 +111,6 @@ export default function Contact() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </div>
-
-      {/* Call to Action */}
-      <div className="mt-16 text-center">
-        <div className="rounded-lg bg-gradient-to-r from-secondary/10 to-tertiary/10 p-8">
-          <h3 className="mb-4 text-2xl font-semibold text-tertiary">
-            Ready to Work Together?
-          </h3>
-          <p className="mx-auto mb-6 max-w-2xl text-gray-600">
-            Whether you have a project in mind, want to collaborate, or just
-            want to say hello, I&apos;d love to hear from you.
-          </p>
-          <div className="inline-block transition-transform duration-300 hover:scale-105">
-            <Link
-              href="mailto:kawano.fer@gmail.com"
-              className="hover:bg-bg-background2 inline-flex items-center gap-2 rounded-lg bg-background1 px-8 py-3 font-medium text-red-200 transition-colors duration-300"
-            >
-              <AiOutlineMail className="text-xl" />
-              Start a Conversation
-            </Link>
           </div>
         </div>
       </div>

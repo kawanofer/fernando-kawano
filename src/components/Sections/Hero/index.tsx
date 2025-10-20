@@ -30,7 +30,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="flex justify-between p-8 pb-16 lg:px-20">
+    <section className="flex justify-between p-8 pb-16 pt-16 lg:px-20">
       <div className="flex flex-col justify-between">
         <div className="mb-8">
           <div className="text-bold text-5xl leading-snug">

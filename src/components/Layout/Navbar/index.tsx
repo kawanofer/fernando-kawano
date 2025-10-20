@@ -14,16 +14,16 @@ const menuList = [
     href: '#aboutme',
   },
   {
-    label: 'Skills',
-    href: '#skills',
-  },
-  {
-    label: 'Portfolio',
-    href: '#portfolio',
-  },
-  {
     label: 'Education',
     href: '#education',
+  },
+  {
+    label: 'Experiences',
+    href: '#experiences',
+  },
+  {
+    label: 'Skills',
+    href: '#skills',
   },
   {
     label: 'Contact',

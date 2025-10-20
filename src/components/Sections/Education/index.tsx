@@ -11,7 +11,7 @@ import Positivo from '/public/positivo.svg';
 
 export default function Education() {
   return (
-    <section id="education" className="rounded-md p-8 pb-16">
+    <section id="education" className="rounded-md p-8 pb-16 pt-16">
       <Title title="Education" />
 
       <div className="flex gap-5">
