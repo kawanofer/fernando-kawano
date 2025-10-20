@@ -5,8 +5,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import kawKanji from '../../../../public/kawa-head-icon.svg';
 import MobileMenu from './mobile-menu';
+import kawKanji from '/public/kawa-head-icon.svg';
 
 const menuList = [
   {
@@ -24,6 +24,10 @@ const menuList = [
   {
     label: 'Education',
     href: '#education',
+  },
+  {
+    label: 'Contact',
+    href: '#contact',
   },
 ];
 

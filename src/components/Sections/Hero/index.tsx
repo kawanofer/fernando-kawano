@@ -3,16 +3,32 @@
 import React from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { FaCloudDownloadAlt } from 'react-icons/fa';
-import Typewriter from 'typewriter-effect';
 
-import Button from '@/components/Button';
+import Button from '@/components/UI/Button';
 
-import KawnaoKanji from '../../../public/kawano-kanji.svg';
+import KawnaoKanji from '/public/kawano-kanji.svg';
 
 export default function Hero() {
+  // const cvLinks = [
+  //   {
+  //     name: 'Download CV (English)',
+  //     url: 'https://drive.google.com/file/d/1Hr9KCd0R1M77C6o5iDPC8n6SbjsI1HjT/view?usp=sharing',
+  //   },
+  //   {
+  //     name: 'Download CV (Portuguese)',
+  //     url: 'https://drive.google.com/file/d/1Ht85MjFojY6TnbW-1mpwUtnfI8859ZpW/view?usp=sharing',
+  //   },
+  // ];
+
+  const handleOpenCV = () => {
+    window.open(
+      'https://drive.google.com/file/d/1Hr9KCd0R1M77C6o5iDPC8n6SbjsI1HjT/view?usp=sharing',
+      '_blank'
+    );
+  };
+
   return (
     <section className="flex justify-between p-8 pb-16 lg:px-20">
       <div className="flex flex-col justify-between">
@@ -20,13 +36,7 @@ export default function Hero() {
           <div className="text-bold text-5xl leading-snug">
             Hi! I am
             <br />
-            <Typewriter
-              options={{
-                strings: ['Fernando <strong>Kawano</strong>'],
-                autoStart: true,
-                loop: true,
-              }}
-            />
+            Fernando <strong>Kawano</strong>
           </div>
           <p className="pt-2 text-2xl font-thin text-zinc-500">
             Frontend developer
@@ -36,14 +46,15 @@ export default function Hero() {
           </p>
         </div>
 
-        <Link href="/cv-en.pdf" target="_blank">
-          <Button className="flex w-48 items-center gap-3 ">
-            Download CV{' '}
-            <span>
-              <FaCloudDownloadAlt />
-            </span>
-          </Button>
-        </Link>
+        <Button
+          onClick={handleOpenCV}
+          className="flex w-48 items-center gap-3 "
+        >
+          Download CV{' '}
+          <span>
+            <FaCloudDownloadAlt />
+          </span>
+        </Button>
       </div>
       <div className="hidden lg:block">
         <Image

@@ -1,10 +1,6 @@
-'use client';
-
 import React from 'react';
 
-import { motion } from 'framer-motion';
-
-import Title from '@/components/Title';
+import Title from '@/components/UI/Title';
 
 import Pill from './Pill';
 
@@ -38,82 +34,42 @@ const skills = [
   'Zeplin',
 ];
 
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
-const skillRotateEffect = () => {
-  const rotateDegree = 3;
-  const maxRandomValue = 5;
-  return Math.floor(Math.random() * maxRandomValue) % 2 === 0
-    ? rotateDegree
-    : -rotateDegree;
-};
-
 export default function Skills() {
   return (
     <section id="skills" className="p-8 pb-16">
       <Title title="Skills" />
 
       <h3 className="text-2xl font-bold">Main Skills</h3>
-      <motion.div
-        className="container"
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="container">
         <div className="mb-10 mt-3 flex flex-wrap gap-3">
           {mainSkills.map(skill => {
             return (
-              <motion.div
+              <div
                 key={skill}
-                variants={item}
-                whileHover={{ opacity: 0.6, rotate: skillRotateEffect() }}
+                className="transition-all duration-300 hover:rotate-3 hover:opacity-60"
               >
                 <Pill key={skill} value={skill} />
-              </motion.div>
+              </div>
             );
           })}
         </div>
-      </motion.div>
+      </div>
 
       <h3 className="text-2xl font-bold">Other skills</h3>
-      <motion.div
-        className="container"
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="container">
         <div className="mb-10 mt-3 flex flex-wrap gap-3">
           {skills.map(skill => {
             return (
-              <motion.div
+              <div
                 key={skill}
-                variants={item}
-                whileHover={{ opacity: 0.6, rotate: skillRotateEffect() }}
+                className="transition-all duration-300 hover:-rotate-3 hover:opacity-60"
               >
                 <Pill key={skill} value={skill} />
-              </motion.div>
+              </div>
             );
           })}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

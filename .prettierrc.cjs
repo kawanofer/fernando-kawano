@@ -24,7 +24,6 @@ module.exports = {
     '^next/(.*)$',
     '<THIRD_PARTY_MODULES>',
     '^@mui/(.*)$',
-    '^@emotion/(.*)$',
     '^@/components/(.*)$',
     '^@/lib/(.*)$',
     '^@/utils/(.*)$',
