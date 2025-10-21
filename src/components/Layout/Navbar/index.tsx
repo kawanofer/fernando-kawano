@@ -1,39 +1,41 @@
 'use client';
+'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { LanguageSwitcher } from '@/components/UI';
+
+import { useTranslation } from '@/lib/translations';
+
 import MobileMenu from './mobile-menu';
 import kawKanji from '/public/kawa-head-icon.svg';
 
-const menuList = [
-  {
-    label: 'About me',
-    href: '#aboutme',
-  },
-  {
-    label: 'Education',
-    href: '#education',
-  },
-  {
-    label: 'Experiences',
-    href: '#experiences',
-  },
-  {
-    label: 'Skills',
-    href: '#skills',
-  },
-  {
-    label: 'Contact',
-    href: '#contact',
-  },
-];
-
 export default function Navigation() {
+  const { t } = useTranslation();
   const ref = useRef<HTMLElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(true);
+
+  const menuList = [
+    {
+      label: t('nav.about'),
+      href: '#aboutme',
+    },
+    {
+      label: t('nav.education'),
+      href: '#education',
+    },
+    {
+      label: t('nav.skills'),
+      href: '#skills',
+    },
+    {
+      label: t('nav.contact'),
+      href: '#contact',
+    },
+  ];
 
   useEffect(() => {
     if (!ref.current) return;
@@ -77,6 +79,7 @@ export default function Navigation() {
                 {menu.label}
               </Link>
             ))}
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

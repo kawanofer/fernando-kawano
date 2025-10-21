@@ -1,6 +1,10 @@
+'use client';
+
 import React from 'react';
 
 import Title from '@/components/UI/Title';
+
+import { useTranslation } from '@/lib/translations';
 
 import Pill from './Pill';
 
@@ -14,9 +18,6 @@ const mainSkills = [
   'Firebase',
   'Git',
   'Tailwind css',
-];
-
-const skills = [
   'Adobe XD',
   'Agile Methodologies',
   'AngularJs',
@@ -35,30 +36,15 @@ const skills = [
 ];
 
 export default function Skills() {
-  return (
-    <section id="skills" className="p-8 pb-16 pt-16">
-      <Title title="Skills" />
+  const { t } = useTranslation();
 
-      <h3 className="text-2xl font-bold">Main Skills</h3>
+  return (
+    <section id="skills" className="bg-background2 p-8 pb-16 pt-16">
+      <Title title={t('skills.title')} />
+
       <div className="container">
         <div className="mb-10 mt-3 flex flex-wrap gap-3">
           {mainSkills.map(skill => {
-            return (
-              <div
-                key={skill}
-                className="transition-all duration-300 hover:opacity-60"
-              >
-                <Pill key={skill} value={skill} />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <h3 className="text-2xl font-bold">Other skills</h3>
-      <div className="container">
-        <div className="mb-10 mt-3 flex flex-wrap gap-3">
-          {skills.map(skill => {
             return (
               <div
                 key={skill}

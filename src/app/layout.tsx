@@ -46,11 +46,11 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <main
             className="
-          overflow-hidden
-          font-normal
-          sm:px-16          
-          xl:px-40
-          "
+            overflow-hidden
+            font-normal
+            sm:px-16          
+            xl:px-40
+            "
           >
             {children}
             <SpeedInsights />
@@ -60,9 +60,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// 2xl:bg-red-400
-// xl:bg-blue-400
-// lg:bg-red-600
-// md:bg-green-300
-// sm:bg-yellow-300

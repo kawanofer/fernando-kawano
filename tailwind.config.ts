@@ -17,7 +17,7 @@ const config: Config = {
         white: '#F7F7F7',
         primary: '#435585',
         secondary: '#818FB4',
-        tertiary: '#F5E8C7'
+        tertiary: '#F5E8c6'
       },
       fontFamily: {
         roboto: ['var(--font-poppins)', ...fontFamily.sans],

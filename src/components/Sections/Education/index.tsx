@@ -6,49 +6,51 @@ import Image from 'next/image';
 
 import Title from '@/components/UI/Title';
 
+import { useTranslation } from '@/lib/translations';
+
 import Microsoft from '/public/microsoft.svg';
 import Positivo from '/public/positivo.svg';
 
 export default function Education() {
+  const { t } = useTranslation();
+
+  const graduations = [
+    {
+      degree: t('education.degree1'),
+      institution: t('education.institution1'),
+      period: t('education.period1'),
+      logo: Positivo,
+    },
+    {
+      degree: t('education.degree2'),
+      institution: t('education.institution2'),
+      period: t('education.period2'),
+      logo: Positivo,
+    },
+  ];
   return (
     <section id="education" className="rounded-md p-8 pb-16 pt-16">
-      <Title title="Education" />
+      <Title title={t('education.title')} />
 
-      <div className="flex gap-5">
-        <Image
-          src={Positivo}
-          alt="Positivo University logo"
-          width={0}
-          height={0}
-          sizes="20vw"
-          style={{ width: '100%', maxWidth: '70px', height: 'auto' }}
-        />
-        <div className="flex-grow-1">
-          <div className="text-lg font-bold">
-            Graduated, Mobile Applications and Cloud Computing
+      {graduations.map((grad, index) => (
+        <div key={index} className="mb-8 flex gap-5">
+          <Image
+            src={grad.logo}
+            alt={`${grad.institution} logo`}
+            width={70}
+            height={50}
+          />
+          <div>
+            <div className="text-lg font-bold">{grad.degree}</div>
+            <div className="italic">{grad.institution}</div>
+            <div className="text-zinc-400">{grad.period}</div>
           </div>
-          <div className="italic">Positivo University</div>
-          <div className="text-zinc-400">2013 - 2015 </div>
         </div>
-      </div>
+      ))}
 
-      <div className="mt-8 flex gap-5">
-        <Image
-          src={Positivo}
-          width={70}
-          height={50}
-          alt="Positivo University logo"
-        />
-        <div>
-          <div className="text-lg font-bold">
-            Bachelor&apos;s degrees, Information System4
-          </div>
-          <div className="italic">Positivo University</div>
-          <div className="text-zinc-400">2008 - 2011 </div>
-        </div>
-      </div>
-
-      <h3 className="text-1xl mb-5 mt-8 font-bold">Certifications</h3>
+      <h3 className="text-1xl mb-5 mt-8 font-bold">
+        {t('education.certification')}
+      </h3>
       <div className="flex gap-5">
         <Image src={Microsoft} width={70} height={50} alt="Microsoft logo" />
         <div>

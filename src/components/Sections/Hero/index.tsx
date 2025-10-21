@@ -1,4 +1,5 @@
 'use client';
+'use client';
 
 import React from 'react';
 
@@ -8,23 +9,24 @@ import { FaCloudDownloadAlt } from 'react-icons/fa';
 
 import Button from '@/components/UI/Button';
 
+import { useTranslation } from '@/lib/translations';
+
 import KawnaoKanji from '/public/kawano-kanji.svg';
 
 export default function Hero() {
-  // const cvLinks = [
-  //   {
-  //     name: 'Download CV (English)',
-  //     url: 'https://drive.google.com/file/d/1Hr9KCd0R1M77C6o5iDPC8n6SbjsI1HjT/view?usp=sharing',
-  //   },
-  //   {
-  //     name: 'Download CV (Portuguese)',
-  //     url: 'https://drive.google.com/file/d/1Ht85MjFojY6TnbW-1mpwUtnfI8859ZpW/view?usp=sharing',
-  //   },
-  // ];
+  const { t } = useTranslation();
 
   const handleOpenCV = () => {
+    if (localStorage.getItem('language') === 'en') {
+      window.open(
+        'https://drive.google.com/file/d/1Hr9KCd0R1M77C6o5iDPC8n6SbjsI1HjT/view?usp=sharing',
+        '_blank'
+      );
+      return;
+    }
+
     window.open(
-      'https://drive.google.com/file/d/1Hr9KCd0R1M77C6o5iDPC8n6SbjsI1HjT/view?usp=sharing',
+      'https://drive.google.com/file/d/1Ht85MjFojY6TnbW-1mpwUtnfI8859ZpW/view?usp=sharing',
       '_blank'
     );
   };
@@ -34,15 +36,15 @@ export default function Hero() {
       <div className="flex flex-col justify-between">
         <div className="mb-8">
           <div className="text-bold text-5xl leading-snug">
-            Hi! I am
+            {t('hero.greeting')}
             <br />
             Fernando <strong>Kawano</strong>
           </div>
           <p className="pt-2 text-2xl font-thin text-zinc-500">
-            Frontend developer
+            {t('hero.title')}
           </p>
           <p className="flex pt-2 text-lg font-thin text-zinc-500">
-            Curitiba - Brazil
+            {t('hero.location')}
           </p>
         </div>
 
@@ -50,7 +52,7 @@ export default function Hero() {
           onClick={handleOpenCV}
           className="flex w-48 items-center gap-3 "
         >
-          Download CV{' '}
+          {t('hero.downloadCV')}{' '}
           <span>
             <FaCloudDownloadAlt />
           </span>

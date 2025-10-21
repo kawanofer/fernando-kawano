@@ -8,6 +8,8 @@ import { Dialog, Transition } from '@headlessui/react';
 import { FaBars } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
 
+import { LanguageSwitcher } from '@/components/UI';
+
 type MenuProps = {
   label: string;
   href: string;
@@ -87,6 +89,14 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
                     ))}
                   </ul>
                 ) : null}
+
+                {/* Language Switcher */}
+                <div className="mt-6 border-t border-zinc-700 pt-4">
+                  <p className="mb-3 text-sm text-zinc-400">
+                    Language / Idioma
+                  </p>
+                  <LanguageSwitcher />
+                </div>
               </div>
             </Dialog.Panel>
           </Transition.Child>

@@ -5,7 +5,6 @@ import {
   Education,
   Hero,
   Skills,
-  WorkExperiences,
 } from '@/components/Sections';
 
 const Home = async () => {
@@ -14,7 +13,6 @@ const Home = async () => {
       <Hero />
       <AboutMe />
       <Education />
-      <WorkExperiences />
       <Skills />
       <Contact />
     </Layout>
