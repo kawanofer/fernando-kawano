@@ -8,8 +8,7 @@ type ButtonProps = {
 const Button = ({ children, className, onClick }: ButtonProps) => {
   return (
     <button
-      className={`rounded-md bg-primary px-4 py-2 text-white hover:bg-secondary active:bg-background2
-      ${className}`}
+      className={`rounded-md bg-primary px-4 py-2 text-white hover:bg-secondary active:bg-background2 ${className}`}
       id={'button'}
       onClick={onClick}
       type="button"

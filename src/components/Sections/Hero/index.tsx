@@ -48,10 +48,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <Button
-          onClick={handleOpenCV}
-          className="flex w-48 items-center gap-3 "
-        >
+        <Button onClick={handleOpenCV} className="flex w-48 items-center gap-3">
           {t('hero.downloadCV')}{' '}
           <span>
             <FaCloudDownloadAlt />

@@ -4,7 +4,7 @@ import { Poppins } from 'next/font/google';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 import './globals.css';
 
@@ -44,14 +44,7 @@ export default function RootLayout({
       </head>
       <body className={poppins.className}>
         <AppRouterCacheProvider>
-          <main
-            className="
-            overflow-hidden
-            font-normal
-            sm:px-16          
-            xl:px-40
-            "
-          >
+          <main className="overflow-hidden font-normal sm:px-16 xl:px-40">
             {children}
             <SpeedInsights />
           </main>

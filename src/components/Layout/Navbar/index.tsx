@@ -52,7 +52,7 @@ export default function Navigation() {
       className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4 text-xl md:flex-nowrap md:py-6 lg:py-10"
     >
       <div
-        className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur duration-200 ${isIntersecting ? 'border-transparent bg-zinc-900/0' : 'bg-zinc-900/500  border-zinc-800 '}`}
+        className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur duration-200 ${isIntersecting ? 'border-transparent bg-zinc-900/0' : 'bg-zinc-900/500 border-zinc-800'}`}
       >
         <div className="container mx-auto flex items-center justify-between p-2 md:p-4">
           <Link href="/" className="font-black">
