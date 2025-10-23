@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
 import { useTranslation } from '@/libs/translations';
@@ -39,11 +40,11 @@ export default function Skills() {
   const { t } = useTranslation();
 
   return (
-    <section id="skills" className="bg-background-2 p-8 pt-16 pb-16">
+    <Section id="skills" className="bg-background-2">
       <SectionTitle title={t('skills.title')} />
 
       <div className="container">
-        <div className="mt-3 mb-10 flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3">
           {mainSkills.map(skill => {
             return (
               <div
@@ -56,6 +57,6 @@ export default function Skills() {
           })}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

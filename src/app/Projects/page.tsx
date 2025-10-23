@@ -16,6 +16,7 @@ import {
 import Layout from '@/components/Layout';
 import Carousel from '@/components/Layout/Carousel';
 import { Title } from '@/components/UI';
+import { Section } from '@/components/UI/Section';
 
 import { useTranslation } from '@/libs/translations';
 
@@ -111,14 +112,12 @@ export default function ProjectsPage() {
 
   return (
     <Layout>
-      <div className="px-2 py-8 sm:px-4 lg:px-6">
+      <Section>
         <div className="mx-auto max-w-6xl">
           {/* Header */}
-          <div className="mb-8 text-center">
+          <div className="mb-8">
             <Title title={t('projects.title')} />
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-500">
-              {t('projects.subtitle')}
-            </p>
+            <p className="text-lg text-zinc-500">{t('projects.subtitle')}</p>
           </div>
 
           {/* Projects List */}
@@ -300,7 +299,7 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
-      </div>
+      </Section>
     </Layout>
   );
 }

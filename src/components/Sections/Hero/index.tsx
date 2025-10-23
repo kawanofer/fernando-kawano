@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { FaCloudDownloadAlt } from 'react-icons/fa';
 
 import Button from '@/components/UI/Button';
+import { Section } from '@/components/UI/Section';
 
 import { useTranslation } from '@/libs/translations';
 
@@ -31,29 +32,31 @@ export default function Hero() {
   };
 
   return (
-    <section className="flex justify-between p-8 pt-16 pb-16 lg:px-20">
-      <div className="flex flex-col justify-between">
-        <div className="mb-8">
-          <div className="text-bold color-text text-5xl">
+    <Section className="flex justify-between">
+      <div className="flex w-full flex-col justify-between lg:w-auto">
+        <div className="mb-8 text-center lg:text-left">
+          <div className="text-bold color-text text-4xl sm:text-5xl">
             {t('hero.greeting')}
             <br />
             Fernando <strong>Kawano</strong>
           </div>
-          <p className="pt-2 text-2xl font-thin text-zinc-500">
+          <p className="pt-2 text-xl font-thin text-zinc-500 sm:text-2xl">
             {t('hero.title')}
           </p>
-          <p className="flex pt-2 text-lg font-thin text-zinc-500">
+          <p className="flex justify-center pt-2 text-base font-thin text-zinc-500 sm:text-lg lg:justify-start">
             {t('hero.location')}
           </p>
         </div>
 
-        <Button
-          icon={FaCloudDownloadAlt}
-          onClick={handleOpenCV}
-          className="flex w-48 items-center gap-3"
-        >
-          {t('hero.downloadCV')}
-        </Button>
+        <div className="flex justify-center lg:justify-start">
+          <Button
+            icon={FaCloudDownloadAlt}
+            onClick={handleOpenCV}
+            className="flex w-48 items-center gap-3"
+          >
+            {t('hero.downloadCV')}
+          </Button>
+        </div>
       </div>
       <div className="hidden lg:block">
         <Image
@@ -67,6 +70,6 @@ export default function Hero() {
           style={{ width: '100%', height: 'auto' }}
         />
       </div>
-    </section>
+    </Section>
   );
 }

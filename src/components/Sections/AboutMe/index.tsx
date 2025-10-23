@@ -1,5 +1,4 @@
 'use client';
-'use client';
 
 import React from 'react';
 
@@ -7,6 +6,7 @@ import Image from 'next/image';
 
 import { Tooltip } from '@mui/material';
 
+import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
 import { useTranslation } from '@/libs/translations';
@@ -15,10 +15,7 @@ export default function AboutMe() {
   const { t } = useTranslation();
 
   return (
-    <section
-      id="aboutme"
-      className="bg-background-2 rounded-md p-8 pt-16 pb-16"
-    >
+    <Section id="aboutme" className="bg-background-2">
       <SectionTitle title={t('about.title')} />
 
       <div className="m-auto flex flex-col items-center justify-center md:flex-row md:items-start md:justify-between">
@@ -76,6 +73,6 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

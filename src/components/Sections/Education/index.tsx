@@ -3,7 +3,9 @@
 import React from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
+import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
 import { useTranslation } from '@/libs/translations';
@@ -29,7 +31,7 @@ export default function Education() {
     },
   ];
   return (
-    <section id="education" className="rounded-md p-8 pt-16 pb-16">
+    <Section id="education">
       <SectionTitle title={t('education.title')} />
 
       {graduations.map((grad, index) => (
@@ -58,10 +60,17 @@ export default function Education() {
             Exam 480: Programming in HTML5 with JavaScript and CSS3
           </div>
           <div className="italic">Microsoft</div>
-          <div className="text-zinc-400">Issued Apr 2019</div>
+          <div className="flex gap-5">
+            <div className="text-zinc-400">Issued Apr 2019</div>
+            <Link
+              href="https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile"
+              target="_blank"
+            >
+              See Credential
+            </Link>
+          </div>
         </div>
-        {/* <Link href='https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile'>Show Credential</Link> */}
       </div>
-    </section>
+    </Section>
   );
 }

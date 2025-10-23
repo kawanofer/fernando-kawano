@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 
+import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
 import { useTranslation } from '@/libs/translations';
@@ -32,10 +33,10 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="rounded-md p-4 pt-16 pb-16 sm:p-8">
+    <Section id="contact">
       <SectionTitle title={t('contact.title')} />
 
-      <div className="mt-8 grid gap-8 sm:mt-16 lg:grid-cols-2 lg:gap-12">
+      <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
         {/* Contact Information */}
         <div className="space-y-6 sm:space-y-8">
           <div className="space-y-4 sm:space-y-6">
@@ -121,6 +122,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
