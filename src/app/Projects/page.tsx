@@ -15,6 +15,7 @@ import {
 
 import Layout from '@/components/Layout';
 import Carousel from '@/components/Layout/Carousel';
+import { StructuredData } from '@/components/SEO';
 import { Title } from '@/components/UI';
 import { Section } from '@/components/UI/Section';
 
@@ -110,8 +111,34 @@ export default function ProjectsPage() {
     }
   };
 
+  const projectsStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Fernando Kawano - Projects Portfolio',
+    description:
+      'Portfolio of frontend development projects by Fernando Kawano including React applications, TypeScript implementations, and modern web solutions.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://fernando-kawano.vercel.app'}/Projects`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: projects.map((project, index) => ({
+        '@type': 'CreativeWork',
+        position: index + 1,
+        name: project.title,
+        description: project.description,
+        url: project.website || project.githubProjectFrontend,
+        programmingLanguage: project.technologies,
+        creator: {
+          '@type': 'Person',
+          name: 'Fernando Kawano',
+        },
+      })),
+    },
+  };
+
   return (
-    <Layout>
+    <>
+      <StructuredData data={projectsStructuredData} />
+      <Layout>
       <Section>
         <div className="mx-auto max-w-6xl">
           {/* Header */}
@@ -301,5 +328,6 @@ export default function ProjectsPage() {
         </div>
       </Section>
     </Layout>
+    </>
   );
 }

@@ -16,8 +16,86 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Fernando Kawano - Portfolio',
-  description: 'This is the my portfolio',
+  title: {
+    default: 'Fernando Kawano - Frontend Engineer Portfolio',
+    template: '%s | Fernando Kawano',
+  },
+  description:
+    'Frontend Engineer with extensive experience in React, TypeScript, Next.js, and modern web technologies. Based in Curitiba, Brazil. Specializing in creating immersive digital experiences and user-friendly solutions.',
+  keywords: [
+    'Fernando Kawano',
+    'Frontend Engineer',
+    'React Developer',
+    'TypeScript',
+    'Next.js',
+    'JavaScript',
+    'Web Development',
+    'Portfolio',
+    'Brazil',
+    'Software Engineer',
+    'UI/UX',
+    'Responsive Design',
+  ],
+  authors: [{ name: 'Fernando Kawano', url: 'https://github.com/kawanofer' }],
+  creator: 'Fernando Kawano',
+  publisher: 'Fernando Kawano',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://fernando-kawano-ivory.vercel.app/'
+  ),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'pt-BR': '/pt-BR',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    title: 'Fernando Kawano - Frontend Engineer Portfolio',
+    description:
+      'Frontend Engineer with extensive experience in React, TypeScript, Next.js, and modern web technologies. Based in Curitiba, Brazil.',
+    siteName: 'Fernando Kawano Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Fernando Kawano - Frontend Engineer Portfolio',
+        type: 'image/png',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fernando Kawano - Frontend Engineer Portfolio',
+    description:
+      'Frontend Engineer specializing in React, TypeScript, and modern web technologies.',
+    images: ['/twitter-image.png'],
+    creator: '@kawanofer',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
