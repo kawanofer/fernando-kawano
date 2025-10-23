@@ -45,18 +45,33 @@ export default function Skills() {
 
       <div className="container">
         <div className="flex flex-wrap gap-3">
-          {mainSkills.map(skill => {
+          {mainSkills.map((skill, index) => {
             return (
               <div
                 key={skill}
                 className="transition-all duration-300 hover:opacity-60"
+                style={{
+                  animationDelay: `${index * 50}ms`,
+                  animation: 'fadeInUp 0.6s ease-out forwards',
+                  opacity: 0,
+                  transform: 'translateY(20px)',
+                }}
               >
-                <Pill key={skill} value={skill} />
+                <Pill value={skill} />
               </div>
             );
           })}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </Section>
   );
 }

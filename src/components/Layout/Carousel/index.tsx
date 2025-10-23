@@ -104,11 +104,11 @@ export default function Carousel({ images = [] }: CarouselProps) {
 
       {/* Dots indicator - only show if more than one image */}
       {images.length > 1 && (
-        <div className="mt-2 flex justify-center gap-1">
+        <div className="mt-6 flex justify-center gap-1">
           {images.map((_, index) => (
             <button
               key={index}
-              className={`h-2 w-2 rounded-full transition-colors ${
+              className={`h-0.5 w-0.5 rounded-full transition-colors ${
                 index === selectedIndex
                   ? 'bg-blue-500'
                   : 'bg-gray-300 hover:bg-gray-400'

@@ -32,7 +32,11 @@ export default function Hero() {
   };
 
   return (
-    <Section className="flex justify-between" role="banner" aria-label="Hero introduction">
+    <Section
+      className="flex justify-between"
+      role="banner"
+      aria-label="Hero introduction"
+    >
       <div className="flex w-full flex-col justify-between lg:w-auto">
         <header className="mb-8 text-center lg:text-left">
           <h1 className="text-bold color-text text-4xl sm:text-5xl">
@@ -41,7 +45,7 @@ export default function Hero() {
               Fernando <strong>Kawano</strong>
             </span>
           </h1>
-          <p 
+          <p
             className="pt-2 text-xl font-thin text-zinc-500 sm:text-2xl"
             role="doc-subtitle"
           >
@@ -63,7 +67,11 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-      <div className="hidden lg:block" role="img" aria-label="Decorative Japanese kanji symbol">
+      <div
+        className="hidden lg:block"
+        role="img"
+        aria-label="Decorative Japanese kanji symbol"
+      >
         <Image
           alt="Decorative Japanese kanji symbol representing Fernando Kawano"
           className="rounded-full bg-white"

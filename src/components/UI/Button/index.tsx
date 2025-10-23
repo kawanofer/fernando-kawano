@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 type ButtonProps = {
@@ -25,7 +27,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`bg-primary hover:bg-secondary active:bg-background-2 disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 rounded-md px-4 py-2 text-white transition-all duration-200 ${className}`}
+      className={`bg-primary hover:bg-secondary active:bg-background-2 focus:ring-tertiary rounded-md px-4 py-2 text-white transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-400 ${className}`}
       id={id}
       onClick={onClick}
       disabled={disabled}

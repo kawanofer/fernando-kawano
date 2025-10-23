@@ -61,13 +61,13 @@ export default function Navigation() {
         className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur duration-200 ${isIntersecting ? 'border-transparent bg-zinc-900/0' : 'border-zinc-800 bg-zinc-900/500'}`}
       >
         <div className="container mx-auto flex items-center justify-between p-2 md:p-4">
-          <Link 
-            href="/" 
-            className="font-black focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 rounded-full"
+          <Link
+            href="/"
+            className="focus:ring-tertiary rounded-full font-black focus:ring-2 focus:ring-offset-2 focus:outline-none"
             aria-label="Fernando Kawano - Home"
           >
             <Image
-              className="rounded-full p-2 hover:opacity-75 transition-opacity duration-200"
+              className="rounded-full p-2 transition-opacity duration-200 hover:opacity-75"
               src={kawKanji}
               width={50}
               height={50}
@@ -79,7 +79,7 @@ export default function Navigation() {
             <MobileMenu menu={menuList} />
           </div>
 
-          <div 
+          <div
             className="hidden justify-between gap-4 md:flex"
             role="menubar"
             aria-label="Main navigation menu"
@@ -88,7 +88,7 @@ export default function Navigation() {
               <Link
                 key={menu.label}
                 href={menu.href}
-                className="text-zinc-400 duration-200 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 rounded-md px-2 py-1"
+                className="focus:ring-tertiary rounded-md px-2 py-1 text-zinc-400 duration-200 hover:text-white focus:text-white focus:ring-2 focus:ring-offset-2 focus:outline-none"
                 role="menuitem"
                 aria-label={`Navigate to ${menu.label} section`}
               >

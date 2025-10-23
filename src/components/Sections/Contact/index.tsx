@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="space-y-4">
             <Link
               href="mailto:kawano.fer@gmail.com"
-              className="text-foreground group hover:text-secondary flex items-center gap-2 break-all transition-colors duration-300 sm:gap-3 sm:break-normal focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 rounded-md p-1"
+              className="text-foreground group hover:text-secondary focus:ring-tertiary flex items-center gap-2 rounded-md p-1 break-all transition-colors duration-300 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:gap-3 sm:break-normal"
               aria-label="Send email to Fernando Kawano at kawano.fer@gmail.com"
             >
               <span className="text-sm sm:text-base lg:text-lg">
@@ -96,7 +96,7 @@ export default function Contact() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-background hover:bg-background-2 block w-full rounded-lg border border-gray-200 p-4 shadow-md transition-all duration-300 hover:shadow-lg sm:p-6 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2"
+                    className="bg-background hover:bg-background-2 focus:ring-tertiary block w-full rounded-lg border border-gray-200 p-4 shadow-md transition-all duration-300 hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:outline-none sm:p-6"
                     aria-label={`Visit ${social.name} profile - ${social.description} (opens in new tab)`}
                   >
                     <div className="flex items-start gap-3 sm:gap-4">
@@ -108,8 +108,8 @@ export default function Contact() {
                           <h4 className="text-base font-medium text-white sm:text-lg">
                             {social.name}
                           </h4>
-                          <HiOutlineExternalLink 
-                            className="group-hover:text-tertiary flex-shrink-0 text-sm text-gray-400 transition-colors duration-300 sm:text-base" 
+                          <HiOutlineExternalLink
+                            className="group-hover:text-tertiary flex-shrink-0 text-sm text-gray-400 transition-colors duration-300 sm:text-base"
                             aria-hidden="true"
                           />
                         </div>

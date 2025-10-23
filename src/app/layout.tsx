@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 import { SkipLink } from '@/components/Accessibility';
+import ClientLayout from '@/components/Layout/ClientLayout';
 
 import './globals.css';
 
@@ -115,10 +116,6 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-        />
-        <link
-          rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           crossOrigin="anonymous"
         />
@@ -127,17 +124,19 @@ export default function RootLayout({
         {/* Skip Links for accessibility */}
         <SkipLink href="#main-content">Skip to main content</SkipLink>
         <SkipLink href="#navigation">Skip to navigation</SkipLink>
-        
-        <AppRouterCacheProvider>
-          <main 
-            id="main-content" 
-            className="overflow-hidden font-normal sm:px-16 xl:px-40"
-            role="main"
-          >
-            {children}
-            <SpeedInsights />
-          </main>
-        </AppRouterCacheProvider>
+
+        <ClientLayout>
+          <AppRouterCacheProvider>
+            <main
+              id="main-content"
+              className="overflow-hidden font-normal sm:px-16 xl:px-40"
+              role="main"
+            >
+              {children}
+              <SpeedInsights />
+            </main>
+          </AppRouterCacheProvider>
+        </ClientLayout>
       </body>
     </html>
   );
