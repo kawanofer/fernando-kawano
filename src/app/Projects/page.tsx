@@ -139,195 +139,195 @@ export default function ProjectsPage() {
     <>
       <StructuredData data={projectsStructuredData} />
       <Layout>
-      <Section>
-        <div className="mx-auto max-w-6xl">
-          {/* Header */}
-          <div className="mb-8">
-            <Title title={t('projects.title')} />
-            <p className="text-lg text-zinc-500">{t('projects.subtitle')}</p>
-          </div>
+        <Section>
+          <div className="mx-auto max-w-6xl">
+            {/* Header */}
+            <div className="mb-8">
+              <Title title={t('projects.title')} />
+              <p className="text-lg text-zinc-500">{t('projects.subtitle')}</p>
+            </div>
 
-          {/* Projects List */}
-          <div className="flex flex-col gap-12">
-            {projects.map((project, index) => (
-              <Card
-                key={project.title}
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'all 0.3s ease-in-out',
-                  borderRadius: 3,
-                  overflow: 'hidden',
-                  position: 'relative',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: theme => theme.shadows[12],
-                  },
-                }}
-              >
-                <CardContent sx={{ p: 4, pb: 0 }}>
-                  {/* Project Header */}
-                  <div className="mb-6">
-                    <div className="mb-3 flex items-start justify-between">
-                      <div>
-                        <h2 className="mb-2 text-2xl font-bold text-gray-900">
-                          {project.title}
-                        </h2>
-                        <div className="flex gap-2">
-                          <Chip
-                            label={project.category}
-                            size="medium"
-                            color={getCategoryColor(project.category)}
-                            variant="filled"
-                            sx={{ fontWeight: 'medium' }}
-                          />
+            {/* Projects List */}
+            <div className="flex flex-col gap-12">
+              {projects.map((project, index) => (
+                <Card
+                  key={project.title}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'all 0.3s ease-in-out',
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    position: 'relative',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                      boxShadow: theme => theme.shadows[12],
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 4, pb: 0 }}>
+                    {/* Project Header */}
+                    <div className="mb-6">
+                      <div className="mb-3 flex items-start justify-between">
+                        <div>
+                          <h2 className="mb-2 text-2xl font-bold text-gray-900">
+                            {project.title}
+                          </h2>
+                          <div className="flex gap-2">
+                            <Chip
+                              label={project.category}
+                              size="medium"
+                              color={getCategoryColor(project.category)}
+                              variant="filled"
+                              sx={{ fontWeight: 'medium' }}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Carousel */}
-                  {project?.images &&
-                    project.images.filter(img => img && img.trim() !== '')
-                      .length > 0 && (
-                      <div className="mb-6">
-                        <Carousel
-                          images={project.images.filter(
-                            img => img && img.trim() !== ''
-                          )}
-                        />
-                      </div>
-                    )}
+                    {/* Carousel */}
+                    {project?.images &&
+                      project.images.filter(img => img && img.trim() !== '')
+                        .length > 0 && (
+                        <div className="mb-6">
+                          <Carousel
+                            images={project.images.filter(
+                              img => img && img.trim() !== ''
+                            )}
+                          />
+                        </div>
+                      )}
 
-                  {/* Description */}
-                  <div className="mb-6">
-                    <h3 className="mb-3 text-lg font-semibold text-gray-800">
-                      {t('projects.description')}
-                    </h3>
-                    <p className="text-base leading-relaxed text-gray-700">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* Technologies */}
-                  <div className="mb-6">
-                    <h3 className="mb-3 text-lg font-semibold text-gray-800">
-                      {t('projects.technologies')}
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <Chip
-                          key={techIndex}
-                          label={tech}
-                          size="medium"
-                          variant="outlined"
-                          sx={{
-                            fontSize: '0.875rem',
-                            '&:hover': {
-                              backgroundColor: 'rgba(25, 118, 210, 0.08)',
-                              borderColor: 'primary.main',
-                            },
-                          }}
-                        />
-                      ))}
+                    {/* Description */}
+                    <div className="mb-6">
+                      <h3 className="mb-3 text-lg font-semibold text-gray-800">
+                        {t('projects.description')}
+                      </h3>
+                      <p className="text-base leading-relaxed text-gray-700">
+                        {project.description}
+                      </p>
                     </div>
-                  </div>
-                </CardContent>
 
-                {/* Actions */}
-                <CardActions sx={{ p: 4, pt: 0, gap: 2 }}>
-                  <div className="flex w-full flex-wrap gap-3">
-                    {project.website && (
-                      <Tooltip title="Visit Live Website" arrow>
-                        <Button
-                          size="medium"
-                          startIcon={<Language />}
-                          href={project.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variant="contained"
-                          sx={{
-                            minWidth: 140,
-                            fontWeight: 'medium',
-                          }}
-                        >
-                          Live Website
-                        </Button>
-                      </Tooltip>
-                    )}
+                    {/* Technologies */}
+                    <div className="mb-6">
+                      <h3 className="mb-3 text-lg font-semibold text-gray-800">
+                        {t('projects.technologies')}
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <Chip
+                            key={techIndex}
+                            label={tech}
+                            size="medium"
+                            variant="outlined"
+                            sx={{
+                              fontSize: '0.875rem',
+                              '&:hover': {
+                                backgroundColor: 'rgba(25, 118, 210, 0.08)',
+                                borderColor: 'primary.main',
+                              },
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
 
-                    {project.githubProjectFrontend && (
-                      <Tooltip title="View Frontend Code" arrow>
-                        <Button
-                          size="medium"
-                          startIcon={<GitHub />}
-                          href={project.githubProjectFrontend}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variant="outlined"
-                          sx={{ minWidth: 140 }}
-                        >
-                          Frontend Code
-                        </Button>
-                      </Tooltip>
-                    )}
+                  {/* Actions */}
+                  <CardActions sx={{ p: 4, pt: 0, gap: 2 }}>
+                    <div className="flex w-full flex-wrap gap-3">
+                      {project.website && (
+                        <Tooltip title="Visit Live Website" arrow>
+                          <Button
+                            size="medium"
+                            startIcon={<Language />}
+                            href={project.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="contained"
+                            sx={{
+                              minWidth: 140,
+                              fontWeight: 'medium',
+                            }}
+                          >
+                            Live Website
+                          </Button>
+                        </Tooltip>
+                      )}
 
-                    {project.githubProjectBackend && (
-                      <Tooltip title="View Backend Code" arrow>
-                        <Button
-                          size="medium"
-                          startIcon={<Code />}
-                          href={project.githubProjectBackend}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variant="outlined"
-                          sx={{ minWidth: 140 }}
-                        >
-                          Backend Code
-                        </Button>
-                      </Tooltip>
-                    )}
+                      {project.githubProjectFrontend && (
+                        <Tooltip title="View Frontend Code" arrow>
+                          <Button
+                            size="medium"
+                            startIcon={<GitHub />}
+                            href={project.githubProjectFrontend}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="outlined"
+                            sx={{ minWidth: 140 }}
+                          >
+                            Frontend Code
+                          </Button>
+                        </Tooltip>
+                      )}
 
-                    {project.githubUrl && (
-                      <Tooltip title="View Source Code" arrow>
-                        <Button
-                          size="medium"
-                          startIcon={<GitHub />}
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variant="outlined"
-                          sx={{ minWidth: 140 }}
-                        >
-                          {t('projects.code')}
-                        </Button>
-                      </Tooltip>
-                    )}
+                      {project.githubProjectBackend && (
+                        <Tooltip title="View Backend Code" arrow>
+                          <Button
+                            size="medium"
+                            startIcon={<Code />}
+                            href={project.githubProjectBackend}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="outlined"
+                            sx={{ minWidth: 140 }}
+                          >
+                            Backend Code
+                          </Button>
+                        </Tooltip>
+                      )}
 
-                    {project.liveUrl && (
-                      <Tooltip title="View Live Demo" arrow>
-                        <Button
-                          size="medium"
-                          startIcon={<OpenInNew />}
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          variant="contained"
-                          color="success"
-                          sx={{ minWidth: 140 }}
-                        >
-                          {t('projects.liveDemo')}
-                        </Button>
-                      </Tooltip>
-                    )}
-                  </div>
-                </CardActions>
-              </Card>
-            ))}
+                      {project.githubUrl && (
+                        <Tooltip title="View Source Code" arrow>
+                          <Button
+                            size="medium"
+                            startIcon={<GitHub />}
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="outlined"
+                            sx={{ minWidth: 140 }}
+                          >
+                            {t('projects.code')}
+                          </Button>
+                        </Tooltip>
+                      )}
+
+                      {project.liveUrl && (
+                        <Tooltip title="View Live Demo" arrow>
+                          <Button
+                            size="medium"
+                            startIcon={<OpenInNew />}
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variant="contained"
+                            color="success"
+                            sx={{ minWidth: 140 }}
+                          >
+                            {t('projects.liveDemo')}
+                          </Button>
+                        </Tooltip>
+                      )}
+                    </div>
+                  </CardActions>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </Section>
-    </Layout>
+        </Section>
+      </Layout>
     </>
   );
 }

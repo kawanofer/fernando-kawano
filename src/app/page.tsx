@@ -16,7 +16,8 @@ const Home = async () => {
     jobTitle: 'Frontend Engineer',
     description:
       'Frontend Engineer with extensive experience in React, TypeScript, Next.js, and modern web technologies.',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://fernando-kawano.vercel.app',
+    url:
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://fernando-kawano.vercel.app',
     sameAs: [
       'https://github.com/kawanofer',
       'https://linkedin.com/in/kawanofer',

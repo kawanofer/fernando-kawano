@@ -6,6 +6,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
+import { SkipLink } from '@/components/Accessibility';
+
 import './globals.css';
 
 const poppins = Poppins({
@@ -45,7 +47,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://fernando-kawano-ivory.vercel.app/'
+    process.env.NEXT_PUBLIC_SITE_URL ||
+      'https://fernando-kawano-ivory.vercel.app/'
   ),
   alternates: {
     canonical: '/',
@@ -121,8 +124,16 @@ export default function RootLayout({
         />
       </head>
       <body className={poppins.className}>
+        {/* Skip Links for accessibility */}
+        <SkipLink href="#main-content">Skip to main content</SkipLink>
+        <SkipLink href="#navigation">Skip to navigation</SkipLink>
+        
         <AppRouterCacheProvider>
-          <main className="overflow-hidden font-normal sm:px-16 xl:px-40">
+          <main 
+            id="main-content" 
+            className="overflow-hidden font-normal sm:px-16 xl:px-40"
+            role="main"
+          >
             {children}
             <SpeedInsights />
           </main>

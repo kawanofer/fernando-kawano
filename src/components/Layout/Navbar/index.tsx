@@ -1,5 +1,4 @@
 'use client';
-'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -53,19 +52,26 @@ export default function Navigation() {
   return (
     <nav
       ref={ref}
+      id="navigation"
       className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4 text-xl md:flex-nowrap md:py-6 lg:py-10"
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div
         className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur duration-200 ${isIntersecting ? 'border-transparent bg-zinc-900/0' : 'border-zinc-800 bg-zinc-900/500'}`}
       >
         <div className="container mx-auto flex items-center justify-between p-2 md:p-4">
-          <Link href="/" className="font-black">
+          <Link 
+            href="/" 
+            className="font-black focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 rounded-full"
+            aria-label="Fernando Kawano - Home"
+          >
             <Image
-              className="rounded-full p-2 hover:opacity-75"
+              className="rounded-full p-2 hover:opacity-75 transition-opacity duration-200"
               src={kawKanji}
               width={50}
               height={50}
-              alt="Japanese kanji KAWA"
+              alt="Fernando Kawano logo - Japanese kanji KAWA"
             />
           </Link>
 
@@ -73,12 +79,18 @@ export default function Navigation() {
             <MobileMenu menu={menuList} />
           </div>
 
-          <div className="hidden justify-between gap-4 md:flex">
+          <div 
+            className="hidden justify-between gap-4 md:flex"
+            role="menubar"
+            aria-label="Main navigation menu"
+          >
             {menuList.map(menu => (
               <Link
                 key={menu.label}
                 href={menu.href}
-                className="text-zinc-400 duration-200 hover:text-white"
+                className="text-zinc-400 duration-200 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 rounded-md px-2 py-1"
+                role="menuitem"
+                aria-label={`Navigate to ${menu.label} section`}
               >
                 {menu.label}
               </Link>
