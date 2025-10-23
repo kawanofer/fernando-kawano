@@ -1,5 +1,4 @@
 'use client';
-'use client';
 
 import React from 'react';
 
@@ -9,7 +8,7 @@ import { FaCloudDownloadAlt } from 'react-icons/fa';
 
 import Button from '@/components/UI/Button';
 
-import { useTranslation } from '@/lib/translations';
+import { useTranslation } from '@/libs/translations';
 
 import KawnaoKanji from '/public/kawano-kanji.svg';
 
@@ -32,10 +31,10 @@ export default function Hero() {
   };
 
   return (
-    <section className="flex justify-between p-8 pb-16 pt-16 lg:px-20">
+    <section className="flex justify-between p-8 pt-16 pb-16 lg:px-20">
       <div className="flex flex-col justify-between">
         <div className="mb-8">
-          <div className="text-bold text-5xl leading-snug">
+          <div className="text-bold color-text text-5xl">
             {t('hero.greeting')}
             <br />
             Fernando <strong>Kawano</strong>
@@ -48,11 +47,12 @@ export default function Hero() {
           </p>
         </div>
 
-        <Button onClick={handleOpenCV} className="flex w-48 items-center gap-3">
-          {t('hero.downloadCV')}{' '}
-          <span>
-            <FaCloudDownloadAlt />
-          </span>
+        <Button
+          icon={FaCloudDownloadAlt}
+          onClick={handleOpenCV}
+          className="flex w-48 items-center gap-3"
+        >
+          {t('hero.downloadCV')}
         </Button>
       </div>
       <div className="hidden lg:block">

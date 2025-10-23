@@ -4,7 +4,7 @@ import React from 'react';
 
 import Image from 'next/image';
 
-import { Language, useTranslation } from '@/lib/translations';
+import { Language, useTranslation } from '@/libs/translations';
 
 export default function LanguageSwitcher() {
   const { language, changeLanguage } = useTranslation();

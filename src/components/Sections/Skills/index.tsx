@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import Title from '@/components/UI/Title';
+import SectionTitle from '@/components/UI/SectionTitle';
 
-import { useTranslation } from '@/lib/translations';
+import { useTranslation } from '@/libs/translations';
 
 import Pill from './Pill';
 
@@ -39,11 +39,11 @@ export default function Skills() {
   const { t } = useTranslation();
 
   return (
-    <section id="skills" className="bg-background2 p-8 pb-16 pt-16">
-      <Title title={t('skills.title')} />
+    <section id="skills" className="bg-background-2 p-8 pt-16 pb-16">
+      <SectionTitle title={t('skills.title')} />
 
       <div className="container">
-        <div className="mb-10 mt-3 flex flex-wrap gap-3">
+        <div className="mt-3 mb-10 flex flex-wrap gap-3">
           {mainSkills.map(skill => {
             return (
               <div

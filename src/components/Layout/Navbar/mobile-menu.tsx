@@ -39,7 +39,7 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
       <button
         onClick={openMobileMenu}
         aria-label="Open mobile menu"
-        className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white md:hidden"
+        className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors md:hidden dark:border-neutral-700 dark:text-white"
       >
         <FaBars className="h-4 text-white" />
       </button>
@@ -54,7 +54,7 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
             leaveFrom="opacity-100 backdrop-blur-[.5px]"
             leaveTo="opacity-0 backdrop-blur-none"
           >
-            <div className="fixed inset-0 bg-background1" aria-hidden="true" />
+            <div className="bg-background fixed inset-0" aria-hidden="true" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -65,7 +65,7 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
-            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-background1 pb-6">
+            <Dialog.Panel className="bg-background fixed top-0 right-0 bottom-0 left-0 flex h-full w-full flex-col pb-6">
               <div className="p-4">
                 <button
                   className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-white transition-colors"

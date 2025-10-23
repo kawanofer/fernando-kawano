@@ -6,7 +6,7 @@ type PillProps = {
 
 export default function Pill({ value }: Readonly<PillProps>) {
   return (
-    <div className="cursor-pointer rounded bg-background2 p-2 text-lg text-white hover:bg-tertiary hover:text-primary">
+    <div className="bg-background-2 hover:bg-tertiary hover:text-primary cursor-pointer rounded p-2 text-lg text-white">
       {value}
     </div>
   );

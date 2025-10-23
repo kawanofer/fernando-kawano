@@ -1,101 +1,306 @@
+'use client';
+
 import React from 'react';
 
+import { Code, GitHub, Language, OpenInNew } from '@mui/icons-material';
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Chip,
+  Tooltip,
+} from '@mui/material';
+
+import Layout from '@/components/Layout';
+import Carousel from '@/components/Layout/Carousel';
 import { Title } from '@/components/UI';
 
-export default function Projects() {
-  const projects = [
+import { useTranslation } from '@/libs/translations';
+
+interface ProjectProps {
+  category: 'Front-end' | 'Fullstack';
+  description: string;
+  githubProjectBackend?: string;
+  githubProjectFrontend?: string;
+  githubUrl?: string;
+  images?: string[];
+  liveUrl?: string;
+  technologies: string[];
+  title: string;
+  website?: string;
+}
+
+export default function ProjectsPage() {
+  const { t } = useTranslation();
+
+  const projects: ProjectProps[] = [
     {
-      title: 'Fluig',
-      description:
-        'Fluig is a productivity & collaboration platform developed by TOTVS(a major Brazilian enterprise‐software vendor) that aims to unify systems, people and processes in one place.',
-      image: '',
+      title: 'TOTVS Fluig',
+      description: t('projects.fluig.description'),
+      technologies: [
+        'JavaScript',
+        'ES6+',
+        'Custom Elements',
+        'MustacheJs',
+        'KendoUI',
+        'CSS3',
+        'HTML5',
+        'SASS',
+      ],
+      images: [
+        '/projects/fluig1.avif',
+        '/projects/fluig2.avif',
+        '/projects/fluig3.avif',
+      ],
       website: 'https://en.fluig.com/',
+      category: 'Front-end',
     },
     {
       title: 'Germini Loyalty Platform',
-      description:
-        'GERMINI is a platform aimed at helping companies build and manage customer - loyalty programs(“fidelização”) — in other words, helping businesses retain customers, increase purchase frequency, and raise average spend.',
-      image: '',
+      description: t('projects.germini.description'),
+      technologies: [
+        'React',
+        'Material-UI',
+        'Redux-saga',
+        'Context API',
+        'REST API',
+        'Chart.js',
+      ],
+      images: [],
       website: 'https://germini.com.br/',
+      category: 'Front-end',
     },
-  ];
-
-  const assessments = [
     {
-      title: 'Test Assignment for Frontend Developer Position at Germini',
-      description:
-        'Art Explorer React is a web application that allows users to explore and discover artworks from the renowned Metropolitan Museum of Art in New York.' +
-        '\nWith a modern and intuitive interface, users can search by artists, departments, view artwork details, and manage their favorite collections.' +
-        '\nThe backend was not required, but I implemented the backend to implement the cache and queue.',
-      image: '',
-      website: 'https://germini.com.br/test-assignment',
+      title: 'Art Explorer React',
+      description: t('projects.artExplorer.description'),
+      images: [
+        '/projects/met_museum1.avif',
+        '/projects/met_museum2.avif',
+        '/projects/met_museum3.avif',
+      ],
+      technologies: [
+        'React',
+        'TypeScript',
+        'Next.js',
+        'Jest',
+        'RTL',
+        'Material-UI',
+        'Node.js',
+        'Express',
+        'Redis',
+        'MongoDB',
+      ],
       githubProjectFrontend: 'https://github.com/kawanofer/art-explorer-react',
       githubProjectBackend: 'https://github.com/kawanofer/met-museum-backend',
-
-      liveDemo: 'https://art-explorer-react-nu.vercel.app/',
-      backendDeploy: 'https://met-museum-backend.onrender.com',
+      category: 'Fullstack',
     },
   ];
 
-  return (
-    <>
-      <Title title={'Projetos'} />
-      {projects.map((project, index) => (
-        <div key={index}>
-          <h2>{project.title}</h2>
-          <p>{project.description}</p>
-          <a href={project.website} target="_blank" rel="noopener noreferrer">
-            Visit Website
-          </a>
-        </div>
-      ))}
+  const getCategoryColor = (category: ProjectProps['category']) => {
+    switch (category) {
+      case 'Front-end':
+        return 'primary';
+      case 'Fullstack':
+        return 'success';
+      default:
+        return 'default';
+    }
+  };
 
-      <Title title={'Avaliações'} />
-      {assessments.map((assessment, index) => (
-        <div key={index}>
-          <h2>{assessment.title}</h2>
-          <p>{assessment.description}</p>
-          <a
-            href={assessment.website}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit Website
-          </a>
-          <br />
-          <a
-            href={assessment.githubProjectFrontend}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Frontend GitHub
-          </a>
-          <br />
-          <a
-            href={assessment.githubProjectBackend}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Backend GitHub
-          </a>
-          <br />
-          <a
-            href={assessment.liveDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Live Demo
-          </a>
-          <br />
-          <a
-            href={assessment.backendDeploy}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Backend Deploy
-          </a>
+  return (
+    <Layout>
+      <div className="px-2 py-8 sm:px-4 lg:px-6">
+        <div className="mx-auto max-w-6xl">
+          {/* Header */}
+          <div className="mb-8 text-center">
+            <Title title={t('projects.title')} />
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-500">
+              {t('projects.subtitle')}
+            </p>
+          </div>
+
+          {/* Projects List */}
+          <div className="flex flex-col gap-12">
+            {projects.map((project, index) => (
+              <Card
+                key={project.title}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'all 0.3s ease-in-out',
+                  borderRadius: 3,
+                  overflow: 'hidden',
+                  position: 'relative',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: theme => theme.shadows[12],
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 4, pb: 0 }}>
+                  {/* Project Header */}
+                  <div className="mb-6">
+                    <div className="mb-3 flex items-start justify-between">
+                      <div>
+                        <h2 className="mb-2 text-2xl font-bold text-gray-900">
+                          {project.title}
+                        </h2>
+                        <div className="flex gap-2">
+                          <Chip
+                            label={project.category}
+                            size="medium"
+                            color={getCategoryColor(project.category)}
+                            variant="filled"
+                            sx={{ fontWeight: 'medium' }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Carousel */}
+                  {project?.images &&
+                    project.images.filter(img => img && img.trim() !== '')
+                      .length > 0 && (
+                      <div className="mb-6">
+                        <Carousel
+                          images={project.images.filter(
+                            img => img && img.trim() !== ''
+                          )}
+                        />
+                      </div>
+                    )}
+
+                  {/* Description */}
+                  <div className="mb-6">
+                    <h3 className="mb-3 text-lg font-semibold text-gray-800">
+                      {t('projects.description')}
+                    </h3>
+                    <p className="text-base leading-relaxed text-gray-700">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Technologies */}
+                  <div className="mb-6">
+                    <h3 className="mb-3 text-lg font-semibold text-gray-800">
+                      {t('projects.technologies')}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, techIndex) => (
+                        <Chip
+                          key={techIndex}
+                          label={tech}
+                          size="medium"
+                          variant="outlined"
+                          sx={{
+                            fontSize: '0.875rem',
+                            '&:hover': {
+                              backgroundColor: 'rgba(25, 118, 210, 0.08)',
+                              borderColor: 'primary.main',
+                            },
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+
+                {/* Actions */}
+                <CardActions sx={{ p: 4, pt: 0, gap: 2 }}>
+                  <div className="flex w-full flex-wrap gap-3">
+                    {project.website && (
+                      <Tooltip title="Visit Live Website" arrow>
+                        <Button
+                          size="medium"
+                          startIcon={<Language />}
+                          href={project.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="contained"
+                          sx={{
+                            minWidth: 140,
+                            fontWeight: 'medium',
+                          }}
+                        >
+                          Live Website
+                        </Button>
+                      </Tooltip>
+                    )}
+
+                    {project.githubProjectFrontend && (
+                      <Tooltip title="View Frontend Code" arrow>
+                        <Button
+                          size="medium"
+                          startIcon={<GitHub />}
+                          href={project.githubProjectFrontend}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="outlined"
+                          sx={{ minWidth: 140 }}
+                        >
+                          Frontend Code
+                        </Button>
+                      </Tooltip>
+                    )}
+
+                    {project.githubProjectBackend && (
+                      <Tooltip title="View Backend Code" arrow>
+                        <Button
+                          size="medium"
+                          startIcon={<Code />}
+                          href={project.githubProjectBackend}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="outlined"
+                          sx={{ minWidth: 140 }}
+                        >
+                          Backend Code
+                        </Button>
+                      </Tooltip>
+                    )}
+
+                    {project.githubUrl && (
+                      <Tooltip title="View Source Code" arrow>
+                        <Button
+                          size="medium"
+                          startIcon={<GitHub />}
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="outlined"
+                          sx={{ minWidth: 140 }}
+                        >
+                          {t('projects.code')}
+                        </Button>
+                      </Tooltip>
+                    )}
+
+                    {project.liveUrl && (
+                      <Tooltip title="View Live Demo" arrow>
+                        <Button
+                          size="medium"
+                          startIcon={<OpenInNew />}
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          variant="contained"
+                          color="success"
+                          sx={{ minWidth: 140 }}
+                        >
+                          {t('projects.liveDemo')}
+                        </Button>
+                      </Tooltip>
+                    )}
+                  </div>
+                </CardActions>
+              </Card>
+            ))}
+          </div>
         </div>
-      ))}
-    </>
+      </div>
+    </Layout>
   );
 }

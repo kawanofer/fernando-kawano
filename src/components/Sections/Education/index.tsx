@@ -4,9 +4,9 @@ import React from 'react';
 
 import Image from 'next/image';
 
-import Title from '@/components/UI/Title';
+import SectionTitle from '@/components/UI/SectionTitle';
 
-import { useTranslation } from '@/lib/translations';
+import { useTranslation } from '@/libs/translations';
 
 import Microsoft from '/public/microsoft.svg';
 import Positivo from '/public/positivo.svg';
@@ -29,8 +29,8 @@ export default function Education() {
     },
   ];
   return (
-    <section id="education" className="rounded-md p-8 pb-16 pt-16">
-      <Title title={t('education.title')} />
+    <section id="education" className="rounded-md p-8 pt-16 pb-16">
+      <SectionTitle title={t('education.title')} />
 
       {graduations.map((grad, index) => (
         <div key={index} className="mb-8 flex gap-5">
@@ -48,7 +48,7 @@ export default function Education() {
         </div>
       ))}
 
-      <h3 className="text-1xl mb-5 mt-8 font-bold">
+      <h3 className="text-1xl mt-8 mb-5 font-bold">
         {t('education.certification')}
       </h3>
       <div className="flex gap-5">

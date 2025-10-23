@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 import { LanguageSwitcher } from '@/components/UI';
 
-import { useTranslation } from '@/lib/translations';
+import { useTranslation } from '@/libs/translations';
 
 import MobileMenu from './mobile-menu';
 import kawKanji from '/public/kawa-head-icon.svg';
@@ -21,19 +21,23 @@ export default function Navigation() {
   const menuList = [
     {
       label: t('nav.about'),
-      href: '#aboutme',
+      href: '/#aboutme',
     },
     {
       label: t('nav.education'),
-      href: '#education',
+      href: '/#education',
+    },
+    {
+      label: t('nav.projects'),
+      href: '/Projects',
     },
     {
       label: t('nav.skills'),
-      href: '#skills',
+      href: '/#skills',
     },
     {
       label: t('nav.contact'),
-      href: '#contact',
+      href: '/#contact',
     },
   ];
 
@@ -52,7 +56,7 @@ export default function Navigation() {
       className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4 text-xl md:flex-nowrap md:py-6 lg:py-10"
     >
       <div
-        className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur duration-200 ${isIntersecting ? 'border-transparent bg-zinc-900/0' : 'bg-zinc-900/500 border-zinc-800'}`}
+        className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur duration-200 ${isIntersecting ? 'border-transparent bg-zinc-900/0' : 'border-zinc-800 bg-zinc-900/500'}`}
       >
         <div className="container mx-auto flex items-center justify-between p-2 md:p-4">
           <Link href="/" className="font-black">

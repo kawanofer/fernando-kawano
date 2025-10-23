@@ -9,6 +9,7 @@ export const translations = {
     // Navigation
     'nav.about': 'About me',
     'nav.education': 'Education',
+    'nav.projects': 'Projects',
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
 
@@ -53,17 +54,39 @@ export const translations = {
     'contact.title': 'Contact',
     'contact.getInTouch': 'Get in Touch',
     'contact.description':
-      'I&apos;m always interested in new opportunities, collaborations, and conversations about technology, web development, and innovative projects.',
+      'I am always interested in new opportunities, collaborations, and conversations about technology, web development, and innovative projects.',
     'contact.findMe': 'Find Me Elsewhere',
     'contact.connectWithMe': 'Connect with me on these platforms',
     'contact.gitHubDescription': 'View my code repositories and projects',
     'contact.linkedInDescription': 'Professional network and career updates.',
+
+    // Projects Section
+    'projects.title': 'Projects',
+    'projects.subtitle':
+      "Some projects I've worked on, showcasing different technologies and approaches to problem-solving.",
+    'projects.description': 'Description:',
+    'projects.technologies': 'Technologies:',
+    'projects.code': 'Code',
+    'projects.liveDemo': 'Live Demo',
+    'projects.more.title': 'Want to see more?',
+    'projects.more.description':
+      'Check out my GitHub profile for more projects and contributions.',
+    'projects.visitGithub': 'Visit GitHub',
+
+    // Project Descriptions
+    'projects.fluig.description':
+      'Enterprise productivity & collaboration platform developed by TOTVS, unifying systems, people and processes. I contributed to developing custom components, improving user interface interactions, and implementing responsive design patterns for better user experience.',
+    'projects.germini.description':
+      'Customer loyalty platform helping companies build and manage retention programs. Developed with modern React patterns, Redux for state management, and Material-UI for consistent design. Features include campaign management, customer analytics, and reward tracking.',
+    'projects.artExplorer.description':
+      'A comprehensive web application that allows users to explore and discover artworks from the renowned Metropolitan Museum of Art in New York. Features modern UI, search functionality, favorites management, and includes both frontend and backend implementation with caching and queue systems.',
   },
   pt: {
     // Navigation
     'nav.about': 'Sobre mim',
     'nav.education': 'Educação',
     'nav.experiences': 'Experiências',
+    'nav.projects': 'Projetos',
     'nav.skills': 'Habilidades',
     'nav.contact': 'Contato',
 
@@ -114,6 +137,27 @@ export const translations = {
     'contact.gitHubDescription': 'Veja meus repositórios de código e projetos',
     'contact.linkedInDescription':
       'Rede profissional e atualizações de carreira.',
+
+    // Projects Section
+    'projects.title': 'Projetos',
+    'projects.subtitle':
+      'Alguns projetos nos quais trabalhei, demonstrando diferentes tecnologias e abordagens para resolução de problemas.',
+    'projects.description': 'Descrição:',
+    'projects.technologies': 'Tecnologias:',
+    'projects.code': 'Código',
+    'projects.liveDemo': 'Demo ao Vivo',
+    'projects.more.title': 'Quer ver mais?',
+    'projects.more.description':
+      'Confira meu perfil no GitHub para mais projetos e contribuições.',
+    'projects.visitGithub': 'Visitar GitHub',
+
+    // Project Descriptions
+    'projects.fluig.description':
+      'Plataforma de produtividade e colaboração empresarial desenvolvida pela TOTVS, unificando sistemas, pessoas e processos. Contribuí para o desenvolvimento de componentes personalizados, aprimorando as interações da interface do usuário e implementando padrões de design responsivo para uma melhor experiência do usuário.',
+    'projects.germini.description':
+      'Plataforma de fidelidade do cliente que ajuda as empresas a construir e gerenciar programas de retenção. Desenvolvido com padrões modernos de React, Redux para gerenciamento de estado e Material-UI para design consistente. Os recursos incluem gerenciamento de campanhas, análise de clientes e rastreamento de recompensas.',
+    'projects.artExplorer.description':
+      'Uma aplicação web abrangente que permite aos usuários explorar e descobrir obras de arte do renomado Metropolitan Museum of Art em Nova York. Possui uma interface moderna, funcionalidade de busca, gerenciamento de favoritos e inclui implementação tanto no frontend quanto no backend com sistemas de cache e fila.',
   },
 };
 
