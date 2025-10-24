@@ -16,6 +16,8 @@ const poppins = Poppins({
   weight: ['400', '500', '700', '900'],
   style: ['italic', 'normal'],
   variable: '--font-poppins',
+  display: 'swap', // Improve font loading performance
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -108,12 +110,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        {/* Font Awesome for icons */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"

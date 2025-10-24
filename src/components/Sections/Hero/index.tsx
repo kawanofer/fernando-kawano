@@ -42,7 +42,10 @@ export default function Hero() {
           <h1 className="text-bold color-text text-4xl sm:text-5xl">
             <span className="block">{t('hero.greeting')}</span>
             <span className="block">
-              Fernando <strong>Kawano</strong>
+              Fernando{' '}
+              <span className="text-tertiary">
+                <strong>Kawano</strong>
+              </span>
             </span>
           </h1>
           <p
