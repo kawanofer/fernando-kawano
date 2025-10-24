@@ -12,7 +12,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={cn('p-8 pt-16 pb-16', className)} {...props}>
+    <section className={cn('p-8 pt-12 pb-12', className)} {...props}>
       {children}
     </section>
   );

@@ -52,13 +52,31 @@ export const translations = {
 
     // Contact Section
     'contact.title': 'Contact',
-    'contact.getInTouch': 'Get in Touch',
-    'contact.description':
-      'I am always interested in new opportunities, collaborations, and conversations about technology, web development, and innovative projects.',
     'contact.findMe': 'Find Me Elsewhere',
     'contact.connectWithMe': 'Connect with me on these platforms',
     'contact.gitHubDescription': 'View my code repositories and projects',
     'contact.linkedInDescription': 'Professional network and career updates.',
+    'contact.emailDescription': 'Send an email directly to me.',
+
+    // Contact Form
+    'contact.form.name': 'Name',
+    'contact.form.email': 'Email',
+    'contact.form.subject': 'Subject',
+    'contact.form.message': 'Message',
+    'contact.form.sendMeAMessage': 'Send me a message',
+    'contact.form.send': 'Send Message',
+    'contact.form.sending': 'Sending...',
+    'contact.form.success': 'Your message has been sent successfully!',
+    'contact.form.error': 'An error occurred while sending your message. Please try again later.',
+
+    'contact.form.placeholder.name': 'Your full name',
+    'contact.form.placeholder.subject': 'What is this about?',
+    'contact.form.placeholder.message': 'Your message here...',
+
+    'contact.form.name.help': 'Enter your full name. This field is required and must be less than 100 characters.',
+    'contact.form.email.help': 'Enter a valid email address where you can be reached. This field is required.',
+    'contact.form.subject.help': 'Enter a brief subject for your message. This field is optional.',
+    'contact.form.message.help': 'Press Enter or Space to submit the contact form after filling in all required fields.',
 
     // Projects Section
     'projects.title': 'Projects',
@@ -135,8 +153,28 @@ export const translations = {
     'contact.findMe': 'Encontre-me em Outros Lugares',
     'contact.connectWithMe': 'Conecte-se comigo nessas plataformas',
     'contact.gitHubDescription': 'Veja meus repositórios de código e projetos',
-    'contact.linkedInDescription':
-      'Rede profissional e atualizações de carreira.',
+    'contact.emailDescription': 'Envie um e-mail diretamente para mim',
+    'contact.linkedInDescription': 'Rede profissional e atualizações de carreira.',
+
+    // Contact Form
+    'contact.form.name': 'Nome',
+    'contact.form.email': 'Email',
+    'contact.form.subject': 'Assunto',
+    'contact.form.message': 'Mensagem',
+    'contact.form.sendMeAMessage': 'Envie uma mensagem',
+    'contact.form.send': 'Enviar Mensagem',
+    'contact.form.sending': 'Enviando...',
+    'contact.form.success': 'Sua mensagem foi enviada com sucesso!',
+    'contact.form.error': 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.',
+
+    'contact.form.placeholder.name': 'Seu nome completo',
+    'contact.form.placeholder.subject': 'Sobre o que é isso?',
+    'contact.form.placeholder.message': 'Sua mensagem aqui...',
+
+    'contact.form.name.help': 'Digite seu nome completo. Este campo é obrigatório e deve ter menos de 100 caracteres.',
+    'contact.form.email.help': 'Digite um endereço de e-mail válido onde você possa ser contatado. Este campo é obrigatório.',
+    'contact.form.subject.help': 'Digite um assunto breve para sua mensagem. Este campo é opcional.',
+    'contact.form.message.help': 'Pressione Enter ou Espaço para enviar o formulário de contato após preencher todos os campos obrigatórios.',
 
     // Projects Section
     'projects.title': 'Projetos',

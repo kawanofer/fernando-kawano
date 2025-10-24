@@ -17,9 +17,9 @@ export function middleware(request: NextRequest) {
       "base-uri 'self'",
       "form-action 'self'",
       "frame-ancestors 'none'",
-      "block-all-mixed-content",
-      "upgrade-insecure-requests",
-      "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com"
+      'block-all-mixed-content',
+      'upgrade-insecure-requests',
+      "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com",
     ].join('; '),
 
     // Prevent clickjacking attacks
@@ -42,25 +42,14 @@ export function middleware(request: NextRequest) {
       'camera=()',
       'microphone=()',
       'geolocation=()',
-      'interest-cohort=()'
-    ].join(', ')
+      'interest-cohort=()',
+    ].join(', '),
   };
 
   // Apply security headers
   Object.entries(securityHeaders).forEach(([key, value]) => {
     response.headers.set(key, value);
   });
-
-  // Rate limiting for contact form submissions
-  if (request.nextUrl.pathname === '/api/contact') {
-    const forwarded = request.headers.get('x-forwarded-for');
-    const ip = forwarded ? forwarded.split(',')[0] : request.headers.get('x-real-ip') || 'unknown';
-    
-    // Basic rate limiting (in production, use Redis or external service)
-    const rateLimitKey = `rate_limit_${ip}`;
-    // Note: This is a simple example. In production, implement proper rate limiting
-    // with Redis, Upstash, or similar service
-  }
 
   return response;
 }
@@ -76,7 +65,8 @@ export const config = {
      * - public folder
      */
     {
-      source: '/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$|.*\\.jpg$|.*\\.jpeg$|.*\\.gif$|.*\\.svg$).*)',
+      source:
+        '/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$|.*\\.jpg$|.*\\.jpeg$|.*\\.gif$|.*\\.svg$).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },

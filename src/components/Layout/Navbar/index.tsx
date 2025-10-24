@@ -63,7 +63,7 @@ export default function Navigation() {
         <div className="container mx-auto flex items-center justify-between p-2 md:p-4">
           <Link
             href="/"
-            className="focus:ring-tertiary rounded-full font-black focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            className="rounded-full font-black"
             aria-label="Fernando Kawano - Home"
           >
             <Image
@@ -88,7 +88,7 @@ export default function Navigation() {
               <Link
                 key={menu.label}
                 href={menu.href}
-                className="focus:ring-tertiary rounded-md px-2 py-1 text-zinc-400 duration-200 hover:text-white focus:text-white focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                className="rounded-md px-2 py-1 text-zinc-400 duration-200 hover:text-white"
                 role="menuitem"
                 aria-label={`Navigate to ${menu.label} section`}
               >
