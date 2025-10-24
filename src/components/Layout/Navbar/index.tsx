@@ -42,9 +42,12 @@ export default function Navigation() {
 
   useEffect(() => {
     if (!ref.current) return;
-    const observer = new IntersectionObserver(([entry]) =>
-      setIsIntersecting(entry.isIntersecting)
-    );
+    const observer = new IntersectionObserver(entries => {
+      const entry = entries[0];
+      if (entry) {
+        setIsIntersecting(entry.isIntersecting);
+      }
+    });
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);

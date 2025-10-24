@@ -5,7 +5,7 @@
 
 export const ROUTES = {
   HOME: '/',
-  WORK_EXPERIENCES: (id: string) => '/work-experiences',
+  WORK_EXPERIENCES: '/work-experiences',
   NOT_FOUND: '/404',
 } as const;
 

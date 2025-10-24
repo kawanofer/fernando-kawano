@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 
-import { FaBug, FaExclamationTriangle, FaHome, FaRedo } from 'react-icons/fa';
+import { FaBug, FaHome, FaRedo } from 'react-icons/fa';
 
 import Button from '@/components/UI/Button';
 

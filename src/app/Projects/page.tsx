@@ -4,7 +4,6 @@ import React from 'react';
 
 import { Code, GitHub, Language, OpenInNew } from '@mui/icons-material';
 import {
-  Box,
   Button,
   Card,
   CardActions,
@@ -149,7 +148,7 @@ export default function ProjectsPage() {
 
             {/* Projects List */}
             <div className="flex flex-col gap-12">
-              {projects.map((project, index) => (
+              {projects.map(project => (
                 <Card
                   key={project.title}
                   sx={{
