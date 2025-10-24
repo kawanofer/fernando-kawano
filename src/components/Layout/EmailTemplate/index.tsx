@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 interface EmailTemplateProps {
   name: string;
@@ -8,7 +8,12 @@ interface EmailTemplateProps {
 }
 
 // HTML string function for direct HTML usage - matches working API template
-export const generateEmailHTML = ({ name, email, subject, message }: EmailTemplateProps): string => {
+export const generateEmailHTML = ({
+  name,
+  email,
+  subject,
+  message,
+}: EmailTemplateProps): string => {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
       <h2 style="color: #333; border-bottom: 2px solid #4f46e5; padding-bottom: 10px;">

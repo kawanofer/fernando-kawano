@@ -23,19 +23,21 @@ export default function Contact() {
       url: 'https://github.com/kawanofer',
       icon: FaGithub,
       description: t('contact.gitHubDescription'),
-    }, {
+    },
+    {
       name: 'LinkedIn',
       handle: 'fernandokawano',
       url: 'https://www.linkedin.com/in/fernandokawano/',
       icon: FaLinkedin,
       description: t('contact.linkedInDescription'),
-    }, {
+    },
+    {
       name: 'Email',
       handle: 'kawano.fer@gmail.com',
       url: 'mailto:kawano.fer@gmail.com',
       icon: HiOutlineExternalLink,
       description: t('contact.emailDescription'),
-    }
+    },
   ];
 
   return (
@@ -64,7 +66,7 @@ export default function Contact() {
                   <div key={social.name} className="group w-full">
                     <Link
                       aria-label={`Visit ${social.name} profile - ${social.description} (opens in new tab)`}
-                      className="bg-background block border border-gray-200 duration-300 hover:bg-background-2 hover:shadow-lg p-4 rounded-lg shadow-md sm:p-4 transition-all w-full"
+                      className="bg-background hover:bg-background-2 block w-full rounded-lg border border-gray-200 p-4 shadow-md transition-all duration-300 hover:shadow-lg sm:p-4"
                       href={social.url}
                       rel="noopener noreferrer"
                       target="_blank"

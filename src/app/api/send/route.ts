@@ -1,6 +1,8 @@
-import { generateEmailHTML } from '@/components/Layout/EmailTemplate';
 import { NextRequest, NextResponse } from 'next/server';
+
 import { Resend } from 'resend';
+
+import { generateEmailHTML } from '@/components/Layout/EmailTemplate';
 
 interface ContactFormData {
   name: string;
@@ -10,7 +12,6 @@ interface ContactFormData {
 }
 
 export async function POST(request: NextRequest) {
-
   if (!process.env.RESEND_API_KEY) {
     console.error('RESEND_API_KEY not found');
     return NextResponse.json(
@@ -37,7 +38,10 @@ export async function POST(request: NextRequest) {
 
     // Validate required fields
     if (!name.trim() || !message.trim()) {
-      console.log('❌ Missing required fields:', { name: !!name.trim(), message: !!message.trim() });
+      console.log('❌ Missing required fields:', {
+        name: !!name.trim(),
+        message: !!message.trim(),
+      });
       return NextResponse.json(
         { error: 'Name and message are required' },
         { status: 400 }
