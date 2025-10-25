@@ -75,6 +75,8 @@ export default function Navigation() {
               width={50}
               height={50}
               alt="Fernando Kawano logo - Japanese kanji KAWA"
+              priority={true} // Navigation logo should be priority
+              sizes="50px"
             />
           </Link>
 

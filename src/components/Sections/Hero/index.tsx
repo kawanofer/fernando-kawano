@@ -78,12 +78,18 @@ export default function Hero() {
         <Image
           alt="Decorative Japanese kanji symbol representing Fernando Kawano"
           className="rounded-full bg-white"
-          priority={false}
+          priority={true} // Above-the-fold image should be priority
           src={KawnaoKanji}
-          width={0}
-          height={0}
-          sizes="400vw"
-          style={{ width: '100%', height: 'auto' }}
+          width={400}
+          height={400}
+          sizes="(max-width: 768px) 0px, (max-width: 1024px) 300px, 400px"
+          style={{
+            width: '100%',
+            height: 'auto',
+            maxWidth: '400px',
+          }}
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmOWY5ZjkiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg=="
         />
       </div>
     </Section>

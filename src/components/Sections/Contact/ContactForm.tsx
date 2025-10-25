@@ -86,11 +86,6 @@ export default function ContactForm() {
   const SUBMIT_COOLDOWN = 5000; // 5 seconds
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log('🚀 Form submission started:', {
-      name: data.name,
-      email: data.email,
-    });
-
     // Rate limiting check
     const now = Date.now();
     if (now - lastSubmitTime < SUBMIT_COOLDOWN) {
@@ -128,12 +123,11 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (response.ok) {
-        console.log('✅ Email sent successfully!');
         setSubmitStatus('success');
         setLastSubmitTime(Date.now());
         reset();
       } else {
-        console.log('❌ Server error:', result.error);
+        console.error('❌ Server error:', result.error);
         setSubmitStatus('error');
         setErrorMessage(result.error || `Server error: ${response.status}`);
       }

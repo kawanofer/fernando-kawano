@@ -8,6 +8,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 import { SkipLink } from '@/components/Accessibility';
 import ClientLayout from '@/components/Layout/ClientLayout';
+import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 
 import './globals.css';
 
@@ -78,14 +79,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Fernando Kawano - Frontend Engineer Portfolio',
-    description:
-      'Frontend Engineer specializing in React, TypeScript, and modern web technologies.',
-    images: ['/twitter-image.png'],
-    creator: '@kawanofer',
-  },
   robots: {
     index: true,
     follow: true,
@@ -107,6 +100,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#4f46e5" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Fernando Kawano" />
+
         {/* Font Awesome for icons */}
         <link
           rel="stylesheet"
@@ -128,6 +128,7 @@ export default function RootLayout({
             >
               {children}
               <SpeedInsights />
+              <ServiceWorkerRegistration />
             </main>
           </AppRouterCacheProvider>
         </ClientLayout>

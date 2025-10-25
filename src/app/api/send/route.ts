@@ -24,12 +24,10 @@ export async function POST(request: NextRequest) {
     const body: ContactFormData = await request.json();
     const { name, email, subject, message } = body;
 
-    console.log('📧 Processing email request for:', { name, email, subject });
-
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      console.log('❌ Invalid email format:', email);
+      console.error('❌ Invalid email format:', email);
       return NextResponse.json(
         { error: 'Please enter a valid email address' },
         { status: 400 }
@@ -38,7 +36,7 @@ export async function POST(request: NextRequest) {
 
     // Validate required fields
     if (!name.trim() || !message.trim()) {
-      console.log('❌ Missing required fields:', {
+      console.error('❌ Missing required fields:', {
         name: !!name.trim(),
         message: !!message.trim(),
       });
@@ -49,12 +47,7 @@ export async function POST(request: NextRequest) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
-
-    console.log('📧 Generating email HTML using EmailTemplate component...');
     const emailHTML = generateEmailHTML({ name, email, subject, message });
-    console.log('✅ Email HTML generated successfully');
-
-    console.log('📤 Sending email via Resend...');
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev', // Use verified domain
       to: 'kawano.fer@gmail.com',
@@ -68,7 +61,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
-    console.log('✅ Email sent successfully:', data);
     return NextResponse.json(
       {
         success: true,
@@ -91,8 +83,6 @@ export async function POST(request: NextRequest) {
 
 // Keep the GET method for testing
 export async function GET() {
-  console.log('API endpoint called');
-
   if (!process.env.RESEND_API_KEY) {
     console.error('RESEND_API_KEY not found');
     return NextResponse.json(
@@ -104,7 +94,6 @@ export async function GET() {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
-    console.log('Attempting to send email...');
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: 'kawano.fer@gmail.com',
@@ -117,7 +106,6 @@ export async function GET() {
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
-    console.log('Email sent successfully:', data);
     return NextResponse.json(
       {
         success: true,

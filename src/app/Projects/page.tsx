@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import dynamic from 'next/dynamic';
+
 import { Code, GitHub, Language, OpenInNew } from '@mui/icons-material';
 import {
   Button,
@@ -13,12 +15,24 @@ import {
 } from '@mui/material';
 
 import Layout from '@/components/Layout';
-import Carousel from '@/components/Layout/Carousel';
 import { StructuredData } from '@/components/SEO';
 import { Title } from '@/components/UI';
 import { Section } from '@/components/UI/Section';
 
 import { useTranslation } from '@/libs/translations';
+
+// Dynamic import for Carousel component (heavy with image processing)
+const Carousel = dynamic(() => import('@/components/Layout/Carousel'), {
+  loading: () => (
+    <div className="flex h-64 items-center justify-center rounded-lg bg-gray-100">
+      <div className="text-center">
+        <div className="border-primary mx-auto h-8 w-8 animate-spin rounded-full border-b-2"></div>
+        <p className="mt-2 text-sm text-gray-600">Loading images...</p>
+      </div>
+    </div>
+  ),
+  ssr: false, // Disable SSR for image carousel for better performance
+});
 
 interface ProjectProps {
   category: 'Front-end' | 'Fullstack';
@@ -116,7 +130,7 @@ export default function ProjectsPage() {
     name: 'Fernando Kawano - Projects Portfolio',
     description:
       'Portfolio of frontend development projects by Fernando Kawano including React applications, TypeScript implementations, and modern web solutions.',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://fernando-kawano.vercel.app'}/Projects`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://fernando-kawano-ivory.vercel.app/'}/Projects`,
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: projects.map((project, index) => ({
