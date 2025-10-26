@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { FaBug, FaHome, FaRedo } from 'react-icons/fa';
 
@@ -12,16 +12,6 @@ interface ErrorProps {
 }
 
 export default function Error({ error, reset }: ErrorProps) {
-  useEffect(() => {
-    // Log the error to console and monitoring service
-    console.error('Application Error:', error);
-
-    // Send to monitoring service in production
-    if (process.env.NODE_ENV === 'production') {
-      // Example: reportError(error);
-    }
-  }, [error]);
-
   const handleGoHome = () => {
     window.location.href = '/';
   };

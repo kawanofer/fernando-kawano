@@ -103,6 +103,9 @@ export const translations = {
       'Customer loyalty platform helping companies build and manage retention programs. Developed with modern React patterns, Redux for state management, and Material-UI for consistent design. Features include campaign management, customer analytics, and reward tracking.',
     'projects.artExplorer.description':
       'A comprehensive web application that allows users to explore and discover artworks from the renowned Metropolitan Museum of Art in New York. Features modern UI, search functionality, favorites management, and includes both frontend and backend implementation with caching and queue systems.',
+
+    // Footer
+    'footer.rights': 'All rights reserved.',
   },
   pt: {
     // Navigation
@@ -207,6 +210,9 @@ export const translations = {
       'Plataforma de fidelidade do cliente que ajuda as empresas a construir e gerenciar programas de retenção. Desenvolvido com padrões modernos de React, Redux para gerenciamento de estado e Material-UI para design consistente. Os recursos incluem gerenciamento de campanhas, análise de clientes e rastreamento de recompensas.',
     'projects.artExplorer.description':
       'Uma aplicação web abrangente que permite aos usuários explorar e descobrir obras de arte do renomado Metropolitan Museum of Art em Nova York. Possui uma interface moderna, funcionalidade de busca, gerenciamento de favoritos e inclui implementação tanto no frontend quanto no backend com sistemas de cache e fila.',
+
+    // Footer
+    'footer.rights': 'Todos os direitos reservados.',
   },
 };
 
