@@ -9,8 +9,8 @@ export function middleware() {
     // Content Security Policy - Strict policy for production security
     'Content-Security-Policy': [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://cdnjs.cloudflare.com https://fonts.googleapis.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com",
+      "script-src 'self' https://vercel.live https://va.vercel-scripts.com https://cdnjs.cloudflare.com https://fonts.googleapis.com",
+      "style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com",
       "img-src 'self' data: blob: https: http:",
       "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
       "object-src 'none'",

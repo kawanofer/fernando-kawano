@@ -81,35 +81,7 @@ export default function ContactForm() {
     }
   }, [errors]);
 
-  // Rate limiting - client-side implementation
-  const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
-  const SUBMIT_COOLDOWN = 5000; // 5 seconds
-
   const onSubmit = async (data: ContactFormData) => {
-    // Rate limiting check
-    const now = Date.now();
-    if (now - lastSubmitTime < SUBMIT_COOLDOWN) {
-      const remainingTime = Math.ceil(
-        (SUBMIT_COOLDOWN - (now - lastSubmitTime)) / 1000
-      );
-      setSubmitStatus('error');
-      setErrorMessage(
-        `Please wait ${remainingTime} seconds before submitting again.`
-      );
-      return;
-    }
-
-    setSubmitStatus('submitting');
-    setErrorMessage('');
-
-    // Input sanitization for security
-    const sanitizedData = {
-      name: data.name.trim(),
-      email: data.email.trim().toLowerCase(),
-      subject: data.subject?.trim() || '',
-      message: data.message.trim(),
-    };
-
     try {
       const response = await fetch('/api/send', {
         method: 'POST',
@@ -117,14 +89,13 @@ export default function ContactForm() {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(sanitizedData),
+        body: JSON.stringify(data),
       });
 
       const result = await response.json();
 
       if (response.ok) {
         setSubmitStatus('success');
-        setLastSubmitTime(Date.now());
         reset();
       } else {
         console.error('❌ Server error:', result.error);

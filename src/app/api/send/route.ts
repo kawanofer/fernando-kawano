@@ -24,35 +24,29 @@ export async function POST(request: NextRequest) {
     const body: ContactFormData = await request.json();
     const { name, email, subject, message } = body;
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      console.error('❌ Invalid email format:', email);
-      return NextResponse.json(
-        { error: 'Please enter a valid email address' },
-        { status: 400 }
-      );
-    }
+    // Basic input sanitization (trust Yup validation for format checks)
+    const sanitizedData = {
+      name: name?.trim() || '',
+      email: email?.trim().toLowerCase() || '',
+      subject: subject?.trim() || '',
+      message: message?.trim() || '',
+    };
 
-    // Validate required fields
-    if (!name.trim() || !message.trim()) {
-      console.error('❌ Missing required fields:', {
-        name: !!name.trim(),
-        message: !!message.trim(),
-      });
+    // Minimal validation - just ensure required fields are present
+    if (!sanitizedData.name || !sanitizedData.email || !sanitizedData.message) {
       return NextResponse.json(
-        { error: 'Name and message are required' },
+        { error: 'Name, email, and message are required' },
         { status: 400 }
       );
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const emailHTML = generateEmailHTML({ name, email, subject, message });
+    const emailHTML = generateEmailHTML(sanitizedData);
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev', // Use verified domain
       to: 'kawano.fer@gmail.com',
-      replyTo: email, // Set reply-to to sender's email
-      subject: `Portfolio Contact: ${subject || 'No subject'}`,
+      replyTo: sanitizedData.email, // Set reply-to to sender's email
+      subject: `Portfolio Contact: ${sanitizedData.subject || 'No subject'}`,
       html: emailHTML, // Use html property, not react
     });
 
