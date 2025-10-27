@@ -12,7 +12,7 @@ export function middleware() {
     // Content Security Policy - More permissive for development, strict for production
     'Content-Security-Policy': [
       "default-src 'self'",
-      isDevelopment 
+      isDevelopment
         ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com https://cdnjs.cloudflare.com https://fonts.googleapis.com"
         : "script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://cdnjs.cloudflare.com https://fonts.googleapis.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com",
@@ -22,7 +22,9 @@ export function middleware() {
       "base-uri 'self'",
       "form-action 'self'",
       "frame-ancestors 'none'",
-      ...(isDevelopment ? [] : ['block-all-mixed-content', 'upgrade-insecure-requests']),
+      ...(isDevelopment
+        ? []
+        : ['block-all-mixed-content', 'upgrade-insecure-requests']),
       "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com",
     ].join('; '),
 
