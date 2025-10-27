@@ -10,7 +10,7 @@ export function middleware() {
     'Content-Security-Policy': [
       "default-src 'self'",
       "script-src 'self' https://vercel.live https://va.vercel-scripts.com https://cdnjs.cloudflare.com https://fonts.googleapis.com",
-      "style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com",
       "img-src 'self' data: blob: https: http:",
       "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
       "object-src 'none'",
@@ -19,7 +19,7 @@ export function middleware() {
       "frame-ancestors 'none'",
       'block-all-mixed-content',
       'upgrade-insecure-requests',
-      "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com",
+      "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com",
     ].join('; '),
 
     // Prevent clickjacking attacks
