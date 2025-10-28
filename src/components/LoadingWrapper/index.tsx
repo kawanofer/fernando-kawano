@@ -2,7 +2,6 @@
 
 import React, { ReactNode, Suspense } from 'react';
 
-import SectionErrorBoundary from '../ErrorBoundary/SectionErrorBoundary';
 import LoadingSpinner from '../Loading/LoadingSpinner';
 
 interface LoadingWrapperProps {
@@ -76,30 +75,28 @@ export const LoadingWrapper: React.FC<LoadingWrapperProps> = ({
     );
   }
 
-  // Normal state: wrap in error boundary and suspense
+  // Normal state: just Suspense fallback
   return (
-    <SectionErrorBoundary sectionName={sectionName}>
-      <Suspense
-        fallback={
-          <div
-            className={`loading-state ${className}`}
-            role="status"
-            aria-label={ariaLabel || 'Content is loading'}
-            aria-live="polite"
-          >
-            {loadingComponent || <LoadingSpinner size="lg" />}
-          </div>
-        }
-      >
+    <Suspense
+      fallback={
         <div
-          className={className}
-          aria-label={ariaLabel}
-          aria-describedby={ariaDescribedby}
+          className={`loading-state ${className}`}
+          role="status"
+          aria-label={ariaLabel || 'Content is loading'}
+          aria-live="polite"
         >
-          {children}
+          {loadingComponent || <LoadingSpinner size="lg" />}
         </div>
-      </Suspense>
-    </SectionErrorBoundary>
+      }
+    >
+      <div
+        className={className}
+        aria-label={ariaLabel}
+        aria-describedby={ariaDescribedby}
+      >
+        {children}
+      </div>
+    </Suspense>
   );
 };
 

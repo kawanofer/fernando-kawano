@@ -7,6 +7,8 @@ import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+import { useTranslation } from '@/libs/translations';
+
 interface CarouselProps {
   images?: string[];
 }
@@ -21,6 +23,7 @@ export default function Carousel({ images = [] }: CarouselProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
+  const { t } = useTranslation();
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -60,7 +63,7 @@ export default function Carousel({ images = [] }: CarouselProps) {
                 className="relative min-w-0 flex-[0_0_100%]"
                 key={`${imageUrl}-${index}`}
               >
-                <div className="relative h-52 w-full bg-zinc-100 sm:h-[38rem]">
+                <div className="relative w-full bg-zinc-100 sm:h-[31rem]">
                   <Image
                     alt={`Project image ${index + 1}`}
                     blurDataURL={generateBlurDataURL()}
@@ -87,7 +90,7 @@ export default function Carousel({ images = [] }: CarouselProps) {
             type="button"
           >
             <FaChevronLeft className="h-3 w-3" />
-            <span className="sr-only">Previous image</span>
+            <span className="sr-only">{t('carousel.previous')}</span>
           </button>
 
           <button
@@ -97,7 +100,7 @@ export default function Carousel({ images = [] }: CarouselProps) {
             type="button"
           >
             <FaChevronRight className="h-3 w-3" />
-            <span className="sr-only">Next image</span>
+            <span className="sr-only">{t('carousel.next')}</span>
           </button>
         </>
       )}
@@ -108,7 +111,7 @@ export default function Carousel({ images = [] }: CarouselProps) {
           {images.map((_, index) => (
             <button
               key={index}
-              className={`h-0.5 w-0.5 rounded-full transition-colors ${
+              className={`h-0.5 min-h-5 w-0.5 min-w-5 rounded-full transition-colors ${
                 index === selectedIndex
                   ? 'bg-blue-500'
                   : 'bg-gray-300 hover:bg-gray-400'
@@ -116,7 +119,9 @@ export default function Carousel({ images = [] }: CarouselProps) {
               onClick={() => emblaApi?.scrollTo(index)}
               type="button"
             >
-              <span className="sr-only">Go to image {index + 1}</span>
+              <span className="sr-only">
+                {t('carousel.goto')} {index + 1}
+              </span>
             </button>
           ))}
         </div>

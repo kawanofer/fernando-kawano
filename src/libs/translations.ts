@@ -103,6 +103,14 @@ export const translations = {
       'Customer loyalty platform helping companies build and manage retention programs. Developed with modern React patterns, Redux for state management, and Material-UI for consistent design. Features include campaign management, customer analytics, and reward tracking.',
     'projects.artExplorer.description':
       'A comprehensive web application that allows users to explore and discover artworks from the renowned Metropolitan Museum of Art in New York. Features modern UI, search functionality, favorites management, and includes both frontend and backend implementation with caching and queue systems.',
+    'projects.button.visit.website': 'Visit Website',
+    'projects.portfolio.description':
+      'A personal portfolio showcasing projects developed by Fernando Kawano, highlighting his web design and development skills. The application is built with Next.js, React, and TypeScript, utilizing Material-UI and Tailwind CSS for a responsive and modern design.',
+
+    // Carousel
+    'carousel.previous': 'Previous image',
+    'carousel.next': 'Next image',
+    'carousel.goto': 'Go to image',
 
     // Footer
     'footer.rights': 'All rights reserved.',
@@ -202,6 +210,7 @@ export const translations = {
     'projects.more.description':
       'Confira meu perfil no GitHub para mais projetos e contribuições.',
     'projects.visitGithub': 'Visitar GitHub',
+    'projects.button.visit.website': 'Visitar Website',
 
     // Project Descriptions
     'projects.fluig.description':
@@ -210,6 +219,13 @@ export const translations = {
       'Plataforma de fidelidade do cliente que ajuda as empresas a construir e gerenciar programas de retenção. Desenvolvido com padrões modernos de React, Redux para gerenciamento de estado e Material-UI para design consistente. Os recursos incluem gerenciamento de campanhas, análise de clientes e rastreamento de recompensas.',
     'projects.artExplorer.description':
       'Uma aplicação web abrangente que permite aos usuários explorar e descobrir obras de arte do renomado Metropolitan Museum of Art em Nova York. Possui uma interface moderna, funcionalidade de busca, gerenciamento de favoritos e inclui implementação tanto no frontend quanto no backend com sistemas de cache e fila.',
+    'projects.portfolio.description':
+      'Um portfólio pessoal que exibe projetos desenvolvidos por Fernando Kawano, destacando habilidades em design e desenvolvimento web. A aplicação é construída com Next.js, React e TypeScript, utilizando Material-UI e Tailwind CSS para um design responsivo e moderno.',
+
+    // Carousel
+    'carousel.previous': 'Imagem anterior',
+    'carousel.next': 'Próxima imagem',
+    'carousel.goto': 'Ir para a imagem',
 
     // Footer
     'footer.rights': 'Todos os direitos reservados.',

@@ -8,7 +8,6 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 import { SkipLink } from '@/components/Accessibility';
 import ClientLayout from '@/components/Layout/ClientLayout';
-import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 
 import './globals.css';
 
@@ -128,7 +127,6 @@ export default function RootLayout({
             >
               {children}
               <SpeedInsights />
-              <ServiceWorkerRegistration />
             </main>
           </AppRouterCacheProvider>
         </ClientLayout>

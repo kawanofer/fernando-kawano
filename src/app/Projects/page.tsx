@@ -55,13 +55,13 @@ export default function ProjectsPage() {
       title: 'TOTVS Fluig',
       description: t('projects.fluig.description'),
       technologies: [
-        'JavaScript',
-        'ES6+',
-        'Custom Elements',
-        'MustacheJs',
-        'KendoUI',
         'CSS3',
+        'Custom Elements',
+        'ES6+',
         'HTML5',
+        'JavaScript',
+        'KendoUI',
+        'MustacheJs',
         'SASS',
       ],
       images: [
@@ -73,17 +73,18 @@ export default function ProjectsPage() {
       category: 'Front-end',
     },
     {
-      title: 'Germini Loyalty Platform',
+      title: 'Germini Platform – Agro & Retail Loyalty Management',
       description: t('projects.germini.description'),
       technologies: [
-        'React',
-        'Material-UI',
-        'Redux-saga',
-        'Context API',
-        'REST API',
         'Chart.js',
+        'Context API',
+        'i18next',
+        'Material-UI',
+        'React',
+        'Redux-thunk',
+        'REST API',
       ],
-      images: [],
+      images: ['/projects/germini1.avif', '/projects/germini2.avif'],
       website: 'https://germini.com.br/',
       category: 'Front-end',
     },
@@ -96,20 +97,34 @@ export default function ProjectsPage() {
         '/projects/met_museum3.avif',
       ],
       technologies: [
-        'React',
-        'TypeScript',
-        'Next.js',
-        'Jest',
-        'RTL',
-        'Material-UI',
-        'Node.js',
         'Express',
-        'Redis',
+        'Jest',
+        'Material-UI',
         'MongoDB',
+        'Next.js',
+        'Node.js',
+        'React',
+        'RTL',
+        'TypeScript',
       ],
       githubProjectFrontend: 'https://github.com/kawanofer/art-explorer-react',
       githubProjectBackend: 'https://github.com/kawanofer/met-museum-backend',
       category: 'Fullstack',
+    },
+    {
+      title: 'Personal Portfolio',
+      description: t('projects.portfolio.description'),
+      images: ['/projects/portfolio1.avif', '/projects/portfolio2.avif'],
+      technologies: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'Material-UI',
+        'Tailwind CSS',
+        'i18next',
+      ],
+      githubProjectFrontend: 'https://github.com/kawanofer/fernando-kawano',
+      category: 'Front-end',
     },
   ];
 
@@ -251,9 +266,12 @@ export default function ProjectsPage() {
                   <CardActions sx={{ p: 4, pt: 0, gap: 2 }}>
                     <div className="flex w-full flex-wrap gap-3">
                       {project.website && (
-                        <Tooltip title="Visit Live Website" arrow>
+                        <Tooltip
+                          title={t('projects.button.visit.website')}
+                          arrow
+                        >
                           <Button
-                            size="medium"
+                            size="small"
                             startIcon={<Language />}
                             href={project.website}
                             target="_blank"
@@ -264,7 +282,7 @@ export default function ProjectsPage() {
                               fontWeight: 'medium',
                             }}
                           >
-                            Live Website
+                            {t('projects.button.visit.website')}
                           </Button>
                         </Tooltip>
                       )}
