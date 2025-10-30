@@ -54,7 +54,7 @@ export const translations = {
     'contact.title': 'Contact',
     'contact.findMe': 'Find Me Elsewhere',
     'contact.connectWithMe': 'Connect with me on these platforms',
-    'contact.gitHubDescription': 'View my code repositories and projects',
+    'contact.gitHubDescription': 'View my code repositories',
     'contact.linkedInDescription': 'Professional network and career updates.',
     'contact.emailDescription': 'Send an email directly to me.',
 
@@ -64,9 +64,11 @@ export const translations = {
     'contact.form.subject': 'Subject',
     'contact.form.message': 'Message',
     'contact.form.sendMeAMessage': 'Send me a message',
+    'contact.form.fields': 'Contact form fields',
     'contact.form.send': 'Send Message',
     'contact.form.sending': 'Sending...',
-    'contact.form.success': 'Your message has been sent successfully!',
+    'contact.form.success':
+      'Thank you! Your message has been sent successfully!',
     'contact.form.error':
       'An error occurred while sending your message. Please try again later.',
 
@@ -83,6 +85,11 @@ export const translations = {
     'contact.form.message.help':
       'Press Enter or Space to submit the contact form after filling in all required fields.',
 
+    'contact.form.has': 'Este formulário tem ',
+    'contact.form.validation.errors': 'erros de validação',
+    'contact.form.instructions':
+      'Os campos marcados com um asterisco (*) são obrigatórios. Use Tab para navegar entre os campos e Enter para enviar.',
+
     // Projects Section
     'projects.title': 'Projects',
     'projects.subtitle':
@@ -95,6 +102,7 @@ export const translations = {
     'projects.more.description':
       'Check out my GitHub profile for more projects and contributions.',
     'projects.visitGithub': 'Visit GitHub',
+    'projects.loading.images': 'Loading images...',
 
     // Project Descriptions
     'projects.fluig.description':
@@ -168,7 +176,7 @@ export const translations = {
       'Estou sempre interessado em novas oportunidades, colaborações e conversas sobre tecnologia, desenvolvimento web e projetos inovadores.',
     'contact.findMe': 'Encontre-me em Outros Lugares',
     'contact.connectWithMe': 'Conecte-se comigo nessas plataformas',
-    'contact.gitHubDescription': 'Veja meus repositórios de código e projetos',
+    'contact.gitHubDescription': 'Veja meus repositórios de código',
     'contact.emailDescription': 'Envie um e-mail diretamente para mim',
     'contact.linkedInDescription':
       'Rede profissional e atualizações de carreira.',
@@ -179,9 +187,10 @@ export const translations = {
     'contact.form.subject': 'Assunto',
     'contact.form.message': 'Mensagem',
     'contact.form.sendMeAMessage': 'Envie uma mensagem',
+    'contact.form.fields': 'Campos do formulário de contato',
     'contact.form.send': 'Enviar Mensagem',
     'contact.form.sending': 'Enviando...',
-    'contact.form.success': 'Sua mensagem foi enviada com sucesso!',
+    'contact.form.success': 'Obrigado! Sua mensagem foi enviada com sucesso!',
     'contact.form.error':
       'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.',
 
@@ -198,6 +207,11 @@ export const translations = {
     'contact.form.message.help':
       'Pressione Enter ou Espaço para enviar o formulário de contato após preencher todos os campos obrigatórios.',
 
+    'contact.form.has': 'Este formulário tem ',
+    'contact.form.validation.errors': 'erros de validação',
+    'contact.form.instructions':
+      'Os campos marcados com um asterisco (*) são obrigatórios. Use Tab para navegar entre os campos e Enter para enviar.',
+
     // Projects Section
     'projects.title': 'Projetos',
     'projects.subtitle':
@@ -211,6 +225,7 @@ export const translations = {
       'Confira meu perfil no GitHub para mais projetos e contribuições.',
     'projects.visitGithub': 'Visitar GitHub',
     'projects.button.visit.website': 'Visitar Website',
+    'projects.loading.images': 'Carregando imagens...',
 
     // Project Descriptions
     'projects.fluig.description':

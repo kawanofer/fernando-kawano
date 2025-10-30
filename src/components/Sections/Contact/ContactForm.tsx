@@ -140,12 +140,11 @@ export default function ContactForm() {
         {/* Form instructions for screen readers */}
         <div className="sr-only" aria-live="polite">
           <p>
-            This contact form has{' '}
+            {t('contact.form.has')}{' '}
             {Object.keys(errors).length > 0
-              ? `${Object.keys(errors).length} validation errors. `
+              ? `${Object.keys(errors).length} ${t('contact.form.validation.errors')}. `
               : ''}
-            Fields marked with an asterisk (*) are required. Use Tab to navigate
-            between fields and Enter to submit.
+            {t('contact.form.instructions')}
           </p>
         </div>
 
@@ -172,7 +171,7 @@ export default function ContactForm() {
                 />
               </svg>
               <p className="font-medium text-green-800">
-                Thank you! Your message has been sent successfully.
+                {t('contact.form.success')}
               </p>
             </div>
           </div>
@@ -218,7 +217,7 @@ export default function ContactForm() {
             disabled={submitStatus === 'submitting'}
             className="space-y-6"
           >
-            <legend className="sr-only">Contact form fields</legend>
+            <legend className="sr-only">{t('contact.form.fields')}</legend>
 
             {/* Name Field */}
             <div>

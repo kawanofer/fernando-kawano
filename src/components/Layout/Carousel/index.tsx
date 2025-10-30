@@ -50,28 +50,28 @@ export default function Carousel({ images = [] }: CarouselProps) {
   }, [emblaApi]);
 
   return (
-    <div className="relative mb-4 w-full">
+    <div className="relative mb-4 w-full max-w-full">
       <div
         aria-live="polite"
         className="w-full overflow-hidden rounded-lg"
         ref={emblaRef}
       >
-        <div className="flex">
+        <div className="flex touch-pan-x select-none">
           {images.length > 0 &&
             images.map((imageUrl, index) => (
               <div
-                className="relative min-w-0 flex-[0_0_100%]"
+                className="relative min-w-0 flex-[0_0_100%] px-1 sm:px-2"
                 key={`${imageUrl}-${index}`}
               >
-                <div className="relative w-full bg-zinc-100 sm:h-[31rem]">
+                <div className="xs:h-[19rem] relative w-full bg-zinc-100 sm:h-[31rem] md:h-[19rem] lg:h-[35rem]">
                   <Image
                     alt={`Project image ${index + 1}`}
                     blurDataURL={generateBlurDataURL()}
-                    className="h-full w-full object-contain"
-                    fill
+                    className="h-full w-full rounded-md object-contain"
+                    width={1893}
+                    height={852}
                     placeholder="blur"
                     priority={index === 0}
-                    sizes="100vw"
                     src={imageUrl}
                   />
                 </div>
@@ -84,22 +84,24 @@ export default function Carousel({ images = [] }: CarouselProps) {
       {images.length > 1 && (
         <>
           <button
-            className="absolute top-1/2 left-2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/80 text-gray-600 shadow-md hover:bg-white hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="hover:bg-tertiary absolute top-1/2 left-2 z-10 ml-3 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/80 text-gray-600 shadow-md hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={!canScrollPrev}
             onClick={scrollPrev}
             type="button"
+            aria-label={t('carousel.previous')}
           >
-            <FaChevronLeft className="h-3 w-3" />
+            <FaChevronLeft className="h-4 w-4 sm:h-3 sm:w-3" />
             <span className="sr-only">{t('carousel.previous')}</span>
           </button>
 
           <button
-            className="absolute top-1/2 right-2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/80 text-gray-600 shadow-md hover:bg-white hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="hover:bg-tertiary absolute top-1/2 right-2 z-10 mr-3 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white/80 text-gray-600 shadow-md hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={!canScrollNext}
             onClick={scrollNext}
             type="button"
+            aria-label={t('carousel.next')}
           >
-            <FaChevronRight className="h-3 w-3" />
+            <FaChevronRight className="h-4 w-4 sm:h-3 sm:w-3" />
             <span className="sr-only">{t('carousel.next')}</span>
           </button>
         </>
@@ -107,17 +109,19 @@ export default function Carousel({ images = [] }: CarouselProps) {
 
       {/* Dots indicator - only show if more than one image */}
       {images.length > 1 && (
-        <div className="mt-6 flex justify-center gap-1">
+        <div className="mt-4 flex justify-center gap-2 sm:mt-6">
           {images.map((_, index) => (
             <button
               key={index}
-              className={`h-0.5 min-h-5 w-0.5 min-w-5 rounded-full transition-colors ${
+              style={{ width: 16, height: 16, minWidth: 16, minHeight: 16 }}
+              className={`rounded-full transition-colors duration-200 focus:ring-2 focus:ring-blue-400 focus:outline-none ${
                 index === selectedIndex
-                  ? 'bg-blue-500'
+                  ? 'scale-110 bg-blue-500'
                   : 'bg-gray-300 hover:bg-gray-400'
               }`}
               onClick={() => emblaApi?.scrollTo(index)}
               type="button"
+              aria-label={`${t('carousel.goto')} ${index + 1}`}
             >
               <span className="sr-only">
                 {t('carousel.goto')} {index + 1}
