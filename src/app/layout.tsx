@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { Poppins } from 'next/font/google';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
@@ -131,6 +132,7 @@ export default function RootLayout({
           </AppRouterCacheProvider>
         </ClientLayout>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
     </html>
   );
 }

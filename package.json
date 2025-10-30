@@ -27,6 +27,7 @@
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "@mui/material-nextjs": "^6.1.6",
+    "@next/third-parties": "^16.0.1",
     "@vercel/speed-insights": "^1.0.10",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
