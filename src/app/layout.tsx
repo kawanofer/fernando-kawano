@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
@@ -127,6 +128,7 @@ export default function RootLayout({
               role="main"
             >
               {children}
+              <Analytics />
               <SpeedInsights />
             </main>
           </AppRouterCacheProvider>
