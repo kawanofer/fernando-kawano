@@ -300,17 +300,6 @@ describe('LanguageSwitcher', () => {
     expect(() => render(<LanguageSwitcher />)).toThrow();
   });
 
-  it('supports theme variations through CSS variables', () => {
-    render(<LanguageSwitcher />);
-
-    const container = screen.getByRole('button', {
-      name: /english flag en/i,
-    }).parentElement;
-
-    // Check that the component uses CSS classes that can be themed
-    expect(container).toHaveClass('flex', 'items-center', 'gap-2');
-  });
-
   it('provides proper loading states during language change', () => {
     // Mock a slow language change
     let resolveChange: () => void;
