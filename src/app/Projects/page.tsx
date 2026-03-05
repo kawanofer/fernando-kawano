@@ -35,7 +35,7 @@ const Carousel = dynamic(() => import('@/components/Layout/Carousel'), {
 });
 
 interface ProjectProps {
-  category: 'Front-end' | 'Fullstack';
+  category: 'Front-end' | 'Fullstack' | 'Mobile';
   description: string;
   githubProjectBackend?: string;
   githubProjectFrontend?: string;
@@ -51,6 +51,24 @@ export default function ProjectsPage() {
   const { t } = useTranslation();
 
   const projects: ProjectProps[] = [
+    {
+      title: 'App Swap to Delete',
+      description: t('projects.appSwap.description'),
+      technologies: [
+        'Expo',
+        'Expo Router',
+        'React Native',
+        'React Native Gesture Handler',
+        'React Native Reanimated',
+        'TypeScript',
+      ],
+      images: [
+        '/projects/swap_to_delete1.avif',
+        '/projects/swap_to_delete2.avif',
+      ],
+      githubUrl: 'https://github.com/kawanofer/swap-to-delete',
+      category: 'Mobile',
+    },
     {
       title: 'TOTVS Fluig',
       description: t('projects.fluig.description'),
@@ -134,6 +152,8 @@ export default function ProjectsPage() {
         return 'primary';
       case 'Fullstack':
         return 'success';
+      case 'Mobile':
+        return 'warning';
       default:
         return 'default';
     }

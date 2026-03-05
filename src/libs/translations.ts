@@ -105,6 +105,8 @@ export const translations = {
     'projects.loading.images': 'Loading images...',
 
     // Project Descriptions
+    'projects.appSwap.description':
+      'A minimalist Android app for cleaning up media galleries using swipe gestures. Swipe left to permanently delete a photo or video, swipe right to keep it — no hesitation, no folders, no clutter. Features 60fps animations powered by React Native Reanimated, paginated loading for large galleries, media filtering by type, and silent deletion on Android 11+.',
     'projects.fluig.description':
       'Enterprise productivity & collaboration platform developed by TOTVS, unifying systems, people and processes. I contributed to developing custom components, improving user interface interactions, and implementing responsive design patterns for better user experience.',
     'projects.germini.description':
@@ -228,6 +230,8 @@ export const translations = {
     'projects.loading.images': 'Carregando imagens...',
 
     // Project Descriptions
+    'projects.appSwap.description':
+      'Um aplicativo Android minimalista para organizar galerias de mídia usando gestos de deslize. Deslize para a esquerda para excluir permanentemente uma foto ou vídeo, deslize para a direita para mantê-la — sem hesitação, sem pastas, sem bagunça. Possui animações a 60fps com React Native Reanimated, carregamento paginado para galerias grandes, filtragem de mídia por tipo e exclusão silenciosa no Android 11+.',
     'projects.fluig.description':
       'Plataforma de produtividade e colaboração empresarial desenvolvida pela TOTVS, unificando sistemas, pessoas e processos. Contribuí para o desenvolvimento de componentes personalizados, aprimorando as interações da interface do usuário e implementando padrões de design responsivo para uma melhor experiência do usuário.',
     'projects.germini.description':
