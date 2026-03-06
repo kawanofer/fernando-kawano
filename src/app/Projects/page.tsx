@@ -62,9 +62,7 @@ export default function ProjectsPage() {
         'React Native Reanimated',
         'TypeScript',
       ],
-      images: [
-        '/projects/swap_to_delete.avif',
-      ],
+      images: ['/projects/swap_to_delete.avif'],
       githubUrl: 'https://github.com/kawanofer/swap-to-delete',
       category: 'Mobile',
     },

@@ -9,6 +9,7 @@ import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
 import { useTranslation } from '@/libs/translations';
 
 import Microsoft from '/public/microsoft.svg';

@@ -56,8 +56,7 @@ export async function POST(request: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const emailHTML = generateEmailHTML(sanitizedData);
 
-    const fromEmail =
-      process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev';
+    const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev';
     const toEmail = process.env.CONTACT_EMAIL ?? 'kawano.fer@gmail.com';
 
     const { data, error } = await resend.emails.send({

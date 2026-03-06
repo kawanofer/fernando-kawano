@@ -1,4 +1,3 @@
-
 interface LoaderProps {
   size?: 'small' | 'medium' | 'large';
   text?: string;
@@ -71,4 +70,3 @@ export default function Loader({
     </div>
   );
 }
-

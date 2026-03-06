@@ -340,9 +340,7 @@ describe('ContactForm — validation', () => {
     await waitFor(() =>
       expect(screen.getByText('Name is required')).toBeInTheDocument()
     );
-    expect(
-      screen.queryByText(/subject.*required/i)
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText(/subject.*required/i)).not.toBeInTheDocument();
   });
 
   it('shows error when subject exceeds 200 characters', async () => {
@@ -470,9 +468,7 @@ describe('ContactForm — integration (submit flow)', () => {
     fillValidForm();
     clickSubmit();
 
-    await waitFor(() =>
-      expect(screen.getByRole('status')).toBeInTheDocument()
-    );
+    await waitFor(() => expect(screen.getByRole('status')).toBeInTheDocument());
 
     expect(screen.getByLabelText(/^name/i)).toHaveValue('');
     expect(screen.getByLabelText(/^email/i)).toHaveValue('');
@@ -591,9 +587,7 @@ describe('ContactForm — integration (submit flow)', () => {
     fillValidForm();
     clickSubmit();
 
-    await waitFor(() =>
-      expect(screen.getByLabelText(/^name/i)).toBeDisabled()
-    );
+    await waitFor(() => expect(screen.getByLabelText(/^name/i)).toBeDisabled());
 
     expect(screen.getByLabelText(/^email/i)).toBeDisabled();
     expect(getMessageField()).toBeDisabled();
@@ -694,9 +688,7 @@ describe('ContactForm — field interaction', () => {
 
     clickSubmit();
 
-    await waitFor(() =>
-      expect(screen.getByRole('status')).toBeInTheDocument()
-    );
+    await waitFor(() => expect(screen.getByRole('status')).toBeInTheDocument());
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });

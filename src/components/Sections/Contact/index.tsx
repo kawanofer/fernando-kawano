@@ -11,6 +11,7 @@ import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
 import { useTranslation } from '@/libs/translations';
 
 import ContactForm from './ContactForm';
@@ -52,7 +53,9 @@ export default function Contact() {
         <div
           ref={formRef}
           className={`transition-all duration-700 ${
-            formInView ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+            formInView
+              ? 'translate-x-0 opacity-100'
+              : '-translate-x-12 opacity-0'
           }`}
         >
           <ContactForm />
@@ -61,8 +64,10 @@ export default function Contact() {
         {/* Second Column: Social Links */}
         <div
           ref={linksRef}
-          className={`space-y-8 transition-all duration-700 delay-150 sm:space-y-10 ${
-            linksInView ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+          className={`space-y-8 transition-all delay-150 duration-700 sm:space-y-10 ${
+            linksInView
+              ? 'translate-x-0 opacity-100'
+              : 'translate-x-12 opacity-0'
           }`}
         >
           {/* Social Links */}

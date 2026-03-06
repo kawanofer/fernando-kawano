@@ -6,7 +6,9 @@ type ScrollAnimationOptions = {
   threshold?: number;
 };
 
-export function useScrollAnimation({ threshold = 0.15 }: ScrollAnimationOptions = {}) {
+export function useScrollAnimation({
+  threshold = 0.15,
+}: ScrollAnimationOptions = {}) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const { ref, inView } = useInView({
     threshold,

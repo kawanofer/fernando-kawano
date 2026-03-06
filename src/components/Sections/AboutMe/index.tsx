@@ -10,6 +10,7 @@ import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
 import { useTranslation } from '@/libs/translations';
 
 export default function AboutMe() {
@@ -43,7 +44,7 @@ export default function AboutMe() {
 
         <div
           ref={textRef}
-          className={`bg-background p-4 text-white transition-all duration-700 delay-150 md:w-4/5 ${
+          className={`bg-background p-4 text-white transition-all delay-150 duration-700 md:w-4/5 ${
             textInView
               ? 'translate-x-0 opacity-100'
               : 'translate-x-12 opacity-0'
