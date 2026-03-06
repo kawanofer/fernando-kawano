@@ -46,6 +46,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     return `data:image/svg+xml;base64,${btoa(svg)}`;
   }, [width, height]);
 
+  const effectiveBlurDataURL = blurDataURL ?? generatedBlurDataURL;
+
   const handleLoad = () => {
     setIsLoading(false);
     onLoad?.();
@@ -92,9 +94,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         quality={quality}
         {...(sizes && { sizes })}
         placeholder={placeholder}
-        {...((blurDataURL || generatedBlurDataURL) && {
-          blurDataURL: blurDataURL ?? generatedBlurDataURL,
-        })}
+        {...(effectiveBlurDataURL === undefined ? {} : { blurDataURL: effectiveBlurDataURL })}
         style={{
           objectFit,
           objectPosition,
