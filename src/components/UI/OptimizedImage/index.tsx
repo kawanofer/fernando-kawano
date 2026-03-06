@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -40,21 +40,11 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  // Generate blur placeholder if not provided
-  const generateBlurDataURL = (w: number, h: number) => {
-    const svg = `
-      <svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="g">
-            <stop stop-color="#f0f0f0"/>
-            <stop offset="1" stop-color="#e0e0e0"/>
-          </linearGradient>
-        </defs>
-        <rect width="${w}" height="${h}" fill="url(#g)"/>
-      </svg>
-    `;
+  const generatedBlurDataURL = useMemo(() => {
+    if (!width || !height) return undefined;
+    const svg = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g"><stop stop-color="#f0f0f0"/><stop offset="1" stop-color="#e0e0e0"/></linearGradient></defs><rect width="${width}" height="${height}" fill="url(#g)"/></svg>`;
     return `data:image/svg+xml;base64,${btoa(svg)}`;
-  };
+  }, [width, height]);
 
   const handleLoad = () => {
     setIsLoading(false);
@@ -102,9 +92,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         quality={quality}
         {...(sizes && { sizes })}
         placeholder={placeholder}
-        {...((blurDataURL ||
-          (width && height && generateBlurDataURL(width, height))) && {
-          blurDataURL: blurDataURL || generateBlurDataURL(width!, height!),
+        {...((blurDataURL || generatedBlurDataURL) && {
+          blurDataURL: blurDataURL ?? generatedBlurDataURL,
         })}
         style={{
           objectFit,

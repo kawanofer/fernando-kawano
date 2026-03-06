@@ -4,7 +4,7 @@ import React from 'react';
 
 type ButtonProps = {
   children: React.ReactNode;
-  icon?: React.ComponentType;
+  icon?: React.ComponentType<{ className?: string }>;
   className?: string;
   onClick?: () => void;
   disabled?: boolean;

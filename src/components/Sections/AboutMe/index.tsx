@@ -9,17 +9,27 @@ import { Tooltip } from '@mui/material';
 import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useTranslation } from '@/libs/translations';
 
 export default function AboutMe() {
   const { t } = useTranslation();
+  const { ref: photoRef, inView: photoInView } = useScrollAnimation();
+  const { ref: textRef, inView: textInView } = useScrollAnimation();
 
   return (
     <Section id="aboutme" className="bg-background-2">
       <SectionTitle title={t('about.title')} />
 
       <div className="m-auto flex flex-col items-center justify-center md:flex-row md:items-start md:justify-between">
-        <div className="mr-0 mb-14 flex items-center md:mr-16">
+        <div
+          ref={photoRef}
+          className={`mr-0 mb-14 flex items-center transition-all duration-700 md:mr-16 ${
+            photoInView
+              ? 'translate-x-0 opacity-100'
+              : '-translate-x-12 opacity-0'
+          }`}
+        >
           <Image
             className="bg-secondary rounded-full"
             src="/kawano.png"
@@ -27,10 +37,18 @@ export default function AboutMe() {
             width={290}
             height={290}
             quality={100}
+            sizes="(max-width: 768px) 290px, 290px"
           />
         </div>
 
-        <div className="bg-background p-4 text-white md:w-4/5">
+        <div
+          ref={textRef}
+          className={`bg-background p-4 text-white transition-all duration-700 delay-150 md:w-4/5 ${
+            textInView
+              ? 'translate-x-0 opacity-100'
+              : 'translate-x-12 opacity-0'
+          }`}
+        >
           <p className="text-lg leading-relaxed">
             {t('about.paragraph1')}
             <br />

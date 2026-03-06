@@ -9,7 +9,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 import { SkipLink } from '@/components/Accessibility';
-import ClientLayout from '@/components/Layout/ClientLayout';
 
 import './globals.css';
 
@@ -120,19 +119,17 @@ export default function RootLayout({
         <SkipLink href="#main-content">Skip to main content</SkipLink>
         <SkipLink href="#navigation">Skip to navigation</SkipLink>
 
-        <ClientLayout>
-          <AppRouterCacheProvider>
-            <main
-              id="main-content"
-              className="overflow-hidden font-normal sm:px-16 xl:px-40"
-              role="main"
-            >
-              {children}
-              <Analytics />
-              <SpeedInsights />
-            </main>
-          </AppRouterCacheProvider>
-        </ClientLayout>
+        <AppRouterCacheProvider>
+          <main
+            id="main-content"
+            className="overflow-hidden font-normal sm:px-16 xl:px-40"
+            role="main"
+          >
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </AppRouterCacheProvider>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
     </html>

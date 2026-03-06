@@ -10,12 +10,15 @@ import { HiOutlineExternalLink } from 'react-icons/hi';
 import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useTranslation } from '@/libs/translations';
 
 import ContactForm from './ContactForm';
 
 export default function Contact() {
   const { t } = useTranslation();
+  const { ref: formRef, inView: formInView } = useScrollAnimation();
+  const { ref: linksRef, inView: linksInView } = useScrollAnimation();
   const socialLinks = [
     {
       name: 'GitHub',
@@ -45,11 +48,23 @@ export default function Contact() {
       <SectionTitle title={t('contact.title')} />
 
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-        {/* First Column: Contact Information + Social Links */}
-        <ContactForm />
+        {/* First Column: Contact Form */}
+        <div
+          ref={formRef}
+          className={`transition-all duration-700 ${
+            formInView ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+          }`}
+        >
+          <ContactForm />
+        </div>
 
-        {/* Second Column: Contact Form */}
-        <div className="space-y-8 sm:space-y-10">
+        {/* Second Column: Social Links */}
+        <div
+          ref={linksRef}
+          className={`space-y-8 transition-all duration-700 delay-150 sm:space-y-10 ${
+            linksInView ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+          }`}
+        >
           {/* Social Links */}
           <div className="space-y-6 sm:space-y-8">
             <h3 className="text-tertiary mb-2 text-xl font-semibold sm:text-2xl">

@@ -9,12 +9,15 @@ import { FaCloudDownloadAlt } from 'react-icons/fa';
 import Button from '@/components/UI/Button';
 import { Section } from '@/components/UI/Section';
 
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useTranslation } from '@/libs/translations';
 
 import KawnaoKanji from '/public/kawano-kanji.svg';
 
 export default function Hero() {
   const { t } = useTranslation();
+  const { ref: textRef, inView: textInView } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: imageRef, inView: imageInView } = useScrollAnimation({ threshold: 0.1 });
 
   const handleOpenCV = () => {
     if (localStorage.getItem('language') === 'en') {
@@ -37,7 +40,14 @@ export default function Hero() {
       role="banner"
       aria-label="Hero introduction"
     >
-      <div className="flex w-full flex-col justify-between lg:w-auto">
+      <div
+        ref={textRef}
+        className={`flex w-full flex-col justify-between transition-all duration-700 lg:w-auto ${
+          textInView
+            ? 'translate-x-0 opacity-100'
+            : '-translate-x-12 opacity-0'
+        }`}
+      >
         <header className="mb-8 text-center lg:text-left">
           <h1 className="text-bold color-text text-4xl sm:text-5xl">
             <span className="block">{t('hero.greeting')}</span>
@@ -71,14 +81,19 @@ export default function Hero() {
         </div>
       </div>
       <div
-        className="hidden lg:block"
+        ref={imageRef}
+        className={`hidden transition-all duration-700 delay-200 lg:block ${
+          imageInView
+            ? 'translate-x-0 opacity-100'
+            : 'translate-x-12 opacity-0'
+        }`}
         role="img"
         aria-label="Decorative Japanese kanji symbol"
       >
         <Image
           alt="Decorative Japanese kanji symbol representing Fernando Kawano"
           className="rounded-full bg-white"
-          priority={true} // Above-the-fold image should be priority
+          priority={true}
           src={KawnaoKanji}
           width={400}
           height={400}

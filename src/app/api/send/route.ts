@@ -11,47 +11,65 @@ interface ContactFormData {
   message: string;
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateBody(data: ContactFormData): string | null {
+  if (!data.name || data.name.length > 100) {
+    return 'Name is required and must be under 100 characters';
+  }
+  if (!data.email || !EMAIL_REGEX.test(data.email)) {
+    return 'A valid email address is required';
+  }
+  if (data.subject && data.subject.length > 200) {
+    return 'Subject must be under 200 characters';
+  }
+  if (!data.message || data.message.length < 10 || data.message.length > 5000) {
+    return 'Message is required and must be between 10 and 5000 characters';
+  }
+  return null;
+}
+
 export async function POST(request: NextRequest) {
   if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY not found');
+    console.error('RESEND_API_KEY not configured');
     return NextResponse.json(
-      { error: 'RESEND_API_KEY not configured' },
+      { error: 'Email service not configured' },
       { status: 500 }
     );
   }
 
   try {
     const body: ContactFormData = await request.json();
-    const { name, email, subject, message } = body;
 
-    // Basic input sanitization (trust Yup validation for format checks)
     const sanitizedData = {
-      name: name?.trim() || '',
-      email: email?.trim().toLowerCase() || '',
-      subject: subject?.trim() || '',
-      message: message?.trim() || '',
+      name: body.name?.trim() ?? '',
+      email: body.email?.trim().toLowerCase() ?? '',
+      subject: body.subject?.trim() ?? '',
+      message: body.message?.trim() ?? '',
     };
 
-    // Minimal validation - just ensure required fields are present
-    if (!sanitizedData.name || !sanitizedData.email || !sanitizedData.message) {
-      return NextResponse.json(
-        { error: 'Name, email, and message are required' },
-        { status: 400 }
-      );
+    const validationError = validateBody(sanitizedData);
+    if (validationError) {
+      return NextResponse.json({ error: validationError }, { status: 400 });
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const emailHTML = generateEmailHTML(sanitizedData);
+
+    const fromEmail =
+      process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev';
+    const toEmail = process.env.CONTACT_EMAIL ?? 'kawano.fer@gmail.com';
+
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Use verified domain
-      to: 'kawano.fer@gmail.com',
-      replyTo: sanitizedData.email, // Set reply-to to sender's email
+      from: fromEmail,
+      to: toEmail,
+      replyTo: sanitizedData.email,
       subject: `Portfolio Contact: ${sanitizedData.subject || 'No subject'}`,
-      html: emailHTML, // Use html property, not react
+      html: emailHTML,
     });
 
     if (error) {
-      console.error('❌ Resend error:', error);
+      console.error('Resend error:', error);
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
@@ -64,52 +82,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('🚨 Unexpected error in POST /api/send:', error);
-    return NextResponse.json(
-      {
-        error: 'Failed to send email',
-        details: error instanceof Error ? error.message : 'Unknown error',
-      },
-      { status: 500 }
-    );
-  }
-}
-
-// Keep the GET method for testing
-export async function GET() {
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY not found');
-    return NextResponse.json(
-      { error: 'RESEND_API_KEY not configured' },
-      { status: 500 }
-    );
-  }
-
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
-  try {
-    const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'kawano.fer@gmail.com',
-      subject: 'Test Email from Fernando Portfolio',
-      html: '<p>This is a test email from your portfolio API endpoint!</p>',
-    });
-
-    if (error) {
-      console.error('Resend error:', error);
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-
-    return NextResponse.json(
-      {
-        success: true,
-        message: 'Email sent successfully!',
-        data,
-      },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error('Unexpected error:', error);
+    console.error('Unexpected error in POST /api/send:', error);
     return NextResponse.json(
       {
         error: 'Failed to send email',

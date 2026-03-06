@@ -1,4 +1,3 @@
-import CircularProgress from '@mui/material/CircularProgress';
 
 interface LoaderProps {
   size?: 'small' | 'medium' | 'large';
@@ -73,11 +72,3 @@ export default function Loader({
   );
 }
 
-// Alternative MUI Loader for consistency with existing usage
-export function MUILoader() {
-  return (
-    <div className="flex justify-center">
-      <CircularProgress />
-    </div>
-  );
-}

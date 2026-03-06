@@ -41,7 +41,7 @@ export const translations = {
     'education.institution1': 'Positivo University',
     'education.period1': '2013 - 2015',
 
-    'education.degree2': "Bachelor's degrees, Information System4",
+    'education.degree2': "Bachelor's degree, Information Systems",
     'education.institution2': 'Positivo University',
     'education.period2': '2008 - 2011',
 
@@ -85,10 +85,10 @@ export const translations = {
     'contact.form.message.help':
       'Press Enter or Space to submit the contact form after filling in all required fields.',
 
-    'contact.form.has': 'Este formulário tem ',
-    'contact.form.validation.errors': 'erros de validação',
+    'contact.form.has': 'This form has ',
+    'contact.form.validation.errors': 'validation errors',
     'contact.form.instructions':
-      'Os campos marcados com um asterisco (*) são obrigatórios. Use Tab para navegar entre os campos e Enter para enviar.',
+      'Fields marked with an asterisk (*) are required. Use Tab to navigate between fields and Enter to submit.',
 
     // Projects Section
     'projects.title': 'Projects',
