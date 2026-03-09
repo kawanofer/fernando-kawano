@@ -94,7 +94,9 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         quality={quality}
         {...(sizes && { sizes })}
         placeholder={placeholder}
-        {...(effectiveBlurDataURL === undefined ? {} : { blurDataURL: effectiveBlurDataURL })}
+        {...(effectiveBlurDataURL === undefined
+          ? {}
+          : { blurDataURL: effectiveBlurDataURL })}
         style={{
           objectFit,
           objectPosition,

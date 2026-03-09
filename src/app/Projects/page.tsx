@@ -63,7 +63,7 @@ export default function ProjectsPage() {
         'TypeScript',
       ],
       images: ['/projects/swap_to_delete.avif'],
-      githubUrl: 'https://github.com/kawanofer/swap-to-delete',
+      githubUrl: '',
       category: 'Mobile',
     },
     {
