@@ -105,6 +105,8 @@ export const translations = {
     'projects.loading.images': 'Loading images...',
 
     // Project Descriptions
+    'projects.lello.description':
+      'Lello Condominium, the largest condominium management company in Brazil, with over 1 million users and 3,000 condominiums.',
     'projects.appSwap.description':
       'A minimalist Android app for cleaning up media galleries using swipe gestures. Swipe left to permanently delete a photo or video, swipe right to keep it — no hesitation, no folders, no clutter. Features 60fps animations powered by React Native Reanimated, paginated loading for large galleries, media filtering by type, and silent deletion on Android 11+.',
     'projects.fluig.description':
@@ -230,6 +232,8 @@ export const translations = {
     'projects.loading.images': 'Carregando imagens...',
 
     // Project Descriptions
+    'projects.lello.description':
+      'Lello condominios, a maior administradora de condomínios do Brasil, com mais de 1 milhão de usuários e 3.000 condomínios.',
     'projects.appSwap.description':
       'Um aplicativo Android minimalista para organizar galerias de mídia usando gestos de deslize. Deslize para a esquerda para excluir permanentemente uma foto ou vídeo, deslize para a direita para mantê-la — sem hesitação, sem pastas, sem bagunça. Possui animações a 60fps com React Native Reanimated, carregamento paginado para galerias grandes, filtragem de mídia por tipo e exclusão silenciosa no Android 11+.',
     'projects.fluig.description':

@@ -52,18 +52,36 @@ export default function ProjectsPage() {
 
   const projects: ProjectProps[] = [
     {
+      title: 'Lello Condominios',
+      description: t('projects.lello.description'),
+      technologies: [
+        'Context API',
+        'Material-UI',
+        'React Hook Form',
+        'React',
+        'Redux',
+        'TypeScript',
+      ],
+      images: [
+        '/projects/lello1.avif',
+        '/projects/lello2.avif',
+        '/projects/lello3.avif',
+      ],
+      website: 'https://www.lellocondominios.com.br/',
+      category: 'Front-end',
+    },
+    {
       title: 'App Swap to Delete',
       description: t('projects.appSwap.description'),
       technologies: [
-        'Expo',
         'Expo Router',
-        'React Native',
+        'Expo',
         'React Native Gesture Handler',
         'React Native Reanimated',
+        'React Native',
         'TypeScript',
       ],
       images: ['/projects/swap_to_delete.avif'],
-      githubUrl: '',
       category: 'Mobile',
     },
     {
@@ -131,12 +149,12 @@ export default function ProjectsPage() {
       description: t('projects.portfolio.description'),
       images: ['/projects/portfolio1.avif', '/projects/portfolio2.avif'],
       technologies: [
+        'i18next',
+        'Material-UI',
         'Next.js',
         'React',
-        'TypeScript',
-        'Material-UI',
         'Tailwind CSS',
-        'i18next',
+        'TypeScript',
       ],
       githubProjectFrontend: 'https://github.com/kawanofer/fernando-kawano',
       category: 'Front-end',
