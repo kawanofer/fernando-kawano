@@ -11,6 +11,7 @@ import {
   DiReact,
 } from 'react-icons/di';
 import {
+  SiAmazonwebservices,
   SiCircleci,
   SiJenkins,
   SiJest,
@@ -19,8 +20,10 @@ import {
   SiPrisma,
   SiRedux,
   SiStyledcomponents,
+  SiSupabase,
   SiTailwindcss,
   SiTypescript,
+  SiVercel,
   SiVite,
   SiWebpack,
 } from 'react-icons/si';
@@ -57,6 +60,9 @@ export const skillIcons: Record<string, IconType> = {
   'Azure DevOps': VscAzureDevops,
   Jenkins: SiJenkins,
   CircleCI: SiCircleci,
+  AWS: SiAmazonwebservices,
+  Vercel: SiVercel,
+  Supabase: SiSupabase,
 };
 
 /** Brand colors for skill icons. Keys must match skillIcons keys. */
@@ -84,4 +90,7 @@ export const skillColors: Record<string, string> = {
   'Azure DevOps': '#0078D4',
   Jenkins: '#D24939',
   CircleCI: '#00CC65',
+  AWS: '#FF9900',
+  Vercel: '#ffffff',
+  Supabase: '#3ECF8E',
 };
