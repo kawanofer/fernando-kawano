@@ -4,13 +4,12 @@ import React from 'react';
 
 import Link from 'next/link';
 
+import { motion, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 
 import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
-
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 import { useTranslation } from '@/libs/translations';
 
@@ -18,8 +17,8 @@ import ContactForm from './ContactForm';
 
 export default function Contact() {
   const { t } = useTranslation();
-  const { ref: formRef, inView: formInView } = useScrollAnimation();
-  const { ref: linksRef, inView: linksInView } = useScrollAnimation();
+  const prefersReducedMotion = useReducedMotion();
+
   const socialLinks = [
     {
       name: 'GitHub',
@@ -44,33 +43,45 @@ export default function Contact() {
     },
   ];
 
+  const formVariants = {
+    hidden: prefersReducedMotion ? {} : { x: -48, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: 'easeOut' as const },
+    },
+  };
+
+  const linksVariants = {
+    hidden: prefersReducedMotion ? {} : { x: 48, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: 'easeOut' as const, delay: 0.15 },
+    },
+  };
+
   return (
     <Section id="contact">
       <SectionTitle title={t('contact.title')} />
 
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-        {/* First Column: Contact Form */}
-        <div
-          ref={formRef}
-          className={`transition-all duration-700 ${
-            formInView
-              ? 'translate-x-0 opacity-100'
-              : '-translate-x-12 opacity-0'
-          }`}
+        <motion.div
+          variants={formVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-15%' }}
         >
           <ContactForm />
-        </div>
+        </motion.div>
 
-        {/* Second Column: Social Links */}
-        <div
-          ref={linksRef}
-          className={`space-y-8 transition-all delay-150 duration-700 sm:space-y-10 ${
-            linksInView
-              ? 'translate-x-0 opacity-100'
-              : 'translate-x-12 opacity-0'
-          }`}
+        <motion.div
+          className="space-y-8 sm:space-y-10"
+          variants={linksVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-15%' }}
         >
-          {/* Social Links */}
           <div className="space-y-6 sm:space-y-8">
             <h3 className="text-tertiary mb-2 text-xl font-semibold sm:text-2xl">
               {t('contact.findMe')}
@@ -119,7 +130,7 @@ export default function Contact() {
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );
