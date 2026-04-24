@@ -1,19 +1,16 @@
+import type { IconType } from 'react-icons';
 import {
   DiAngularSimple,
   DiBootstrap,
-  DiCss3,
   DiFirebase,
   DiGit,
-  DiHtml5,
   DiJavascript1,
   DiMongodb,
   DiMysql,
   DiNodejsSmall,
   DiReact,
-  DiSass,
 } from 'react-icons/di';
 import {
-  SiFigma,
   SiJest,
   SiNestjs,
   SiNextdotjs,
@@ -28,15 +25,18 @@ import {
 import { TbBrandAzure } from 'react-icons/tb';
 import { VscAzureDevops } from 'react-icons/vsc';
 
-import type { IconType } from 'react-icons';
-
+/**
+ * Maps skill name strings to react-icons IconType components.
+ * Skills absent from this map render without an icon (fallback dot in Pill).
+ * Keys must match the exact strings in the mainSkills array in Skills/index.tsx.
+ */
 export const skillIcons: Record<string, IconType> = {
   JavaScript: DiJavascript1,
   TypeScript: SiTypescript,
   React: DiReact,
   'Next.js': SiNextdotjs,
   AngularJS: DiAngularSimple,
-  Redux: SiRedux,
+  'Redux (Saga/Thunk/Toolkit)': SiRedux,
   'Styled-components': SiStyledcomponents,
   'Tailwind CSS': SiTailwindcss,
   // Material-UI has no icon in react-icons — falls back to dot in Pill
@@ -53,8 +53,4 @@ export const skillIcons: Record<string, IconType> = {
   Git: DiGit,
   Azure: TbBrandAzure,
   'Azure DevOps': VscAzureDevops,
-  HTML5: DiHtml5,
-  CSS3: DiCss3,
-  Figma: SiFigma,
-  SASS: DiSass,
 };
