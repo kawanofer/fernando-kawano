@@ -1,108 +1,142 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { LanguageSwitcher } from '@/components/UI';
+import { motion } from 'framer-motion';
 
-import { useTranslation } from '@/libs/translations';
+import { Language, useTranslation } from '@/libs/translations';
 
 import MobileMenu from './mobile-menu';
-import kawKanji from '/public/kawa-head-icon.svg';
+import kawHeadIcon from '/public/kawa-head-icon.svg';
+
+const FLAG = { en: '/en.png', pt: '/br.png' };
+const LABEL = { en: 'EN', pt: 'PT' };
+const NEXT: Record<Language, Language> = { en: 'pt', pt: 'en' };
 
 export default function Navigation() {
-  const { t } = useTranslation();
-  const ref = useRef<HTMLElement>(null);
-  const [isIntersecting, setIsIntersecting] = useState(true);
+  const { t, language, changeLanguage } = useTranslation();
+  const [activeSection, setActiveSection] = useState<string>('');
 
   const menuList = [
-    {
-      label: t('nav.about'),
-      href: '/#aboutme',
-    },
-    {
-      label: t('nav.education'),
-      href: '/#education',
-    },
-    {
-      label: t('nav.projects'),
-      href: '/Projects',
-    },
-    {
-      label: t('nav.skills'),
-      href: '/#skills',
-    },
-    {
-      label: t('nav.contact'),
-      href: '/#contact',
-    },
+    { label: t('nav.about'), href: '/#aboutme', id: 'aboutme' },
+    { label: t('nav.education'), href: '/#education', id: 'education' },
+    { label: t('nav.projects'), href: '/Projects', id: '' },
+    { label: t('nav.skills'), href: '/#skills', id: 'skills' },
+    { label: t('nav.contact'), href: '/#contact', id: 'contact' },
   ];
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (!ref.current) return;
-    const observer = new IntersectionObserver(entries => {
-      const entry = entries[0];
-      if (entry) {
-        setIsIntersecting(entry.isIntersecting);
-      }
+    const sectionIds = menuList.map(m => m.id).filter(Boolean);
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry?.isIntersecting) setActiveSection(id); },
+        { threshold: 0.4 }
+      );
+      obs.observe(el);
+      observers.push(obs);
     });
-    observer.observe(ref.current);
-    return () => observer.disconnect();
+
+    return () => observers.forEach(o => o.disconnect());
   }, []);
 
   return (
     <nav
-      ref={ref}
       id="navigation"
       className="container mx-auto flex flex-wrap items-center justify-between px-4 py-4 text-xl md:flex-nowrap md:py-6 lg:py-10"
       role="navigation"
       aria-label="Main navigation"
     >
-      <div
-        className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur duration-200 ${isIntersecting ? 'border-transparent bg-zinc-900/0' : 'border-zinc-800 bg-zinc-900/500'}`}
-      >
-        <div className="container mx-auto flex items-center justify-between p-2 md:p-4">
-          <Link
-            href="/"
-            className="rounded-full font-black"
-            aria-label="Fernando Kawano - Home"
-          >
+      {/* Floating pill — desktop */}
+      <div className="fixed inset-x-0 top-4 z-50 hidden justify-center md:flex">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="flex items-center gap-5 rounded-full border border-border bg-background-2/90 px-5 py-2 shadow-lg backdrop-blur-md"
+        >
+          {/* Logo */}
+          <Link href="/" aria-label="Fernando Kawano - Home">
             <Image
-              className="rounded-full p-2 transition-opacity duration-200 hover:opacity-75"
-              src={kawKanji}
-              width={50}
-              height={50}
-              alt="Fernando Kawano logo - Japanese kanji KAWA"
-              priority={true} // Navigation logo should be priority
-              sizes="50px"
+              src={kawHeadIcon}
+              width={32}
+              height={32}
+              alt="Fernando Kawano logo"
+              className="rounded-full transition-opacity hover:opacity-75"
+              priority
+              sizes="32px"
             />
           </Link>
 
-          <div className="block flex-none md:hidden">
-            <MobileMenu menu={menuList} />
+          {/* Separator */}
+          <div className="h-4 w-px bg-border" aria-hidden="true" />
+
+          {/* Nav links */}
+          <div className="flex items-center gap-1" role="menubar">
+            {menuList.map(menu => {
+              const isActive = menu.id && activeSection === menu.id;
+              return (
+                <Link
+                  key={menu.label}
+                  href={menu.href}
+                  role="menuitem"
+                  aria-label={`Navigate to ${menu.label}`}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`rounded-full px-3 py-1 text-sm transition-colors duration-200 ${
+                    isActive
+                      ? 'bg-card text-tertiary font-medium'
+                      : 'text-secondary hover:text-text'
+                  }`}
+                >
+                  {menu.label}
+                </Link>
+              );
+            })}
           </div>
 
-          <div
-            className="hidden justify-between gap-4 md:flex"
-            role="menubar"
-            aria-label="Main navigation menu"
+          {/* Separator */}
+          <div className="h-4 w-px bg-border" aria-hidden="true" />
+
+          {/* Language toggle */}
+          <button
+            onClick={() => changeLanguage(NEXT[language])}
+            className="flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-sm text-secondary transition-colors duration-200 hover:text-text"
+            title={language === 'en' ? 'Mudar para Português' : 'Switch to English'}
+            aria-label={language === 'en' ? 'Switch language to Portuguese' : 'Mudar idioma para Inglês'}
           >
-            {menuList.map(menu => (
-              <Link
-                key={menu.label}
-                href={menu.href}
-                className="rounded-md px-2 py-1 text-zinc-400 duration-200 hover:text-white"
-                role="menuitem"
-                aria-label={`Navigate to ${menu.label} section`}
-              >
-                {menu.label}
-              </Link>
-            ))}
-            <LanguageSwitcher />
-          </div>
-        </div>
+            <Image
+              src={FLAG[language]}
+              alt={language === 'en' ? 'English flag' : 'Brazilian flag'}
+              width={18}
+              height={18}
+              className="rounded-sm"
+            />
+            <span className="font-medium">{LABEL[language]}</span>
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Mobile header — unchanged behaviour */}
+      <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-border bg-background-2/90 p-3 backdrop-blur-md md:hidden">
+        <Link href="/" aria-label="Fernando Kawano - Home">
+          <Image
+            src={kawHeadIcon}
+            width={40}
+            height={40}
+            alt="Fernando Kawano logo"
+            className="rounded-full"
+            priority
+            sizes="40px"
+          />
+        </Link>
+        <MobileMenu menu={menuList} />
       </div>
     </nav>
   );
