@@ -54,3 +54,28 @@ export const skillIcons: Record<string, IconType> = {
   Azure: TbBrandAzure,
   'Azure DevOps': VscAzureDevops,
 };
+
+/** Brand colors for skill icons. Keys must match skillIcons keys. */
+export const skillColors: Record<string, string> = {
+  JavaScript: '#F7DF1E',
+  TypeScript: '#3178C6',
+  React: '#61DAFB',
+  'Next.js': '#ffffff',
+  AngularJS: '#DD0031',
+  'Redux (Saga/Thunk/Toolkit)': '#764ABC',
+  'Styled-components': '#DB7093',
+  'Tailwind CSS': '#06B6D4',
+  Bootstrap: '#7952B3',
+  'Node.js': '#339933',
+  NestJS: '#E0234E',
+  Prisma: '#5A67D8',
+  MongoDB: '#47A248',
+  Firebase: '#FFCA28',
+  MySQL: '#00758F',
+  Jest: '#C21325',
+  Vite: '#646CFF',
+  Webpack: '#8DD6F9',
+  Git: '#F05032',
+  Azure: '#0078D4',
+  'Azure DevOps': '#0078D4',
+};

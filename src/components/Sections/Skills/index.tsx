@@ -7,7 +7,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
-import { skillIcons } from '@/libs/skillIcons';
+import { skillColors, skillIcons } from '@/libs/skillIcons';
 import { useTranslation } from '@/libs/translations';
 
 import Pill from './Pill';
@@ -90,6 +90,7 @@ export default function Skills() {
             <Pill
               value={skill}
               {...(skillIcons[skill] ? { icon: skillIcons[skill] } : {})}
+              {...(skillColors[skill] ? { iconColor: skillColors[skill] } : {})}
             />
           </motion.div>
         ))}
