@@ -11,6 +11,8 @@ import {
   DiReact,
 } from 'react-icons/di';
 import {
+  SiCircleci,
+  SiJenkins,
   SiJest,
   SiNestjs,
   SiNextdotjs,
@@ -53,6 +55,8 @@ export const skillIcons: Record<string, IconType> = {
   Git: DiGit,
   Azure: TbBrandAzure,
   'Azure DevOps': VscAzureDevops,
+  Jenkins: SiJenkins,
+  CircleCI: SiCircleci,
 };
 
 /** Brand colors for skill icons. Keys must match skillIcons keys. */
@@ -78,4 +82,6 @@ export const skillColors: Record<string, string> = {
   Git: '#F05032',
   Azure: '#0078D4',
   'Azure DevOps': '#0078D4',
+  Jenkins: '#D24939',
+  CircleCI: '#00CC65',
 };
