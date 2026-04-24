@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { motion } from 'framer-motion';
+
 import dynamic from 'next/dynamic';
 
 import { Code, GitHub, Language, OpenInNew } from '@mui/icons-material';
@@ -213,21 +215,20 @@ export default function ProjectsPage() {
             {/* Projects List */}
             <div className="flex flex-col gap-12">
               {projects.map(project => (
-                <Card
+                <motion.div
                   key={project.title}
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    transition: 'all 0.3s ease-in-out',
-                    borderRadius: 3,
-                    overflow: 'hidden',
-                    position: 'relative',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: theme => theme.shadows[12],
-                    },
-                  }}
+                  whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(67,85,133,0.25)' }}
+                  transition={{ duration: 0.2 }}
                 >
+                  <Card
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      borderRadius: 3,
+                      overflow: 'hidden',
+                      position: 'relative',
+                    }}
+                  >
                   <CardContent sx={{ p: 4, pb: 0 }}>
                     {/* Project Header */}
                     <div className="mb-6">
@@ -388,7 +389,8 @@ export default function ProjectsPage() {
                       )}
                     </div>
                   </CardActions>
-                </Card>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
