@@ -28,6 +28,7 @@ export default function Navigation() {
     { label: t('nav.contact'), href: '/#contact', id: 'contact' },
   ];
 
+  // Section IDs are static strings — the effect runs once on mount intentionally.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const sectionIds = menuList.map(m => m.id).filter(Boolean);
@@ -37,7 +38,9 @@ export default function Navigation() {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
-        ([entry]) => { if (entry?.isIntersecting) setActiveSection(id); },
+        ([entry]) => {
+          if (entry?.isIntersecting) setActiveSection(id);
+        },
         { threshold: 0.4 }
       );
       obs.observe(el);
@@ -60,7 +63,7 @@ export default function Navigation() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="flex items-center gap-5 rounded-full border border-border bg-background-2/90 px-5 py-2 shadow-lg backdrop-blur-md"
+          className="border-border bg-background-2/90 flex items-center gap-5 rounded-full border px-5 py-2 shadow-lg backdrop-blur-md"
         >
           {/* Logo */}
           <Link href="/" aria-label="Fernando Kawano - Home">
@@ -76,7 +79,7 @@ export default function Navigation() {
           </Link>
 
           {/* Separator */}
-          <div className="h-4 w-px bg-border" aria-hidden="true" />
+          <div className="bg-border h-4 w-px" aria-hidden="true" />
 
           {/* Nav links */}
           <div className="flex items-center gap-1" role="menubar">
@@ -102,14 +105,21 @@ export default function Navigation() {
           </div>
 
           {/* Separator */}
-          <div className="h-4 w-px bg-border" aria-hidden="true" />
+          <div className="bg-border h-4 w-px" aria-hidden="true" />
 
           {/* Language toggle */}
           <button
+            type="button"
             onClick={() => changeLanguage(NEXT[language])}
-            className="flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-sm text-secondary transition-colors duration-200 hover:text-text"
-            title={language === 'en' ? 'Mudar para Português' : 'Switch to English'}
-            aria-label={language === 'en' ? 'Switch language to Portuguese' : 'Mudar idioma para Inglês'}
+            className="border-border bg-card text-secondary hover:text-text flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors duration-200"
+            title={
+              language === 'en' ? 'Mudar para Português' : 'Switch to English'
+            }
+            aria-label={
+              language === 'en'
+                ? 'Switch language to Portuguese'
+                : 'Mudar idioma para Inglês'
+            }
           >
             <Image
               src={FLAG[language]}
@@ -124,7 +134,7 @@ export default function Navigation() {
       </div>
 
       {/* Mobile header — unchanged behaviour */}
-      <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-border bg-background-2/90 p-3 backdrop-blur-md md:hidden">
+      <div className="border-border bg-background-2/90 fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b p-3 backdrop-blur-md md:hidden">
         <Link href="/" aria-label="Fernando Kawano - Home">
           <Image
             src={kawHeadIcon}
