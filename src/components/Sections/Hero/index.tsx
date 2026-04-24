@@ -34,12 +34,20 @@ export default function Hero() {
 
   const textVariants = {
     hidden: prefersReducedMotion ? {} : { x: -48, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.7, ease: 'easeOut' as const } },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: 'easeOut' as const },
+    },
   };
 
   const imageVariants = {
     hidden: prefersReducedMotion ? {} : { x: 48, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.7, ease: 'easeOut' as const, delay: 0.2 } },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: 'easeOut' as const, delay: 0.2 },
+    },
   };
 
   return (
@@ -66,7 +74,6 @@ export default function Hero() {
           </h1>
           <p
             className="pt-2 text-xl font-thin text-zinc-500 sm:text-2xl"
-            role="doc-subtitle"
           >
             {t('hero.title')}
           </p>
@@ -92,11 +99,10 @@ export default function Hero() {
         variants={imageVariants}
         initial="hidden"
         animate="visible"
-        role="img"
-        aria-label="Decorative Japanese kanji symbol"
+        aria-hidden="true"
       >
         <Image
-          alt="Decorative Japanese kanji symbol representing Fernando Kawano"
+          alt=""
           className="rounded-full bg-white"
           priority={true}
           src={KawanoKanji}
