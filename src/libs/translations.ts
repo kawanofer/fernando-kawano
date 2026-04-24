@@ -57,6 +57,14 @@ export const translations = {
 
     // Skills Section
     'skills.title': 'Skills',
+    'skills.category.coreLanguages': 'Core Languages',
+    'skills.category.frontEndFrameworks': 'Front-End Frameworks',
+    'skills.category.stateManagement': 'State Management',
+    'skills.category.stylingUiUx': 'Styling & UI/UX',
+    'skills.category.backEndDatabase': 'Back-End & Database',
+    'skills.category.testingQuality': 'Testing & Quality',
+    'skills.category.buildToolsDevOps': 'Build Tools & DevOps',
+    'skills.category.designCollaboration': 'Design & Collaboration',
 
     // Contact Section
     'contact.title': 'Contact',
@@ -188,6 +196,14 @@ export const translations = {
 
     // Skills Section
     'skills.title': 'Habilidades',
+    'skills.category.coreLanguages': 'Linguagens Principais',
+    'skills.category.frontEndFrameworks': 'Frameworks Front-End',
+    'skills.category.stateManagement': 'Gerenciamento de Estado',
+    'skills.category.stylingUiUx': 'Estilização & UI/UX',
+    'skills.category.backEndDatabase': 'Back-End & Banco de Dados',
+    'skills.category.testingQuality': 'Testes & Qualidade',
+    'skills.category.buildToolsDevOps': 'Build Tools & DevOps',
+    'skills.category.designCollaboration': 'Design & Colaboração',
 
     // Contact Section
     'contact.title': 'Contato',
