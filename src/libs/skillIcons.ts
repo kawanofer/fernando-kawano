@@ -11,7 +11,7 @@ import {
   DiReact,
 } from 'react-icons/di';
 import {
-  SiAmazonwebservices,
+  SiAmazon,
   SiCircleci,
   SiJenkins,
   SiJest,
@@ -60,7 +60,7 @@ export const skillIcons: Record<string, IconType> = {
   'Azure DevOps': VscAzureDevops,
   Jenkins: SiJenkins,
   CircleCI: SiCircleci,
-  AWS: SiAmazonwebservices,
+  AWS: SiAmazon,
   Vercel: SiVercel,
   Supabase: SiSupabase,
 };
