@@ -43,13 +43,17 @@ const mainSkills = [
   'Git',
   'CI/CD',
   'Azure',
-  'Azure DevOps',
+  'AWS',
   'Adobe XD',
   'Zeplin',
   'Jira',
   'Agile Methodologies',
   'Scrum',
   'Kanban',
+  'Jenkins',
+  'CircleCI',
+  'Vercel',
+  'Supabase',
 ];
 
 export default function Skills() {

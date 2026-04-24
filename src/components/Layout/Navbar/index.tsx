@@ -66,7 +66,11 @@ export default function Navigation() {
           className="border-border bg-background-2/90 flex items-center gap-5 rounded-full border px-5 py-2 shadow-lg backdrop-blur-md"
         >
           {/* Logo */}
-          <Link href="/" aria-label="Fernando Kawano - Home" className="inline-flex items-center">
+          <Link
+            href="/"
+            aria-label="Fernando Kawano - Home"
+            className="inline-flex items-center"
+          >
             <Image
               src={kawHeadIcon}
               width={32}

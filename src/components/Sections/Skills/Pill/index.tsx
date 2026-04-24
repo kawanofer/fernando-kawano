@@ -9,7 +9,11 @@ type PillProps = {
   iconColor?: string;
 };
 
-export default function Pill({ value, icon: Icon, iconColor }: Readonly<PillProps>) {
+export default function Pill({
+  value,
+  icon: Icon,
+  iconColor,
+}: Readonly<PillProps>) {
   return (
     <motion.div
       className="bg-card border-border text-secondary flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-base"
@@ -22,7 +26,11 @@ export default function Pill({ value, icon: Icon, iconColor }: Readonly<PillProp
       transition={{ duration: 0.15 }}
     >
       {Icon ? (
-        <Icon size={18} aria-hidden="true" style={iconColor ? { color: iconColor } : undefined} />
+        <Icon
+          size={18}
+          aria-hidden="true"
+          style={iconColor ? { color: iconColor } : undefined}
+        />
       ) : (
         <span
           data-testid="pill-dot"

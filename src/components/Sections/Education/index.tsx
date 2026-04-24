@@ -72,7 +72,7 @@ function TimelineItem({
       <p className="text-secondary text-sm">{institution}</p>
 
       {detail && (
-        <div className="border-tertiary bg-background-2 text-secondary mt-3 rounded-md border-l-2 px-4 py-3 text-sm">
+        <div>
           {detail}
           {credentialUrl && (
             <Link
@@ -81,7 +81,7 @@ function TimelineItem({
               rel="noopener noreferrer"
               className="text-tertiary mt-2 inline-flex items-center gap-1 underline-offset-2 hover:underline"
             >
-              {credentialLabel ?? 'See Credential'} ↗
+              {credentialLabel ?? ' See Credential'} ↗
             </Link>
           )}
         </div>
