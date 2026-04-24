@@ -1,36 +1,132 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
-import Image from 'next/image';
 import Link from 'next/link';
+
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
 import { useTranslation } from '@/libs/translations';
 
-import Microsoft from '/public/microsoft.svg';
-import Positivo from '/public/positivo.svg';
+type TimelineEntry = {
+  id: string;
+  period: string;
+  title: string;
+  institution: string;
+  detail?: string;
+  credentialUrl?: string;
+};
+
+type TimelineItemProps = TimelineEntry & {
+  isOpen: boolean;
+  onToggle: () => void;
+  index: number;
+  prefersReducedMotion: boolean | null;
+};
+
+function TimelineItem({
+  period,
+  title,
+  institution,
+  detail,
+  credentialUrl,
+  isOpen,
+  onToggle,
+  index,
+  prefersReducedMotion,
+}: Readonly<TimelineItemProps>) {
+  return (
+    <motion.div
+      className="relative pb-7 pl-8 last:pb-0"
+      initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-10%' }}
+      transition={{ duration: 0.5, ease: 'easeOut' as const, delay: index * 0.15 }}
+    >
+      {/* Timeline dot */}
+      <button
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="group absolute left-0 top-1.5 flex h-3 w-3 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-primary bg-background transition-all duration-200 hover:border-tertiary hover:bg-tertiary hover:shadow-[0_0_12px_rgba(245,232,198,0.4)] focus-visible:outline-none"
+        aria-label={`${isOpen ? 'Collapse' : 'Expand'} ${title}`}
+      />
+
+      <div
+        className="cursor-pointer"
+        onClick={onToggle}
+        role="presentation"
+      >
+        <p className="mb-1 text-xs uppercase tracking-widest text-tertiary">
+          {period}
+        </p>
+        <h3 className="text-base font-semibold text-text">{title}</h3>
+        <p className="text-sm text-secondary">{institution}</p>
+      </div>
+
+      <AnimatePresence initial={false}>
+        {isOpen && detail && (
+          <motion.div
+            key="detail"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' as const }}
+            className="overflow-hidden"
+          >
+            <div className="mt-2 rounded-md border-l-2 border-tertiary bg-background-2 px-4 py-3 text-sm text-secondary">
+              {detail}
+              {credentialUrl && (
+                <Link
+                  href={credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1 text-tertiary underline-offset-2 hover:underline"
+                  onClick={e => e.stopPropagation()}
+                >
+                  See Credential ↗
+                </Link>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
 
 export default function Education() {
   const { t } = useTranslation();
-  const { ref, inView } = useScrollAnimation({ threshold: 0.1 });
+  const prefersReducedMotion = useReducedMotion();
+  const [openId, setOpenId] = useState<string | null>(null);
 
-  const graduations = [
+  const toggle = (id: string) => setOpenId(prev => (prev === id ? null : id));
+
+  const degrees: TimelineEntry[] = [
     {
-      degree: t('education.degree1'),
-      institution: t('education.institution1'),
+      id: 'degree1',
       period: t('education.period1'),
-      logo: Positivo,
+      title: t('education.degree1'),
+      institution: t('education.institution1'),
     },
     {
-      degree: t('education.degree2'),
-      institution: t('education.institution2'),
+      id: 'degree2',
       period: t('education.period2'),
-      logo: Positivo,
+      title: t('education.degree2'),
+      institution: t('education.institution2'),
+    },
+  ];
+
+  const certifications: TimelineEntry[] = [
+    {
+      id: 'cert1',
+      period: 'Apr 2019',
+      title: 'Exam 480: Programming in HTML5 with JavaScript and CSS3',
+      institution: 'Microsoft',
+      detail: 'Microsoft certification validating proficiency in HTML5, JavaScript, and CSS3 for building modern web applications.',
+      credentialUrl: 'https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile',
     },
   ];
 
@@ -38,66 +134,48 @@ export default function Education() {
     <Section id="education">
       <SectionTitle title={t('education.title')} />
 
-      <div ref={ref}>
-        {graduations.map((grad, index) => (
-          <div
-            key={index}
-            className="mb-8 flex gap-5 transition-all duration-700"
-            style={{
-              transitionDelay: inView ? `${index * 150}ms` : '0ms',
-              opacity: inView ? 1 : 0,
-              transform: inView ? 'translateY(0)' : 'translateY(24px)',
-            }}
-          >
-            <Image
-              src={grad.logo}
-              alt={`${grad.institution} logo`}
-              width={70}
-              height={50}
-            />
-            <div>
-              <div className="text-lg font-bold">{grad.degree}</div>
-              <div className="italic">{grad.institution}</div>
-              <div className="text-zinc-400">{grad.period}</div>
-            </div>
-          </div>
+      {/* Timeline wrapper with gradient line */}
+      <div className="relative pl-4">
+        <div
+          className="absolute left-4 top-0 h-full w-px"
+          style={{
+            background: 'linear-gradient(to bottom, #435585, #F5E8C6, #435585, #818FB4)',
+          }}
+          aria-hidden="true"
+        />
+
+        {degrees.map((entry, i) => (
+          <TimelineItem
+            key={entry.id}
+            {...entry}
+            isOpen={openId === entry.id}
+            onToggle={() => toggle(entry.id)}
+            index={i}
+            prefersReducedMotion={prefersReducedMotion}
+          />
         ))}
 
-        <h3
-          className="text-1xl mt-8 mb-5 font-bold transition-all duration-700"
-          style={{
-            transitionDelay: inView ? '300ms' : '0ms',
-            opacity: inView ? 1 : 0,
-            transform: inView ? 'translateY(0)' : 'translateY(24px)',
-          }}
+        {/* Certifications label */}
+        <motion.p
+          className="relative mb-4 pl-8 text-xs uppercase tracking-widest text-border"
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: degrees.length * 0.15 }}
         >
           {t('education.certification')}
-        </h3>
-        <div
-          className="flex gap-5 transition-all duration-700"
-          style={{
-            transitionDelay: inView ? '400ms' : '0ms',
-            opacity: inView ? 1 : 0,
-            transform: inView ? 'translateY(0)' : 'translateY(24px)',
-          }}
-        >
-          <Image src={Microsoft} width={70} height={50} alt="Microsoft logo" />
-          <div>
-            <div className="text-lg font-bold">
-              Exam 480: Programming in HTML5 with JavaScript and CSS3
-            </div>
-            <div className="italic">Microsoft</div>
-            <div className="flex gap-5">
-              <div className="text-zinc-400">Issued Apr 2019</div>
-              <Link
-                href="https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile"
-                target="_blank"
-              >
-                See Credential
-              </Link>
-            </div>
-          </div>
-        </div>
+        </motion.p>
+
+        {certifications.map((entry, i) => (
+          <TimelineItem
+            key={entry.id}
+            {...entry}
+            isOpen={openId === entry.id}
+            onToggle={() => toggle(entry.id)}
+            index={degrees.length + 1 + i}
+            prefersReducedMotion={prefersReducedMotion}
+          />
+        ))}
       </div>
     </Section>
   );
