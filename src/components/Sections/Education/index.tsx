@@ -41,29 +41,29 @@ function TimelineItem({
   return (
     <motion.div
       className="relative pb-7 pl-8 last:pb-0"
-      initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
+      initial={prefersReducedMotion === true ? {} : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-10%' }}
-      transition={{ duration: 0.5, ease: 'easeOut' as const, delay: index * 0.15 }}
+      transition={{
+        duration: 0.5,
+        ease: 'easeOut' as const,
+        delay: index * 0.15,
+      }}
     >
       {/* Timeline dot */}
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="group absolute left-0 top-1.5 flex h-3 w-3 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-primary bg-background transition-all duration-200 hover:border-tertiary hover:bg-tertiary hover:shadow-[0_0_12px_rgba(245,232,198,0.4)] focus-visible:outline-none"
+        className="border-primary bg-background hover:border-tertiary hover:bg-tertiary absolute top-1.5 left-0 flex h-3 w-3 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 transition-all duration-200 hover:shadow-[0_0_12px_rgba(245,232,198,0.4)] focus-visible:ring-2 focus-visible:ring-tertiary focus-visible:ring-offset-1 focus-visible:outline-none"
         aria-label={`${isOpen ? 'Collapse' : 'Expand'} ${title}`}
       />
 
-      <div
-        className="cursor-pointer"
-        onClick={onToggle}
-        role="presentation"
-      >
-        <p className="mb-1 text-xs uppercase tracking-widest text-tertiary">
+      <div className="cursor-pointer" onClick={onToggle} role="presentation">
+        <p className="text-tertiary mb-1 text-xs tracking-widest uppercase">
           {period}
         </p>
-        <h3 className="text-base font-semibold text-text">{title}</h3>
-        <p className="text-sm text-secondary">{institution}</p>
+        <h3 className="text-text text-base font-semibold">{title}</h3>
+        <p className="text-secondary text-sm">{institution}</p>
       </div>
 
       <AnimatePresence initial={false}>
@@ -76,14 +76,14 @@ function TimelineItem({
             transition={{ duration: 0.3, ease: 'easeInOut' as const }}
             className="overflow-hidden"
           >
-            <div className="mt-2 rounded-md border-l-2 border-tertiary bg-background-2 px-4 py-3 text-sm text-secondary">
+            <div className="border-tertiary bg-background-2 text-secondary mt-2 rounded-md border-l-2 px-4 py-3 text-sm">
               {detail}
               {credentialUrl && (
                 <Link
                   href={credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-1 text-tertiary underline-offset-2 hover:underline"
+                  className="text-tertiary mt-2 inline-flex items-center gap-1 underline-offset-2 hover:underline"
                   onClick={e => e.stopPropagation()}
                 >
                   See Credential ↗
@@ -125,8 +125,10 @@ export default function Education() {
       period: 'Apr 2019',
       title: 'Exam 480: Programming in HTML5 with JavaScript and CSS3',
       institution: 'Microsoft',
-      detail: 'Microsoft certification validating proficiency in HTML5, JavaScript, and CSS3 for building modern web applications.',
-      credentialUrl: 'https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile',
+      detail:
+        'Microsoft certification validating proficiency in HTML5, JavaScript, and CSS3 for building modern web applications.',
+      credentialUrl:
+        'https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile',
     },
   ];
 
@@ -137,9 +139,10 @@ export default function Education() {
       {/* Timeline wrapper with gradient line */}
       <div className="relative pl-4">
         <div
-          className="absolute left-4 top-0 h-full w-px"
+          className="absolute top-0 left-4 h-full w-px"
           style={{
-            background: 'linear-gradient(to bottom, #435585, #F5E8C6, #435585, #818FB4)',
+            background:
+              'linear-gradient(to bottom, #435585, #F5E8C6, #435585, #818FB4)',
           }}
           aria-hidden="true"
         />
@@ -157,8 +160,8 @@ export default function Education() {
 
         {/* Certifications label */}
         <motion.p
-          className="relative mb-4 pl-8 text-xs uppercase tracking-widest text-border"
-          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          className="text-border relative mb-4 pl-8 text-xs tracking-widest uppercase"
+          initial={prefersReducedMotion === true ? {} : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: degrees.length * 0.15 }}
