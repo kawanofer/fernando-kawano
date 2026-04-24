@@ -4,25 +4,19 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import { motion, useReducedMotion } from 'framer-motion';
 import { FaCloudDownloadAlt } from 'react-icons/fa';
 
 import Button from '@/components/UI/Button';
 import { Section } from '@/components/UI/Section';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
 import { useTranslation } from '@/libs/translations';
 
-import KawnaoKanji from '/public/kawano-kanji.svg';
+import KawanoKanji from '/public/kawano-kanji.svg';
 
 export default function Hero() {
   const { t } = useTranslation();
-  const { ref: textRef, inView: textInView } = useScrollAnimation({
-    threshold: 0.1,
-  });
-  const { ref: imageRef, inView: imageInView } = useScrollAnimation({
-    threshold: 0.1,
-  });
+  const prefersReducedMotion = useReducedMotion();
 
   const handleOpenCV = () => {
     if (localStorage.getItem('language') === 'en') {
@@ -32,11 +26,20 @@ export default function Hero() {
       );
       return;
     }
-
     window.open(
       'https://drive.google.com/file/d/1Ht85MjFojY6TnbW-1mpwUtnfI8859ZpW/view?usp=sharing',
       '_blank'
     );
+  };
+
+  const textVariants = {
+    hidden: prefersReducedMotion ? {} : { x: -48, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.7, ease: 'easeOut' as const } },
+  };
+
+  const imageVariants = {
+    hidden: prefersReducedMotion ? {} : { x: 48, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.7, ease: 'easeOut' as const, delay: 0.2 } },
   };
 
   return (
@@ -45,11 +48,11 @@ export default function Hero() {
       role="banner"
       aria-label="Hero introduction"
     >
-      <div
-        ref={textRef}
-        className={`flex w-full flex-col justify-between transition-all duration-700 lg:w-auto ${
-          textInView ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
-        }`}
+      <motion.div
+        className="flex w-full flex-col justify-between lg:w-auto"
+        variants={textVariants}
+        initial="hidden"
+        animate="visible"
       >
         <header className="mb-8 text-center lg:text-left">
           <h1 className="text-bold color-text text-4xl sm:text-5xl">
@@ -82,12 +85,13 @@ export default function Hero() {
             {t('hero.downloadCV')}
           </Button>
         </div>
-      </div>
-      <div
-        ref={imageRef}
-        className={`hidden transition-all delay-200 duration-700 lg:block ${
-          imageInView ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
-        }`}
+      </motion.div>
+
+      <motion.div
+        className="hidden lg:block"
+        variants={imageVariants}
+        initial="hidden"
+        animate="visible"
         role="img"
         aria-label="Decorative Japanese kanji symbol"
       >
@@ -95,19 +99,15 @@ export default function Hero() {
           alt="Decorative Japanese kanji symbol representing Fernando Kawano"
           className="rounded-full bg-white"
           priority={true}
-          src={KawnaoKanji}
+          src={KawanoKanji}
           width={400}
           height={400}
           sizes="(max-width: 768px) 0px, (max-width: 1024px) 300px, 400px"
-          style={{
-            width: '100%',
-            height: 'auto',
-            maxWidth: '400px',
-          }}
+          style={{ width: '100%', height: 'auto', maxWidth: '400px' }}
           placeholder="blur"
           blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmOWY5ZjkiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg=="
         />
-      </div>
+      </motion.div>
     </Section>
   );
 }
