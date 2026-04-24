@@ -10,8 +10,8 @@ import {
   DiNodejsSmall,
   DiReact,
 } from 'react-icons/di';
+import { FaAws } from 'react-icons/fa';
 import {
-  SiAmazon,
   SiCircleci,
   SiJenkins,
   SiJest,
@@ -60,7 +60,7 @@ export const skillIcons: Record<string, IconType> = {
   'Azure DevOps': VscAzureDevops,
   Jenkins: SiJenkins,
   CircleCI: SiCircleci,
-  AWS: SiAmazon,
+  AWS: FaAws,
   Vercel: SiVercel,
   Supabase: SiSupabase,
 };
