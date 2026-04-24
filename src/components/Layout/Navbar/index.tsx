@@ -92,7 +92,7 @@ export default function Navigation() {
                   role="menuitem"
                   aria-label={`Navigate to ${menu.label}`}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`rounded-full px-3 py-1 text-sm transition-colors duration-200 ${
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm transition-colors duration-200 ${
                     isActive
                       ? 'bg-card text-tertiary font-medium'
                       : 'text-secondary hover:text-text'
