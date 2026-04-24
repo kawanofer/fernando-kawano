@@ -2,11 +2,12 @@
 
 import React from 'react';
 
+import { motion, useReducedMotion } from 'framer-motion';
+
 import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
+import { skillIcons } from '@/libs/skillIcons';
 import { useTranslation } from '@/libs/translations';
 
 import Pill from './Pill';
@@ -53,29 +54,39 @@ const mainSkills = [
 
 export default function Skills() {
   const { t } = useTranslation();
-  const { ref, inView } = useScrollAnimation({ threshold: 0.1 });
+  const prefersReducedMotion = useReducedMotion();
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: prefersReducedMotion ? 0 : 0.04,
+      },
+    },
+  };
+
+  const item = {
+    hidden: prefersReducedMotion ? {} : { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } },
+  };
 
   return (
     <Section id="skills" className="bg-background-2">
       <SectionTitle title={t('skills.title')} />
 
-      <div ref={ref} className="container">
-        <div className="flex flex-wrap gap-3">
-          {mainSkills.map((skill, index) => (
-            <div
-              key={skill}
-              className="transition-all duration-500 hover:opacity-60"
-              style={{
-                transitionDelay: inView ? `${index * 40}ms` : '0ms',
-                opacity: inView ? 1 : 0,
-                transform: inView ? 'translateY(0)' : 'translateY(20px)',
-              }}
-            >
-              <Pill value={skill} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <motion.div
+        className="flex flex-wrap gap-3"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-15%' }}
+      >
+        {mainSkills.map(skill => (
+          <motion.div key={skill} variants={item}>
+            <Pill value={skill} {...(skillIcons[skill] ? { icon: skillIcons[skill] } : {})} />
+          </motion.div>
+        ))}
+      </motion.div>
     </Section>
   );
 }
