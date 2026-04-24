@@ -67,7 +67,11 @@ export default function Skills() {
 
   const item = {
     hidden: prefersReducedMotion ? {} : { opacity: 0, y: 16 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: 'easeOut' as const },
+    },
   };
 
   return (
@@ -75,7 +79,7 @@ export default function Skills() {
       <SectionTitle title={t('skills.title')} />
 
       <motion.div
-        className="flex flex-wrap gap-3"
+        className="container flex flex-wrap gap-3"
         variants={container}
         initial="hidden"
         whileInView="visible"
@@ -83,7 +87,10 @@ export default function Skills() {
       >
         {mainSkills.map(skill => (
           <motion.div key={skill} variants={item}>
-            <Pill value={skill} {...(skillIcons[skill] ? { icon: skillIcons[skill] } : {})} />
+            <Pill
+              value={skill}
+              {...(skillIcons[skill] ? { icon: skillIcons[skill] } : {})}
+            />
           </motion.div>
         ))}
       </motion.div>
