@@ -41,7 +41,7 @@ export default function Navigation() {
         ([entry]) => {
           if (entry?.isIntersecting) setActiveSection(id);
         },
-        { threshold: 0.4 }
+        { threshold: 0, rootMargin: '0px 0px -85% 0px' }
       );
       obs.observe(el);
       observers.push(obs);
