@@ -4,32 +4,48 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import { motion, useReducedMotion } from 'framer-motion';
+
 import { Tooltip } from '@mui/material';
 
 import { Section } from '@/components/UI/Section';
 import SectionTitle from '@/components/UI/SectionTitle';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
 import { useTranslation } from '@/libs/translations';
 
 export default function AboutMe() {
   const { t } = useTranslation();
-  const { ref: photoRef, inView: photoInView } = useScrollAnimation();
-  const { ref: textRef, inView: textInView } = useScrollAnimation();
+  const prefersReducedMotion = useReducedMotion();
+
+  const photoVariants = {
+    hidden: prefersReducedMotion ? {} : { x: -48, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: 'easeOut' as const },
+    },
+  };
+
+  const textVariants = {
+    hidden: prefersReducedMotion ? {} : { x: 48, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: 'easeOut' as const, delay: 0.15 },
+    },
+  };
 
   return (
     <Section id="aboutme" className="bg-background-2">
       <SectionTitle title={t('about.title')} />
 
       <div className="m-auto flex flex-col items-center justify-center md:flex-row md:items-start md:justify-between">
-        <div
-          ref={photoRef}
-          className={`mr-0 mb-14 flex items-center transition-all duration-700 md:mr-16 ${
-            photoInView
-              ? 'translate-x-0 opacity-100'
-              : '-translate-x-12 opacity-0'
-          }`}
+        <motion.div
+          className="mr-0 mb-14 flex items-center md:mr-16"
+          variants={photoVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-15%' }}
         >
           <Image
             className="bg-secondary rounded-full"
@@ -40,15 +56,14 @@ export default function AboutMe() {
             quality={100}
             sizes="(max-width: 768px) 290px, 290px"
           />
-        </div>
+        </motion.div>
 
-        <div
-          ref={textRef}
-          className={`bg-background p-4 text-white transition-all delay-150 duration-700 md:w-4/5 ${
-            textInView
-              ? 'translate-x-0 opacity-100'
-              : 'translate-x-12 opacity-0'
-          }`}
+        <motion.div
+          className="bg-background p-4 text-white md:w-4/5"
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-15%' }}
         >
           <p className="text-lg leading-relaxed">
             {t('about.paragraph1')}
@@ -90,7 +105,7 @@ export default function AboutMe() {
               <p>{t('about.languages.level.advanced')}</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );
