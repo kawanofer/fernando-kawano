@@ -18,6 +18,7 @@ type TimelineEntry = {
   institution: string;
   detail?: string;
   credentialUrl?: string;
+  credentialLabel?: string;
 };
 
 type TimelineItemProps = TimelineEntry & {
@@ -33,6 +34,7 @@ function TimelineItem({
   institution,
   detail,
   credentialUrl,
+  credentialLabel,
   isOpen,
   onToggle,
   index,
@@ -41,7 +43,7 @@ function TimelineItem({
   return (
     <motion.div
       className="relative pb-7 pl-8 last:pb-0"
-      initial={prefersReducedMotion === true ? {} : { opacity: 0, y: 24 }}
+      initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-10%' }}
       transition={{
@@ -52,6 +54,7 @@ function TimelineItem({
     >
       {/* Timeline dot */}
       <button
+        type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
         className="border-primary bg-background hover:border-tertiary hover:bg-tertiary focus-visible:ring-tertiary absolute top-1.5 left-0 flex h-3 w-3 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 transition-all duration-200 hover:shadow-[0_0_12px_rgba(245,232,198,0.4)] focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
@@ -86,7 +89,7 @@ function TimelineItem({
                   className="text-tertiary mt-2 inline-flex items-center gap-1 underline-offset-2 hover:underline"
                   onClick={e => e.stopPropagation()}
                 >
-                  See Credential ↗
+                  {credentialLabel ?? 'See Credential'} ↗
                 </Link>
               )}
             </div>
@@ -122,11 +125,11 @@ export default function Education() {
   const certifications: TimelineEntry[] = [
     {
       id: 'cert1',
-      period: 'Apr 2019',
-      title: 'Exam 480: Programming in HTML5 with JavaScript and CSS3',
-      institution: 'Microsoft',
-      detail:
-        'Microsoft certification validating proficiency in HTML5, JavaScript, and CSS3 for building modern web applications.',
+      period: t('education.cert1.period'),
+      title: t('education.cert1.title'),
+      institution: t('education.cert1.institution'),
+      detail: t('education.cert1.detail'),
+      credentialLabel: t('education.cert1.seeCredential'),
       credentialUrl:
         'https://www.credly.com/badges/f7f895da-db5b-4aea-92e7-787fe082a0fd/linked_in_profile',
     },
@@ -161,7 +164,7 @@ export default function Education() {
         {/* Certifications label */}
         <motion.p
           className="text-border relative mb-4 pl-8 text-xs tracking-widest uppercase"
-          initial={prefersReducedMotion === true ? {} : { opacity: 0 }}
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: degrees.length * 0.15 }}

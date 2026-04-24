@@ -47,6 +47,12 @@ export const translations = {
 
     'education.certification': 'Certifications',
 
+    'education.cert1.period': 'Apr 2019',
+    'education.cert1.title': 'Exam 480: Programming in HTML5 with JavaScript and CSS3',
+    'education.cert1.institution': 'Microsoft',
+    'education.cert1.detail': 'Microsoft certification validating proficiency in HTML5, JavaScript, and CSS3 for building modern web applications.',
+    'education.cert1.seeCredential': 'See Credential',
+
     // Skills Section
     'skills.title': 'Skills',
 
@@ -169,6 +175,12 @@ export const translations = {
     'education.period2': '2008 - 2011',
 
     'education.certification': 'Certificações',
+
+    'education.cert1.period': 'Abr 2019',
+    'education.cert1.title': 'Exame 480: Programação em HTML5 com JavaScript e CSS3',
+    'education.cert1.institution': 'Microsoft',
+    'education.cert1.detail': 'Certificação Microsoft validando proficiência em HTML5, JavaScript e CSS3 para desenvolvimento de aplicações web modernas.',
+    'education.cert1.seeCredential': 'Ver Credencial',
 
     // Skills Section
     'skills.title': 'Habilidades',
