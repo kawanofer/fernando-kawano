@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { render, screen } from '@testing-library/react';
-import Pill from '../index';
 import { DiReact } from 'react-icons/di';
+
+import Pill from '../index';
 
 jest.mock('framer-motion', () => ({
   motion: {

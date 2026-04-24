@@ -72,9 +72,7 @@ export default function Hero() {
               </span>
             </span>
           </h1>
-          <p
-            className="pt-2 text-xl font-thin text-zinc-500 sm:text-2xl"
-          >
+          <p className="pt-2 text-xl font-thin text-zinc-500 sm:text-2xl">
             {t('hero.title')}
           </p>
           <p className="flex justify-center pt-2 text-base font-thin text-zinc-500 sm:text-lg lg:justify-start">

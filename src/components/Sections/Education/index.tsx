@@ -54,7 +54,7 @@ function TimelineItem({
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="border-primary bg-background hover:border-tertiary hover:bg-tertiary absolute top-1.5 left-0 flex h-3 w-3 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 transition-all duration-200 hover:shadow-[0_0_12px_rgba(245,232,198,0.4)] focus-visible:ring-2 focus-visible:ring-tertiary focus-visible:ring-offset-1 focus-visible:outline-none"
+        className="border-primary bg-background hover:border-tertiary hover:bg-tertiary focus-visible:ring-tertiary absolute top-1.5 left-0 flex h-3 w-3 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 transition-all duration-200 hover:shadow-[0_0_12px_rgba(245,232,198,0.4)] focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-none"
         aria-label={`${isOpen ? 'Collapse' : 'Expand'} ${title}`}
       />
 

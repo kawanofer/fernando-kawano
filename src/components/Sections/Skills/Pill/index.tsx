@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { motion } from 'framer-motion';
-
 import type { IconType } from 'react-icons';
 
 type PillProps = {
@@ -12,7 +11,7 @@ type PillProps = {
 export default function Pill({ value, icon: Icon }: Readonly<PillProps>) {
   return (
     <motion.div
-      className="bg-card flex cursor-pointer items-center gap-2 rounded-md border border-border px-3 py-2 text-base text-secondary"
+      className="bg-card border-border text-secondary flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-base"
       whileHover={{
         y: -3,
         borderColor: 'var(--color-secondary)',
