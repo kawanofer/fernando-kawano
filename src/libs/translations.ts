@@ -22,13 +22,13 @@ export const translations = {
     // About Me Section
     'about.title': 'About me',
     'about.paragraph1':
-      "I'm a Front-end Software Engineer with extensive experience crafting immersive digital experiences. I have a proven track record of impactful projects across a variety of industries. My expertise lies in using cutting-edge technology to create complex and user-friendly solutions.",
+      'Senior Front-End Engineer with 10+ years delivering scalable, user-focused digital products across SaaS, Finance, and Agribusiness.',
     'about.paragraph2':
-      'My journey started as a Frontend Developer at Positivo Informática, where I developed my skills in HTML5, jQuery and Bootstrap. Throughout my path at VEXPRO Business IT, I demonstrated my strengths by seamlessly transitioning between SharePoint and React environments, creating solutions tailored to a variety of customer needs.',
+      'Shipped production interfaces serving 1M+ users, including high-traffic ecosystems, enterprise ECM platforms managing over 1 million documents, and real-time partner integration systems for a US-based SaaS company.',
     'about.paragraph3':
-      'At Kenect, I played a key role in transforming backend team integration through flexible frontend solutions. Using technologies like React, Redux-Saga, and styled-components, I created a unified platform that simplified operations and increased productivity.',
+      'Deep expertise in React, TypeScript, Next.js, Redux, Node.js, and NestJS.',
     'about.paragraph4':
-      'With a strong skill set including AngularJS, React.js, TypeScript, and more, I am poised to drive innovation and improve user experience in any front-end application.',
+      'Proven ability to establish code quality standards, lead design system architecture, and drive front-end modernization at scale. Experienced in cross-functional remote teams in international environments.',
     'about.languages.english': 'English',
     'about.languages.portuguese': 'Portuguese (Brazil)',
     'about.languages.level.native': 'Native',
@@ -162,13 +162,13 @@ export const translations = {
     // About Me Section
     'about.title': 'Sobre mim',
     'about.paragraph1':
-      'Sou um Engenheiro de Software Front-end com ampla experiência na criação de experiências digitais imersivas. Tenho um histórico comprovado de projetos impactantes em uma variedade de indústrias. Minha expertise está em usar tecnologia de ponta para criar soluções complexas e fáceis de usar.',
+      'Engenheiro Front-End Sênior com mais de 10 anos entregando produtos digitais escaláveis e centrados no usuário em SaaS, Finanças e Agronegócio.',
     'about.paragraph2':
-      'Minha jornada começou como Desenvolvedor Frontend na Positivo Informática, onde desenvolvi minhas habilidades em HTML5, jQuery e Bootstrap. Ao longo do meu caminho na VEXPRO Business IT, demonstrei minhas forças fazendo a transição perfeita entre ambientes SharePoint e React, criando soluções adaptadas a uma variedade de necessidades do cliente.',
+      'Entreguei interfaces em produção servindo mais de 1 milhão de usuários, incluindo ecossistemas de alto tráfego, plataformas ECM empresariais com mais de 1 milhão de documentos e sistemas de integração em tempo real para uma empresa SaaS americana.',
     'about.paragraph3':
-      'Na Kenect, desempenhei um papel fundamental na transformação da integração de equipes de backend através de soluções frontend flexíveis. Usando tecnologias como React, Redux-Saga e styled-components, criei uma plataforma unificada que simplificou operações e aumentou a produtividade.',
+      'Profunda expertise em React, TypeScript, Next.js, Redux, Node.js e NestJS.',
     'about.paragraph4':
-      'Com um conjunto sólido de habilidades incluindo AngularJS, React.js, TypeScript e mais, estou preparado para impulsionar a inovação e melhorar a experiência do usuário em qualquer aplicação front-end.',
+      'Capacidade comprovada de estabelecer padrões de qualidade de código, liderar arquitetura de design systems e conduzir a modernização front-end em escala. Experiente em equipes remotas multifuncionais em ambientes internacionais.',
     'about.languages.english': 'Inglês',
     'about.languages.portuguese': 'Português (Brasil)',
     'about.languages.level.native': 'Nativo',
