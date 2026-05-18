@@ -65,6 +65,7 @@ export const translations = {
     'skills.category.testingQuality': 'Testing & Quality',
     'skills.category.buildToolsDevOps': 'Build Tools & DevOps',
     'skills.category.designCollaboration': 'Design & Collaboration',
+    'skills.category.methodologies': 'Methodologies & Tools',
 
     // Contact Section
     'contact.title': 'Contact',
@@ -204,6 +205,7 @@ export const translations = {
     'skills.category.testingQuality': 'Testes & Qualidade',
     'skills.category.buildToolsDevOps': 'Build Tools & DevOps',
     'skills.category.designCollaboration': 'Design & Colaboração',
+    'skills.category.methodologies': 'Metodologias & Ferramentas',
 
     // Contact Section
     'contact.title': 'Contato',

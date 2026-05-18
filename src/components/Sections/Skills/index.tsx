@@ -24,17 +24,23 @@ const skillCategories: SkillCategory[] = [
   },
   {
     labelKey: 'skills.category.frontEndFrameworks',
-    skills: ['React', 'Next.js', 'React Query', 'AngularJS', 'SharePoint (SPFx)'],
+    skills: ['React', 'Next.js', 'AngularJS'],
   },
   {
     labelKey: 'skills.category.stateManagement',
-    skills: ['Redux (Saga/Thunk/Toolkit)', 'Context API'],
+    skills: [
+      'Redux (Saga/Thunk/Toolkit)',
+      'Context API',
+      'Custom Elements',
+      'jQuery',
+    ],
   },
   {
     labelKey: 'skills.category.stylingUiUx',
     skills: [
       'Accessibility',
       'Bootstrap',
+      'Design System',
       'Material-UI',
       'Responsive Web Design',
       'Styled-components',
@@ -51,37 +57,23 @@ const skillCategories: SkillCategory[] = [
       'Node.js',
       'Prisma',
       'REST API',
-      'Supabase',
     ],
   },
   {
     labelKey: 'skills.category.testingQuality',
-    skills: ['Jest', 'Unit Testing', 'Code Review', 'Clean Code'],
+    skills: ['Clean Code', 'Code Review', 'Jest', 'Unit Testing'],
   },
   {
     labelKey: 'skills.category.buildToolsDevOps',
-    skills: [
-      'AWS',
-      'Azure',
-      'CI/CD',
-      'CircleCI',
-      'Git',
-      'Jenkins',
-      'Vercel',
-      'Vite',
-      'Webpack',
-    ],
+    skills: ['Azure', 'Azure DevOps', 'CI/CD', 'Git', 'Vite', 'Webpack'],
   },
   {
     labelKey: 'skills.category.designCollaboration',
-    skills: [
-      'Adobe XD',
-      'Agile Methodologies',
-      'Jira',
-      'Kanban',
-      'Scrum',
-      'Zeplin',
-    ],
+    skills: ['Adobe XD', 'Figma', 'Zeplin', 'Jira'],
+  },
+  {
+    labelKey: 'skills.category.methodologies',
+    skills: ['Agile', 'Bamboo', 'Jenkins', 'Kanban', 'Scrum'],
   },
 ];
 
