@@ -114,7 +114,7 @@ export default function Carousel({ images = [] }: CarouselProps) {
             <button
               key={index}
               style={{ width: 16, height: 16, minWidth: 16, minHeight: 16 }}
-              className={`rounded-full transition-colors duration-200 focus:ring-2 focus:ring-blue-400 focus:outline-none ${
+              className={`rounded-full transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:outline-none ${
                 index === selectedIndex
                   ? 'scale-110 bg-blue-500'
                   : 'bg-gray-300 hover:bg-gray-400'

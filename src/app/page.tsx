@@ -34,9 +34,9 @@ const Home = async () => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Fernando Kawano',
-    jobTitle: 'Frontend Engineer',
+    jobTitle: 'Senior Front-End Engineer',
     description:
-      'Frontend Engineer with extensive experience in React, TypeScript, Next.js, and modern web technologies.',
+      'Senior Front-End Engineer with 10+ years delivering scalable, user-focused digital products. Deep expertise in React, TypeScript, Next.js, Redux, Node.js, and NestJS.',
     url:
       process.env.NEXT_PUBLIC_SITE_URL ||
       'https://fernando-kawano-ivory.vercel.app/',

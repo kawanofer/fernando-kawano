@@ -300,7 +300,7 @@ const listeners: Array<() => void> = [];
 
 // Initialize language from localStorage when on client
 const initializeLanguage = () => {
-  if (typeof window !== 'undefined' && !globalIsClient) {
+  if (typeof globalThis.window !== 'undefined' && !globalIsClient) {
     globalIsClient = true;
     const saved = localStorage.getItem('language') as Language;
     if (saved && (saved === 'en' || saved === 'pt')) {
@@ -315,13 +315,13 @@ const initializeLanguage = () => {
 // Static translation function for SSR-safe usage
 export const t = (key: string, language: Language = 'en'): string => {
   const translation = translations[language];
-  return (translation as any)[key] || key;
+  return (translation as Record<string, string>)[key] || key;
 };
 
 // Global language change function
 export const changeGlobalLanguage = (newLanguage: Language) => {
   globalLanguage = newLanguage;
-  if (typeof window !== 'undefined') {
+  if (typeof globalThis.window !== 'undefined') {
     localStorage.setItem('language', newLanguage);
     document.documentElement.lang = newLanguage === 'pt' ? 'pt-BR' : 'en';
   }

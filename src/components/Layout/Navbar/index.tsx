@@ -96,7 +96,7 @@ export default function Navigation() {
                   role="menuitem"
                   aria-label={`Navigate to ${menu.label}`}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary ${
+                  className={`focus-visible:ring-tertiary inline-flex items-center rounded-full px-3 py-1 text-sm transition-colors duration-200 focus-visible:ring-2 focus-visible:outline-none ${
                     isActive
                       ? 'bg-card text-tertiary font-medium'
                       : 'text-secondary hover:text-text'
@@ -115,7 +115,7 @@ export default function Navigation() {
           <button
             type="button"
             onClick={() => changeLanguage(NEXT[language])}
-            className="border-border bg-card text-secondary hover:text-text flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors duration-200"
+            className="border-border bg-card text-secondary hover:text-text focus-visible:ring-tertiary flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors duration-200 focus-visible:ring-2 focus-visible:outline-none"
             title={
               language === 'en' ? 'Mudar para Português' : 'Switch to English'
             }

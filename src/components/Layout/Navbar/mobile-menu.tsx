@@ -85,7 +85,7 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
                         <Link
                           href={item.href}
                           onClick={closeMobileMenu}
-                          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary rounded"
+                          className="focus-visible:ring-tertiary rounded focus-visible:ring-2 focus-visible:outline-none"
                         >
                           {item.label}
                         </Link>

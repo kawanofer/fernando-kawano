@@ -19,7 +19,7 @@ export default function LanguageSwitcher() {
         onClick={() => handleLanguageChange('en')}
         aria-label="Switch to English"
         aria-pressed={language === 'en'}
-        className={`flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary ${
+        className={`focus-visible:ring-tertiary flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 focus-visible:ring-2 focus-visible:outline-none ${
           language === 'en' ? 'bg-zinc-800' : ''
         }`}
       >
@@ -37,7 +37,7 @@ export default function LanguageSwitcher() {
         onClick={() => handleLanguageChange('pt')}
         aria-label="Mudar para Português"
         aria-pressed={language === 'pt'}
-        className={`flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary ${
+        className={`focus-visible:ring-tertiary flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 focus-visible:ring-2 focus-visible:outline-none ${
           language === 'pt' ? 'bg-zinc-800' : ''
         }`}
       >

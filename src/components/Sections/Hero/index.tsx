@@ -63,7 +63,7 @@ export default function Hero() {
         animate="visible"
       >
         <header className="mb-8 text-center lg:text-left">
-          <h1 className="font-bold color-text text-4xl sm:text-5xl">
+          <h1 className="color-text text-4xl font-bold sm:text-5xl">
             <span className="block">{t('hero.greeting')}</span>
             <span className="block">
               Fernando{' '}

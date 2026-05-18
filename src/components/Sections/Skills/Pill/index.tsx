@@ -16,7 +16,7 @@ export default function Pill({
 }: Readonly<PillProps>) {
   return (
     <motion.div
-      className="bg-card border-border text-secondary hover:border-secondary hover:text-text hover:shadow-[0_6px_18px_rgba(67,85,133,0.3)] flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-base transition-[border-color,color,box-shadow] duration-150"
+      className="bg-card border-border text-secondary hover:border-secondary hover:text-text flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-base transition-[border-color,color,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(67,85,133,0.3)]"
       whileHover={{ y: -3 }}
       transition={{ duration: 0.15 }}
     >

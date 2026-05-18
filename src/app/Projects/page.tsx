@@ -325,7 +325,10 @@ export default function ProjectsPage() {
                         )}
 
                         {project.githubProjectFrontend && (
-                          <Tooltip title={t('projects.button.frontend.code')} arrow>
+                          <Tooltip
+                            title={t('projects.button.frontend.code')}
+                            arrow
+                          >
                             <Button
                               size="medium"
                               startIcon={<GitHub />}
@@ -341,7 +344,10 @@ export default function ProjectsPage() {
                         )}
 
                         {project.githubProjectBackend && (
-                          <Tooltip title={t('projects.button.backend.code')} arrow>
+                          <Tooltip
+                            title={t('projects.button.backend.code')}
+                            arrow
+                          >
                             <Button
                               size="medium"
                               startIcon={<Code />}

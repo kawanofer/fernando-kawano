@@ -27,7 +27,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`bg-primary hover:bg-secondary active:bg-background-2 rounded-md px-4 py-2 text-white ${className}`}
+      className={`bg-primary hover:bg-secondary active:bg-background-2 focus-visible:ring-tertiary rounded-md px-4 py-2 text-white focus-visible:ring-2 focus-visible:outline-none ${className}`}
       id={id}
       onClick={onClick}
       disabled={disabled}
