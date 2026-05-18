@@ -19,7 +19,7 @@ export default function Loading() {
         </h2>
 
         <p className="text-sm text-zinc-400">
-          Please wait while we prepare the experience...
+          Please wait while we prepare the experience…
         </p>
 
         {/* Progress Dots */}

@@ -29,7 +29,7 @@ const Carousel = dynamic(() => import('@/components/Layout/Carousel'), {
     <div className="flex h-64 items-center justify-center rounded-lg bg-gray-100">
       <div className="text-center">
         <div className="border-primary mx-auto h-8 w-8 animate-spin rounded-full border-b-2"></div>
-        <p className="mt-2 text-sm text-gray-600">Loading images...</p>
+        <p className="mt-2 text-sm text-gray-600">Loading images…</p>
       </div>
     </div>
   ),
@@ -71,20 +71,6 @@ export default function ProjectsPage() {
       ],
       website: 'https://www.lellocondominios.com.br/',
       category: 'Front-end',
-    },
-    {
-      title: 'App Swap to Delete',
-      description: t('projects.appSwap.description'),
-      technologies: [
-        'Expo Router',
-        'Expo',
-        'React Native Gesture Handler',
-        'React Native Reanimated',
-        'React Native',
-        'TypeScript',
-      ],
-      images: ['/projects/swap_to_delete.avif'],
-      category: 'Mobile',
     },
     {
       title: 'TOTVS Fluig',
@@ -160,6 +146,20 @@ export default function ProjectsPage() {
       ],
       githubProjectFrontend: 'https://github.com/kawanofer/fernando-kawano',
       category: 'Front-end',
+    },
+        {
+      title: 'App Swap to Delete',
+      description: t('projects.appSwap.description'),
+      technologies: [
+        'Expo Router',
+        'Expo',
+        'React Native Gesture Handler',
+        'React Native Reanimated',
+        'React Native',
+        'TypeScript',
+      ],
+      images: ['/projects/swap_to_delete.avif'],
+      category: 'Mobile',
     },
   ];
 

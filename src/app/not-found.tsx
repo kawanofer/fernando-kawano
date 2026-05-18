@@ -26,7 +26,7 @@ export default function NotFound() {
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link
             href="/"
-            className="bg-primary hover:bg-primary-dark focus:ring-primary focus:ring-offset-background inline-flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            className="bg-primary hover:bg-primary-dark focus-visible:ring-primary focus-visible:ring-offset-background inline-flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             aria-label="Go to homepage"
           >
             <FaHome aria-hidden="true" />
@@ -35,7 +35,7 @@ export default function NotFound() {
 
           <button
             onClick={() => window.history.back()}
-            className="bg-secondary hover:bg-secondary-dark focus:ring-secondary focus:ring-offset-background inline-flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            className="bg-secondary hover:bg-secondary-dark focus-visible:ring-secondary focus-visible:ring-offset-background inline-flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             aria-label="Go back to previous page"
           >
             <FaArrowLeft aria-hidden="true" />
@@ -49,7 +49,7 @@ export default function NotFound() {
             If you think this is a mistake, please{' '}
             <a
               href="mailto:kawano.fer@gmail.com"
-              className="text-primary hover:text-primary-dark focus:ring-primary focus:ring-offset-background underline focus:ring-2 focus:ring-offset-2 focus:outline-none"
+              className="text-primary hover:text-primary-dark focus-visible:ring-primary focus-visible:ring-offset-background underline focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               contact me
             </a>{' '}

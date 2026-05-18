@@ -60,11 +60,11 @@ export default function Error({ error, reset }: ErrorProps) {
   const getErrorDescription = () => {
     switch (getErrorType()) {
       case 'network':
-        return 'We&apos;re having trouble connecting to our servers. Please check your internet connection and try again.';
+        return "We're having trouble connecting to our servers. Please check your internet connection and try again.";
       case 'chunk':
         return 'There was a problem loading part of the application. This usually happens after an update.';
       default:
-        return 'We&apos;re sorry, but something unexpected happened. Our team has been notified.';
+        return "We're sorry, but something unexpected happened. Our team has been notified.";
     }
   };
 
@@ -129,7 +129,7 @@ export default function Error({ error, reset }: ErrorProps) {
                 ? handleRefresh
                 : reset || handleRefresh
             }
-            className="bg-primary hover:bg-primary-dark focus:ring-primary focus:ring-offset-background flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            className="bg-primary hover:bg-primary-dark focus-visible:ring-primary focus-visible:ring-offset-background flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             aria-label={getActionText()}
           >
             <FaRedo aria-hidden="true" />
@@ -138,7 +138,7 @@ export default function Error({ error, reset }: ErrorProps) {
 
           <Button
             onClick={handleGoHome}
-            className="bg-secondary hover:bg-secondary-dark focus:ring-secondary focus:ring-offset-background flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            className="bg-secondary hover:bg-secondary-dark focus-visible:ring-secondary focus-visible:ring-offset-background flex items-center gap-2 rounded-lg px-6 py-3 text-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             aria-label="Go to homepage"
           >
             <FaHome aria-hidden="true" />
@@ -156,7 +156,7 @@ export default function Error({ error, reset }: ErrorProps) {
                 sessionStorage.clear();
                 window.location.reload();
               }}
-              className="text-primary hover:text-primary-dark focus:ring-primary focus:ring-offset-background underline focus:ring-2 focus:ring-offset-2 focus:outline-none"
+              className="text-primary hover:text-primary-dark focus-visible:ring-primary focus-visible:ring-offset-background underline focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
               aria-label="Clear browser data and refresh"
             >
               clearing your browser data

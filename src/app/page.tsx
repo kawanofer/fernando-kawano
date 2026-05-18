@@ -7,25 +7,25 @@ import { Hero } from '@/components/Sections';
 // Dynamic imports for code splitting - load above-the-fold content first
 const AboutMe = dynamic(() => import('@/components/Sections/AboutMe'), {
   loading: () => (
-    <div className="flex h-96 items-center justify-center">Loading...</div>
+    <div className="flex h-96 items-center justify-center">Loading…</div>
   ),
 });
 
 const Education = dynamic(() => import('@/components/Sections/Education'), {
   loading: () => (
-    <div className="flex h-96 items-center justify-center">Loading...</div>
+    <div className="flex h-96 items-center justify-center">Loading…</div>
   ),
 });
 
 const Skills = dynamic(() => import('@/components/Sections/Skills'), {
   loading: () => (
-    <div className="flex h-96 items-center justify-center">Loading...</div>
+    <div className="flex h-96 items-center justify-center">Loading…</div>
   ),
 });
 
 const Contact = dynamic(() => import('@/components/Sections/Contact'), {
   loading: () => (
-    <div className="flex h-96 items-center justify-center">Loading...</div>
+    <div className="flex h-96 items-center justify-center">Loading…</div>
   ),
 });
 
