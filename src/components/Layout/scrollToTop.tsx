@@ -39,13 +39,6 @@ const ScrollToTopButton = () => {
     }
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      scrollToTop();
-    }
-  };
-
   // Don't render anything until component is mounted on client
   if (!isMounted) {
     return null;
@@ -54,10 +47,8 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      onKeyDown={handleKeyDown}
       aria-label="Scroll to top of page"
-      title="Scroll to top"
-      className={`bg-primary focus:ring-tertiary fixed right-4 bottom-13 z-50 flex-none rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none ${
+      className={`bg-primary focus:ring-tertiary fixed right-4 bottom-13 z-50 flex-none rounded-full p-3 shadow-lg transition-[opacity,transform] duration-300 hover:scale-110 hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none ${
         isVisible
           ? 'translate-y-0 opacity-100'
           : 'pointer-events-none translate-y-4 opacity-0'

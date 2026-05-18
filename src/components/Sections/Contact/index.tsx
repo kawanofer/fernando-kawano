@@ -97,7 +97,7 @@ export default function Contact() {
                   <div key={social.name} className="group w-full">
                     <Link
                       aria-label={`Visit ${social.name} profile - ${social.description} (opens in new tab)`}
-                      className="bg-background hover:bg-background-2 block w-full rounded-lg border border-gray-200 p-4 shadow-md transition-all duration-300 hover:shadow-lg sm:p-4"
+                      className="bg-background hover:bg-background-2 block w-full rounded-lg border border-gray-200 p-4 shadow-md transition-[background-color,box-shadow] duration-300 hover:shadow-lg sm:p-4"
                       href={social.url}
                       rel="noopener noreferrer"
                       target="_blank"

@@ -28,7 +28,7 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [isOpen]);
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -47,21 +47,21 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
         <Dialog onClose={closeMobileMenu} className="relative z-50">
           <Transition.Child
             as={Fragment}
-            enter="transition-all ease-in-out duration-300"
-            enterFrom="opacity-0 backdrop-blur-none"
-            enterTo="opacity-100 backdrop-blur-[.5px]"
-            leave="transition-all ease-in-out duration-200"
-            leaveFrom="opacity-100 backdrop-blur-[.5px]"
-            leaveTo="opacity-0 backdrop-blur-none"
+            enter="transition-opacity ease-in-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-in-out duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
             <div className="bg-background fixed inset-0" aria-hidden="true" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
-            enter="transition-all ease-in-out duration-300"
+            enter="transition-transform ease-in-out duration-300"
             enterFrom="translate-x-[-100%]"
             enterTo="translate-x-0"
-            leave="transition-all ease-in-out duration-200"
+            leave="transition-transform ease-in-out duration-200"
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
@@ -82,7 +82,11 @@ export default function MobileMenu({ menu }: Readonly<{ menu: MenuProps[] }>) {
                         className="py-2 text-xl text-white transition-colors"
                         key={item.label}
                       >
-                        <Link href={item.href} onClick={closeMobileMenu}>
+                        <Link
+                          href={item.href}
+                          onClick={closeMobileMenu}
+                          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary rounded"
+                        >
                           {item.label}
                         </Link>
                       </li>

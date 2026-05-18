@@ -296,6 +296,7 @@ export default function ContactForm() {
                 }
                 aria-required="true"
                 autoComplete="email"
+                spellCheck={false}
                 onFocus={() => handleFieldFocus('email')}
                 onBlur={handleFieldBlur}
               />
@@ -370,10 +371,10 @@ export default function ContactForm() {
                 </label>
                 <span
                   className={`text-xs transition-colors duration-200 ${
-                    messageValue.length > 1800
-                      ? 'text-yellow-400'
-                      : messageValue.length > 1950
-                        ? 'text-red-400'
+                    messageValue.length > 1950
+                      ? 'text-red-400'
+                      : messageValue.length > 1800
+                        ? 'text-yellow-400'
                         : 'text-gray-400'
                   }`}
                   aria-live="polite"

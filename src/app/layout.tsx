@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Fernando Kawano',
   },
   description:
-    'Frontend Engineer with extensive experience in React, TypeScript, Next.js, and modern web technologies. Based in Curitiba, Brazil. Specializing in creating immersive digital experiences and user-friendly solutions.',
+    'Senior Front-End Engineer with 10+ years delivering scalable, user-focused digital products. Deep expertise in React, TypeScript, Next.js, Redux, Node.js, and NestJS. Based in Curitiba, Brazil.',
   keywords: [
     'Fernando Kawano',
     'Frontend Engineer',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     url: '/',
     title: 'Fernando Kawano - Frontend Engineer Portfolio',
     description:
-      'Frontend Engineer with extensive experience in React, TypeScript, Next.js, and modern web technologies. Based in Curitiba, Brazil.',
+      'Senior Front-End Engineer with 10+ years delivering scalable, user-focused digital products. Deep expertise in React, TypeScript, Next.js, Redux, Node.js, and NestJS. Based in Curitiba, Brazil.',
     siteName: 'Fernando Kawano Portfolio',
     images: [
       {
@@ -98,7 +98,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
@@ -106,13 +106,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Fernando Kawano" />
-
-        {/* Font Awesome for icons */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-          crossOrigin="anonymous"
-        />
       </head>
       <body className={poppins.className}>
         {/* Skip Links for accessibility */}
@@ -123,7 +116,6 @@ export default function RootLayout({
           <main
             id="main-content"
             className="overflow-hidden font-normal sm:px-16 xl:px-40"
-            role="main"
           >
             {children}
             <Analytics />

@@ -217,10 +217,8 @@ export default function ProjectsPage() {
               {projects.map(project => (
                 <motion.div
                   key={project.title}
-                  whileHover={{
-                    y: -4,
-                    boxShadow: '0 8px 24px rgba(67,85,133,0.25)',
-                  }}
+                  className="transition-shadow duration-200 hover:shadow-[0_8px_24px_rgba(67,85,133,0.25)]"
+                  whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
                 >
                   <Card
@@ -282,9 +280,9 @@ export default function ProjectsPage() {
                           {t('projects.technologies')}
                         </h3>
                         <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech, techIndex) => (
+                          {project.technologies.map(tech => (
                             <Chip
-                              key={techIndex}
+                              key={tech}
                               label={tech}
                               size="medium"
                               variant="outlined"
@@ -327,7 +325,7 @@ export default function ProjectsPage() {
                         )}
 
                         {project.githubProjectFrontend && (
-                          <Tooltip title="View Frontend Code" arrow>
+                          <Tooltip title={t('projects.button.frontend.code')} arrow>
                             <Button
                               size="medium"
                               startIcon={<GitHub />}
@@ -337,13 +335,13 @@ export default function ProjectsPage() {
                               variant="outlined"
                               sx={{ minWidth: 140 }}
                             >
-                              Frontend Code
+                              {t('projects.button.frontend.code')}
                             </Button>
                           </Tooltip>
                         )}
 
                         {project.githubProjectBackend && (
-                          <Tooltip title="View Backend Code" arrow>
+                          <Tooltip title={t('projects.button.backend.code')} arrow>
                             <Button
                               size="medium"
                               startIcon={<Code />}
@@ -353,7 +351,7 @@ export default function ProjectsPage() {
                               variant="outlined"
                               sx={{ minWidth: 140 }}
                             >
-                              Backend Code
+                              {t('projects.button.backend.code')}
                             </Button>
                           </Tooltip>
                         )}

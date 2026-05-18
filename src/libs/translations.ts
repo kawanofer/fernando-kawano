@@ -133,6 +133,8 @@ export const translations = {
     'projects.artExplorer.description':
       'A comprehensive web application that allows users to explore and discover artworks from the renowned Metropolitan Museum of Art in New York. Features modern UI, search functionality, favorites management, and includes both frontend and backend implementation with caching and queue systems.',
     'projects.button.visit.website': 'Visit Website',
+    'projects.button.frontend.code': 'Frontend Code',
+    'projects.button.backend.code': 'Backend Code',
     'projects.portfolio.description':
       'A personal portfolio showcasing projects developed by Fernando Kawano, highlighting his web design and development skills. The application is built with Next.js, React, and TypeScript, utilizing Material-UI and Tailwind CSS for a responsive and modern design.',
 
@@ -263,6 +265,8 @@ export const translations = {
       'Confira meu perfil no GitHub para mais projetos e contribuições.',
     'projects.visitGithub': 'Visitar GitHub',
     'projects.button.visit.website': 'Visitar Website',
+    'projects.button.frontend.code': 'Código Frontend',
+    'projects.button.backend.code': 'Código Backend',
     'projects.loading.images': 'Carregando imagens...',
 
     // Project Descriptions
@@ -302,6 +306,7 @@ const initializeLanguage = () => {
     if (saved && (saved === 'en' || saved === 'pt')) {
       globalLanguage = saved;
     }
+    document.documentElement.lang = globalLanguage === 'pt' ? 'pt-BR' : 'en';
     // Notify all components about the initial language
     listeners.forEach(listener => listener());
   }
@@ -318,6 +323,7 @@ export const changeGlobalLanguage = (newLanguage: Language) => {
   globalLanguage = newLanguage;
   if (typeof window !== 'undefined') {
     localStorage.setItem('language', newLanguage);
+    document.documentElement.lang = newLanguage === 'pt' ? 'pt-BR' : 'en';
   }
   // Notify all subscribed components
   listeners.forEach(listener => listener());

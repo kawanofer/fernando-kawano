@@ -17,10 +17,11 @@ export default function LanguageSwitcher() {
     <div className="flex items-center gap-2">
       <button
         onClick={() => handleLanguageChange('en')}
-        className={`flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 ${
+        aria-label="Switch to English"
+        aria-pressed={language === 'en'}
+        className={`flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary ${
           language === 'en' ? 'bg-zinc-800' : ''
         }`}
-        title="English"
       >
         <Image
           src="/en.png"
@@ -34,10 +35,11 @@ export default function LanguageSwitcher() {
 
       <button
         onClick={() => handleLanguageChange('pt')}
-        className={`flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 ${
+        aria-label="Mudar para Português"
+        aria-pressed={language === 'pt'}
+        className={`flex items-center gap-1 rounded-md px-2 py-1 transition-colors duration-200 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary ${
           language === 'pt' ? 'bg-zinc-800' : ''
         }`}
-        title="Português (Brasil)"
       >
         <Image
           src="/br.png"
